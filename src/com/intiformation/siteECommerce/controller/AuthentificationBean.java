@@ -24,7 +24,6 @@ import com.intiformation.siteECommerce.dao.UtilisateurDAOImpl;
 
 public class AuthentificationBean implements Serializable{
 
-<<<<<<< HEAD
     /*----------------prop--------------------------------*/
     private String Useridentifiant;
     private String UserMdp;
@@ -63,47 +62,5 @@ public class AuthentificationBean implements Serializable{
         // 4 redirection vers la page du formulaire 'authentification.xhtml'
         return "accueil.xhtml";
     }//end 
-
-}//end class
-=======
-	/*----------------prop--------------------------------*/
-	private String Useridentifiant;
-	private String UserMdp;
-	
-	//declaration de la dao
-	private IUtilisateurDAO utilisateurDAO;
-	
-	
-	
-	/*----------------ctor--------------------------------*/
-/*
- * ctor vide
- */
-	public AuthentificationBean() {
-		utilisateurDAO = new UtilisateurDAOImpl();
-	
-}//end constructor
-	
-/*----------------methode--------------------------------*/
-	
-	public String deconnecterUtilisateur() {
-	
-		//1 recup du context de JSF
-		FacesContext contextJSF = FacesContext.getCurrentInstance();
-		
-		//2 recup de la session http de l'user
-		HttpSession session = (HttpSession) contextJSF.getExternalContext().getSession(false);
-		
-		// 3 deconnexion
-		session.invalidate();
-		
-		// message de deconnexion vers la vue
-		FacesMessage messageDeconnexion = new FacesMessage(FacesMessage.SEVERITY_INFO, "Déconnexion", "- vous êtes maintenant deconnecté");
-		contextJSF.addMessage(null, messageDeconnexion);
-		
-		// 4 redirection vers la page du formulaire 'authentification.xhtml'
-		return "accueil.xhtml";
-	}//end 
 	
 }//end class
->>>>>>> 9d8a9a92ba05606811ce881c8f93c152439b7e75
