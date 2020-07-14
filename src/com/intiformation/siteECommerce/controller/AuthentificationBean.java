@@ -61,6 +61,6 @@ public class AuthentificationBean implements Serializable{
 
         // 4 redirection vers la page du formulaire 'authentification.xhtml'
         return "accueil.xhtml";
-    }//end 
+    }//end 	
 	
 }//end class
