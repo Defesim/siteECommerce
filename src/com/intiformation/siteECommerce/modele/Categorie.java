@@ -1,4 +1,4 @@
-package com.intiformation.modele;
+package com.intiformation.siteECommerce.modele;
 
 /**
  * Classe servant de modele pour les catégories
@@ -10,6 +10,7 @@ public class Categorie {
 	/*__________ props __________*/
 	private String nom_Categorie;
 	private String description;	
+	
 	
 	/*__________ ctors __________*/
 	/**
@@ -36,6 +37,7 @@ public class Categorie {
 		this.description = description;
 	}//end ctor charge
 	
+	
 	/*__________ gt&st __________*/
 	public String getNom_Categorie() {
 		return nom_Categorie;
@@ -50,6 +52,7 @@ public class Categorie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	
 	/*__________ mtods __________*/
 	
