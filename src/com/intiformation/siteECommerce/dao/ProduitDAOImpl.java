@@ -156,7 +156,7 @@ public class ProduitDAOImpl implements IProduitDAO{
 		
 		try {
 			
-			String requeteGetAllProduits = "SELECT * FROM Produit";
+			String requeteGetAllProduits = "SELECT * FROM Produit ORDER BY id_Produit DESC";
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
 			
 			rs = ps.executeQuery();
