@@ -6,37 +6,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.intiformation.siteECommerce.modele.Clients;
 import com.intiformation.siteECommerce.modele.Utilisateur;
 
-/**
- * 
- * @author Adrien
- *
- */
-
-public class UtilisateurDAOImpl implements IUtilisateurDAO {
+public class ClientsDAOImpl implements IClientsDAO {
 
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	
 	@Override
-	public boolean add(Utilisateur pUser) {
+	public boolean add(Clients pClients) {
 		try {
 
 			ps = this.connection
-					.prepareStatement(" INSERT INTO utilisateur (identifiant, mot_de_passe)" + " VALUES (?,?)");
+					.prepareStatement(" INSERT INTO Clients (nom_Clients, adresse, email, telephone)" + " VALUES (?,?,?,?)");
 
 			
-			ps.setString(1, pUser.getIdentifiant());
-			ps.setString(2, pUser.getMot_de_passe());
+			ps.setString(1, pClients.getNom_Client());
+			ps.setString(2, pClients.getAdresse());
+			ps.setString(3, pClients.getEmail());
+			ps.setString(4, pClients.getTelephone());
 
 			int verif = ps.executeUpdate();
 
 			return (verif == 1);
 
 		} catch (SQLException e) {
-			System.out.println("... (UtilisateurDAOImpl) Erreur lors de l'excéution de la méthode add() ...");
+			System.out.println("... (ClientsDAOImpl) Erreur lors de l'excéution de la méthode add() ...");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -50,22 +46,25 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 	}//end add
 
 	@Override
-	public boolean update(Utilisateur pUser) {
+	public boolean update(Clients pClients) {
 		try {
 
-			ps = this.connection.prepareStatement("UPDATE utilisateur SET identifiant=?, mot_de_passe=? WHERE id_utilisateur=?");
+			ps = this.connection.prepareStatement("UPDATE clients SET nom_Client=?, adresse=?, email=?, telephone=? WHERE id_Client=?");
 
 			
-			ps.setString(1, pUser.getIdentifiant());
-			ps.setString(2, pUser.getMot_de_passe());
-			ps.setInt(3, pUser.getId_Utilisateur());
+			ps.setString(1, pClients.getNom_Client());
+			ps.setString(2, pClients.getAdresse());
+			ps.setString(3, pClients.getEmail());
+			ps.setString(4, pClients.getTelephone());
+			ps.setInt(5, pClients.getId_Client());
+			
 
 			int verif = ps.executeUpdate();
 
 			return (verif == 1);
 
 		} catch (SQLException e) {
-			System.out.println("... (UtilisateurDAOImpl) Erreur lors de l'excéution de la méthode update() ...");
+			System.out.println("... (CLientsDAOImpl) Erreur lors de l'excéution de la méthode update() ...");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -80,10 +79,9 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 
 	@Override
 	public boolean delete(Integer id) {
-
 		try {
 
-			ps = this.connection.prepareStatement("DELETE FROM utilisateur WHERE id_utilisateur=?");
+			ps = this.connection.prepareStatement("DELETE FROM clients WHERE id_client=?");
 
 			ps.setInt(1, id);
 
@@ -106,28 +104,29 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 	}//end delete
 
 	@Override
-	public List<Utilisateur> getAll() {
+	public List<Clients> getAll() {
 		try {
 
-			ps = this.connection.prepareStatement("SELECT * FROM utilisateur");
+			ps = this.connection.prepareStatement("SELECT * FROM Clients");
 
 			rs = ps.executeQuery();
 
-			List<Utilisateur> listeUtilisateurBDD = new ArrayList<>();
-			Utilisateur utilisateur = null;
+			List<Clients> listeClientsBDD = new ArrayList<>();
+			Clients Clients = null;
 
 			while (rs.next()) {
 
-				utilisateur = new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3));
+				Clients = new Clients(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 
-				listeUtilisateurBDD.add(utilisateur);
+
+				listeClientsBDD.add(Clients);
 
 			} // end while
 
-			return listeUtilisateurBDD;
+			return listeClientsBDD;
 
 		} catch (SQLException e) {
-			System.out.println("... (UtilisateurDAOImpl) Erreur lors de l'excéution de la méthode getAll() ...");
+			System.out.println("... (ClientsDAOImpl) Erreur lors de l'excéution de la méthode getAll() ...");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -144,27 +143,27 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 	}//end getall
 
 	@Override
-	public Utilisateur getById(Integer id) {
+	public Clients getById(Integer id) {
 		try {
 
-			ps = this.connection.prepareStatement("SELECT * FROM utilisateur WHERE id_Utilisateur=?");
+			ps = this.connection.prepareStatement("SELECT * FROM clients WHERE id_Client=?");
 
 			ps.setInt(1, id);
 
 			rs = ps.executeQuery();
 
-			Utilisateur utilisateur = null;
+			Clients clients = null;
 
 			while (rs.next()) {
 
-				utilisateur  = new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3));
+				clients  = new Clients(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 
 			} // end while
 
-			return utilisateur ;
+			return clients ;
 
 		} catch (SQLException e) {
-			System.out.println("... (UtilisateurDAOImpl) Erreur lors de l'excéution de la méthode getById() ...");
+			System.out.println("... (ClientsDAOImpl) Erreur lors de l'excéution de la méthode getById() ...");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -180,13 +179,13 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 	}// end getById
 
 	@Override
-	public boolean isUtilisateurExists(String pMail, String pMdp) {
+	public boolean isClientsExists(String pEmail, String pTele) {
 		try {
-						
-			ps = this.connection.prepareStatement("SELECT COUNT(*) FROM utilisateur WHERE identifiant=? AND mot_de_passe=?");
+			
+			ps = this.connection.prepareStatement("SELECT COUNT(*) FROM clients WHERE email=? AND telephone=?");
 
-			ps.setString(1, pMail);
-			ps.setString(2, pMdp);
+			ps.setString(1, pEmail);
+			ps.setString(2, pTele);
 
 			rs = ps.executeQuery();
 
@@ -197,7 +196,7 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 			return (verif == 1);
 
 		} catch (SQLException e) {
-			System.out.println("... (UtilisateurDAOImpl) Erreur lors de l'exécution de la méthode isUtilisateurExists() ...");
+			System.out.println("... (ClientsDAOImpl) Erreur lors de l'exécution de la méthode isClientsExists() ...");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -210,8 +209,6 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
 		} // end finally
 
 		return false;
-	}// end isUtilisateurExist
+	}// end isClientsExist
 
-	
-	
 }
