@@ -154,7 +154,7 @@ public class GestionProduitBean implements Serializable {
 		
 		
 		
-	}//end selectionner livre
+	}//end selectionner produit
 	
 	
 	/**
