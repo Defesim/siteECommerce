@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class DBConnection {
 
 	// infos de connexion à la BDD
-	private static final String DB_url = "jdbc:mysql://localhost:3306/gestion_compte";
+	private static final String DB_url = "jdbc:mysql://localhost:3306/E_commerce";
 	private static final String DB_USER = "root";
 	private static final String DB_PASSWORD = "root";
 	private static final String JDBC_DRIVER_CLASS = "com.mysql.jdbc.Driver";

@@ -9,12 +9,13 @@ public class Produit {
 
 	/*__________ props __________*/
 	private int id_Produit;
+	private String nom;
 	private double prix;	
 	private int quantite;
 	private String description;
 	private boolean selectionner;
 	private String photo;
-	private int categorie_NOM;
+	private String categorie_NOM;
 
 	
 	/*__________ ctors __________*/
@@ -33,8 +34,9 @@ public class Produit {
 	 * @param photo
 	 * @param categorie_NOM
 	 */
-	public Produit(double prix, int quantite, String description, boolean selectionner, String photo,
-			int categorie_NOM) {
+	public Produit(String nom, double prix, int quantite, String description, boolean selectionner, String photo,
+			String categorie_NOM) {
+		this.nom = nom;
 		this.prix = prix;
 		this.quantite = quantite;
 		this.description = description;
@@ -53,9 +55,10 @@ public class Produit {
 	 * @param photo
 	 * @param categorie_NOM
 	 */
-	public Produit(int id_Produit, double prix, int quantite, String description, boolean selectionner, String photo,
-			int categorie_NOM) {
+	public Produit(int id_Produit, String nom, double prix, int quantite, String description, boolean selectionner, String photo,
+			String categorie_NOM) {
 		this.id_Produit = id_Produit;
+		this.nom = nom;
 		this.prix = prix;
 		this.quantite = quantite;
 		this.description = description;
@@ -66,6 +69,13 @@ public class Produit {
 
 	
 	/*__________ gt&st __________*/
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	
 	public int getId_Produit() {
 		return id_Produit;
 	}
@@ -108,10 +118,10 @@ public class Produit {
 		this.photo = photo;
 	}
 
-	public int getCategorie_NOM() {
+	public String getCategorie_NOM() {
 		return categorie_NOM;
 	}
-	public void setCategorie_NOM(int categorie_NOM) {
+	public void setCategorie_NOM(String categorie_NOM) {
 		this.categorie_NOM = categorie_NOM;
 	}
 	
