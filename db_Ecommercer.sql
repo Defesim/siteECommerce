@@ -58,6 +58,25 @@ create table E_commerce.Panier( id_Produit integer, nom varchar(100),prix double
 
 );
 
-insert into Panier select id_Produit, nom, prix, quantite from Produit where id_Produit = 2;
+insert into Panier select id_Produit, nom, prix, quantite from Produit where id_Produit = 3;
 update Produit set quantite = quantite - 1 where id_Produit = 1;
-truncate table Panier;
+truncate table Panier; 
+truncate table Commande; 
+
+drop view TotaleCommande;
+
+drop table Commande;
+create table Commande(prixTotale double, 
+id_Command integer auto_increment, DATE_Commande  TIMESTAMP (0),
+constraint pk_Commande primary key (id_Command)
+
+);
+
+Create view TotaleCommande as
+SELECT SUM(prix * quantite) AS totale FROM Panier;
+
+insert into Commande (prixTotale) select totale from TotaleCommande;
+
+
+
+select * from Commande;
