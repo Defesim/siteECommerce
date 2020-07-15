@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#accueil.xhtml" PATH="/accueil.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#accueil.xhtml:0" NAME="item"
+   PATH="/accueil.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output"
+    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ajoutClient::#ajouter-produit.xhtml"
+    NAME="output1" PATH="/ajouter-produit.xhtml"
+    TARGET="rules:#ajouter-produit.xhtml" TITLE="ajoutClient" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#ajouter-categorie.xhtml"
+    NAME="output2" PATH="/ajouter-categorie.xhtml"
+    TARGET="rules:#ajouter-categorie.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editCategorie::#editer-categorie.xhtml"
+    NAME="output3" PATH="/editer-categorie.xhtml"
+    TARGET="rules:#editer-categorie.xhtml" TITLE="editCategorie" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editProduit::#editer-produit.xhtml"
+    NAME="output4" PATH="/editer-produit.xhtml"
+    TARGET="rules:#editer-produit.xhtml" TITLE="editProduit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editClient::#editer-Clients.xhtml"
+    NAME="output5" PATH="/editer-Clients.xhtml"
+    TARGET="rules:#editer-Clients.xhtml" TITLE="editClient" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editer-Clients.xhtml"
+  PATH="/editer-Clients.xhtml" SHAPE="304,641,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ajouter-categorie.xhtml"
+  PATH="/ajouter-categorie.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ajouter-produit.xhtml"
+  PATH="/ajouter-produit.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#editer-categorie.xhtml"
+  PATH="/editer-categorie.xhtml" SHAPE="304,417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#editer-produit.xhtml"
+  PATH="/editer-produit.xhtml" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

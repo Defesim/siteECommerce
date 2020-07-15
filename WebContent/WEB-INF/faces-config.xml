@@ -4,5 +4,87 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+    
+    <navigation-rule>
+		
+		<!--  page de départ : Accueil  -->
+		<from-view-id>/accueil.xhtml</from-view-id>
+		
+		<!--  cas de navigation  -->
+		<!--  de 'accueil.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>accueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'ajout-produit.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>ajoutProduit</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/ajouter-produit.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'ajout-Clients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>ajoutClient</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/ajouter-produit.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'ajout-categorie.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>ajoutCategorie</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/ajouter-categorie.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'editer-categorie.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>editCategorie</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/editer-categorie.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'editer-produit.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>editProduit</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/editer-produit.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+		<!--  de 'accueil.xhtml' vers 'editer-Clients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>editClient</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/editer-Clients.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	
+	</navigation-rule>
+    
+    
 
 </faces-config>
