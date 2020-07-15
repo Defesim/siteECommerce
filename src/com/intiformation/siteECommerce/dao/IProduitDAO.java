@@ -13,6 +13,8 @@ public interface IProduitDAO extends IUniversalDAO<Produit> {
 	
 	public List<Produit> getByCategorie (String NomCategorie);
 	
-	public boolean ModifierQuantite (Produit pProduit);
+	public boolean ModifierQuantite (int quantiteRetirer, int IdProduit);
+	
+	public List<Produit> getByRecherche (String nom, String motCle);
 	
 }//end interface

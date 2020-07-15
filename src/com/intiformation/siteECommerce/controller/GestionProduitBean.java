@@ -17,6 +17,7 @@ import com.intiformation.siteECommerce.dao.IProduitDAO;
 import com.intiformation.siteECommerce.dao.ProduitDAOImpl;
 import com.intiformation.siteECommerce.modele.Produit;
 
+
 @ManagedBean(name = "produitBean")
 @SessionScoped
 public class GestionProduitBean implements Serializable {
@@ -51,10 +52,10 @@ public class GestionProduitBean implements Serializable {
 	 */
 	public void initialiserProduit() {
 
-		// instanciation d'un nouveau objet de type livre
+		// instanciation d'un nouveau objet de type produit
 		Produit produitAdd = new Produit();
 
-		// affectation du livre à la variable où à la prop du livre
+		// affectation du produit à la variable où à la prop du produit
 		setProduit(produitAdd);
 
 	}// end initialiserProduit
@@ -67,7 +68,7 @@ public class GestionProduitBean implements Serializable {
 		//1 recup du context de JSF 
 				FacesContext context = FacesContext.getCurrentInstance();
 				
-				//2 ajout nouveau livre
+				//2 ajout nouveau produit
 				boolean verifAjout = produitDAO.add(produit);
 				
 				if (verifAjout) {
@@ -100,14 +101,14 @@ public class GestionProduitBean implements Serializable {
 	public void modifierProduit(ActionEvent event) {
 		
 		/**
-		 * la prop 'livre' du MB encapsule les infos du livre à modifier dans
+		 * la prop 'produit' du MB encapsule les infos du produit à modifier dans
 		 * la base de donnée
 		 */
 		
 		// 1. recup du context de JSF
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
 		
-		//2. modification du livre dans la bdd
+		//2. modification du produit dans la bdd
 		if (produitDAO.update(produit)) {
 			
 			//modif ok
@@ -140,7 +141,7 @@ public class GestionProduitBean implements Serializable {
 	}//end modifier produit
 	
 	/**
-	 * Permet de editer un livre dans la bdd;
+	 * Permet de editer un produit dans la bdd;
 	 * invoquée au click sur le lien "editer" de accueil.xhtml
 	 * au click, l'évènement encapsule toutes les infos concernant le composant
 	 * 
@@ -153,13 +154,13 @@ public class GestionProduitBean implements Serializable {
 		//2 recup de la valeur
 		int produitID = (int) uip.getValue();
 		
-		//3 recup du livre à éditer via l'id dans la bdd
+		//3 recup du produit à éditer via l'id dans la bdd
 		Produit produitAEditer = produitDAO.getById(produitID);
 		
-		//4 affectation du livre à éditer à la variable 'livre' du MB
+		//4 affectation du produit à éditer à la variable 'produit' du MB
 		setProduit(produitAEditer);
 		
-		//5 redirection vers la page édition 'editer-livre.xhtml' (ref : les clés d'outcom 'editbook' du faces-config.xml)
+		//5 redirection vers la page édition 'editer-produit.xhtml' (ref : les clés d'outcom 'editbook' du faces-config.xml)
 		
 		
 		
@@ -169,7 +170,7 @@ public class GestionProduitBean implements Serializable {
 	
 	
 	/**
-	 * Permet de supprimer un livre dans la bdd;
+	 * Permet de supprimer un produit dans la bdd;
 	 * invoquée au click sur le lien "supprimer" de accueil.xhtml
 	 * au click, l'évènement encapsule toutes les infos concernant le composant
 	 * 
@@ -184,12 +185,12 @@ public class GestionProduitBean implements Serializable {
 		//2. recup de la valeur du paramètre
 		int produitId = (int) cp.getValue();
 		
-		//3 suppression du livre dans la bdd via l'id
+		//3 suppression du produit dans la bdd via l'id
 		
 		//3.1 recup du context de JSFc
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
 		
-		//3.2 suppression du livre
+		//3.2 suppression du produit
 		if (produitDAO.delete(produitId)) {
 			
 			//suppresion ok

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.intiformation.siteECommerce.modele.Panier;
-import com.intiformation.siteECommerce.modele.Produit;
+
 
 public class PanierDAOImpl implements IPanierDAO {
 	
@@ -205,9 +205,44 @@ try {
 	
 
 	@Override
-	public boolean viderPanier(Panier panier) {
-		// TODO Auto-generated method stub
+	public boolean viderPanier() {
+		try {
+
+			// 1 def du contenue de la requete SQL
+			String requeteDelete = "truncate table Panier;";
+
+			// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
+			// l'objet connexion
+			ps = this.connection.prepareStatement(requeteDelete);
+
+			
+
+			// 4 envoie de la requete + execution + recup resultat
+			int verifDelete = ps.executeUpdate();
+
+			// 5 renvoi du resultat
+			return (verifDelete == 1);
+
+		} catch (SQLException e) {
+			System.out.println("erreur lors de l'execution de la méthode delete de l'hotel");
+			e.printStackTrace();
+		} finally {
+			// 6 fermeture des ressources
+
+			try {
+
+				if (ps != null) {
+					ps.close();
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // end catch
+		} // end finnaly
+
 		return false;
-	}
+
+	}// enddelete
 
 }

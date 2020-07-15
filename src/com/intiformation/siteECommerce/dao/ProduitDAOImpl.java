@@ -321,21 +321,16 @@ public class ProduitDAOImpl implements IProduitDAO{
 	}// end getByCategorie
 
 	@Override
-	public boolean ModifierQuantite(Produit pProduit) {
+	public boolean ModifierQuantite(int quantiteRetirer, int IdProduit) {
 PreparedStatement ps = null;
 		
 		try {
 			
-			String requeteUpdate = "update Produit set quantite = quantite - 1 where id_Produit = 1;";
+			String requeteUpdate = "update Produit set quantite = quantite - ? where id_Produit = ?;";
 			ps = this.connection.prepareStatement(requeteUpdate);
-			ps.setString(1, pProduit.getNom());
-			ps.setDouble(2, pProduit.getPrix());
-			ps.setInt(3, pProduit.getQuantite());
-			ps.setString(4, pProduit.getDescription());
-			ps.setBoolean(5, pProduit.isSelectionner());
-			ps.setString(6, pProduit.getPhoto());
-			ps.setString(7, pProduit.getCategorie_NOM());
-			ps.setInt(8, pProduit.getId_Produit());
+			ps.setInt(1, quantiteRetirer);
+			ps.setInt(2, IdProduit);
+			
 			
 			int verifUpdate = ps.executeUpdate();
 			return (verifUpdate == 1)?true:false;
@@ -361,6 +356,66 @@ PreparedStatement ps = null;
 
 		return false;
 	}//end updateQuantite
+
+	@Override
+	public List<Produit> getByRecherche(String nomRecup, String motCle) {
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			String requeteGetAllProduits = "select * from Produit WHERE ? like '%' + ? + '%';";
+			ps = this.connection.prepareStatement(requeteGetAllProduits);
+			ps.setString(1, nomRecup);
+			ps.setString(2, motCle);
+			
+			rs = ps.executeQuery();
+			Produit produit = null;
+			List<Produit> listeProduits = new ArrayList<>();
+			
+			while(rs.next()){
+				
+				int id_Produit = rs.getInt(1);
+				String nom = rs.getString(2);
+				double prix = rs.getDouble(3);
+				int quantite =rs.getInt(4);
+				String description = rs.getString(5);
+				boolean selectionner = rs.getBoolean(6);
+				String photo = rs.getString(7);
+				String categorie_NOM = rs.getString(8);
+				
+				// 4.4 création d'un objet hotel et ajout a la liste
+				produit = new Produit(id_Produit, nom, prix, quantite, description, selectionner, photo, categorie_NOM);
+				listeProduits.add(produit);
+				
+			}//end while
+			
+			return listeProduits;
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> getByCategorie() <-- : Erreur lors de la récupération de la liste des Produits dans ProduitDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}	
+				if (rs != null) {
+					rs.close();
+				}	
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return null;
+	}// end getByRecherche
 	
 
 }//end class
