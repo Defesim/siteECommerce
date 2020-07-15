@@ -2,40 +2,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <head>
 	<title>Page d'accueil</title>
-
-	<!--  Notre CSS -->
-	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
-	
-	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
 	
 </head> 
 <body> 
 <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
                 <li>
-                    <a href="#">Catégorie</a>
+                	<!-- Default dropright button -->
+					  <div>
+					
+					  	<p id="categorieTitre">Catégories</p>
+					    <br></br>
+					    
+					  <div>
+					    <!-- Dropdown menu links -->
+					    <a class="dropdown-item" href="" value="Livres">Livres</a>
+					    <a class="dropdown-item" href="" value="Sport">Sport</a>
+					    <a class="dropdown-item" href="" value="JeuxVidéos">Jeux Vidéos</a>
+					    <a class="dropdown-item" href="" value="JeuxSociétés">Jeux de sociétés</a>
+					  </div>
+					  </div>
                 </li>
+                
                 <br></br>
+                <br></br>
+
                 <li>
                 	<p>Que recherchez-vous</p>
-					<form class="form-inline" action="#">
-						<div class="form-group mx-sm-3 mb-2">
-						   <input type="text" class="form-control" id="RechercheMotClef" name="MotRecherche"></input>
-						</div>
-						<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
-					</form>
+                	
+                	<h:form class="form-horizontal" method="post" id="formId">      
+					  <div class="control-group">
+					  <label class="sr-only" for="inputMotCle">Mot cle</label>
+					  <h:inputText id="inputMotCle" placeholder="Mot cle" value="nomCategorie"> </h:inputText>
+					  </div> 
+					  <h:commandButton value="click" action="#{produitBean.getByCategorie(nomCategorie)}"/>       
+					</h:form>
+	
                 </li>
             </ul>
         </div>
@@ -49,30 +59,61 @@
                         <h1>Bienvenu(e)</h1>
                         <p>Nom catégorie</p>
                         <p>Description catégorie si nécessaire</p>
-                        <h:form>
-                        	<h:dataTable value="#{produitBean.findallProduitBdd()}" var="product" border="1" width="60%">
+                        	<h:form>   	
+                        
+                        		<h:dataTable value="#{produitBean.findallProduitBdd()}" var="product" border="1" width="60%">
+
+
+	                        	<!--  Image produit  -->
+	                        	<h:column >
+								<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
+								</h:column>
+							
+							
+								<!--  nom du produit  -->
+								<h:column>
+								<h:outputText value = "#{product.nom}"/>	
+								</h:column>
+					
+					
+								<!--  description du produit  -->			
+								<h:column>
+								<h:outputText value = "#{product.description}"/>		
+								</h:column>
+								
+								
+								<!--  prix du produit  -->
+								<h:column>
+								<h:outputText value = "#{product.prix}"/>		
+								</h:column>
+								
+								
+								<!--  ajouter un produit  -->
+								<h:column>
+								<f:facet name="header"> Ajouter </f:facet>
+								
+								<h:commandLink id="ajoutProduit" action="ajoutProduit"
+						   						actionListener="#{produitBean.initialiserProduit}">
+								<h:outputText value="Ajouter Produit" />		   
+								</h:commandLink>     
+
+								</h:column>
+								
+								<!--  editer un produit  -->
+								<h:column>
+								<f:facet name="header"> Editer </f:facet>
+								
+								<h:commandLink id="editProduit" action="editProduit"
+						   						actionListener="#{produitBean.selectionnerProduit}">
+						   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
+								<h:outputText value="Editer Produit" />		   
+								</h:commandLink>     
+
+								</h:column>
                         	
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{product.nom}"/>		
-							</h:column>
-							
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:graphicImage value = "resources/img/#{product.photo}" />		
-							</h:column>
-							
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{product.description}"/>		
-							</h:column>
-							
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{product.prix}"/>		
-							</h:column>
                         	
-                        	</h:dataTable>
+                        		</h:dataTable>
+                        		
                         </h:form>
                     </div>
                 </div>
@@ -81,10 +122,21 @@
         <!-- /#page-content-wrapper -->
 
     </div>
+    
     <!-- /#wrapper -->
 
 	<!-- Notre Script -->
     <script src="resources/scripts/scriptAccueil.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="resources/scripts/bootstrap.bundle.min.js"></script>
+	<script src="resources/scripts/util.js"></script>
+    <script src="resources/scripts/bootstrap.min.js"></script>
+    
+    <!--  Bootstrap  -->
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
 	
+	<!--  Notre CSS  -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
 </body> 
 </html>
