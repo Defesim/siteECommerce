@@ -1,5 +1,7 @@
 package com.intiformation.siteECommerce.dao;
 
+import java.util.List;
+
 import com.intiformation.siteECommerce.modele.Produit;
 
 /**
@@ -8,5 +10,7 @@ import com.intiformation.siteECommerce.modele.Produit;
  *
  */
 public interface IProduitDAO extends IUniversalDAO<Produit> {
+	
+	public List<Produit> getByCategorie (String NomCategorie);
 	
 }//end interface

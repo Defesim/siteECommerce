@@ -262,4 +262,62 @@ public class ProduitDAOImpl implements IProduitDAO{
 		return null;
 	}//end getById()
 
+	@Override
+	public List<Produit> getByCategorie(String NomCategorie) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			String requeteGetAllProduits = "SELECT * FROM Produit where categorie_NOM = ? ORDER BY id_Produit DESC";
+			ps = this.connection.prepareStatement(requeteGetAllProduits);
+			ps.setString(1, NomCategorie);
+			
+			rs = ps.executeQuery();
+			Produit produit = null;
+			List<Produit> listeProduits = new ArrayList<>();
+			
+			while(rs.next()){
+				
+				int id_Produit = rs.getInt(1);
+				String nom = rs.getString(2);
+				double prix = rs.getDouble(3);
+				int quantite =rs.getInt(4);
+				String description = rs.getString(5);
+				boolean selectionner = rs.getBoolean(6);
+				String photo = rs.getString(7);
+				String categorie_NOM = rs.getString(8);
+				
+				// 4.4 création d'un objet hotel et ajout a la liste
+				produit = new Produit(id_Produit, nom, prix, quantite, description, selectionner, photo, categorie_NOM);
+				listeProduits.add(produit);
+				
+			}//end while
+			
+			return listeProduits;
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> getByCategorie() <-- : Erreur lors de la récupération de la liste des Produits dans ProduitDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}	
+				if (rs != null) {
+					rs.close();
+				}	
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return null;
+	}// end getByCategorie
+
 }//end class
