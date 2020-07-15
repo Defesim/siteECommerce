@@ -49,4 +49,15 @@ insert into utilisateur(identifiant, mot_de_passe) values ('admin','admin');
 insert into Clients (nom_Client, adresse, email, telephone) values ('Bob','10 route des bobs 58963 Bobcity','bob.bob@bob.fr','0676826165');
 
 select * from Produit;
+select * from Panier;
 
+SELECT * FROM Produit where categorie_NOM = 'Jeux de sociétés' ORDER BY id_Produit DESC ;
+
+drop table Panier;
+create table E_commerce.Panier( id_Produit integer, nom varchar(100),prix double, quantite integer
+
+);
+
+insert into Panier select id_Produit, nom, prix, quantite from Produit where id_Produit = 2;
+update Produit set quantite = quantite - 1 where id_Produit = 1;
+truncate table Panier;

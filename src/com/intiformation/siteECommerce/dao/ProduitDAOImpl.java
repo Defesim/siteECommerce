@@ -320,4 +320,47 @@ public class ProduitDAOImpl implements IProduitDAO{
 		return null;
 	}// end getByCategorie
 
+	@Override
+	public boolean ModifierQuantite(Produit pProduit) {
+PreparedStatement ps = null;
+		
+		try {
+			
+			String requeteUpdate = "update Produit set quantite = quantite - 1 where id_Produit = 1;";
+			ps = this.connection.prepareStatement(requeteUpdate);
+			ps.setString(1, pProduit.getNom());
+			ps.setDouble(2, pProduit.getPrix());
+			ps.setInt(3, pProduit.getQuantite());
+			ps.setString(4, pProduit.getDescription());
+			ps.setBoolean(5, pProduit.isSelectionner());
+			ps.setString(6, pProduit.getPhoto());
+			ps.setString(7, pProduit.getCategorie_NOM());
+			ps.setInt(8, pProduit.getId_Produit());
+			
+			int verifUpdate = ps.executeUpdate();
+			return (verifUpdate == 1)?true:false;
+			
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> update() <-- : Erreur lors de la modif d'un produit dans ProduitDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}		
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return false;
+	}//end updateQuantite
+	
+
 }//end class
