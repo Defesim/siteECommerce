@@ -33,7 +33,17 @@ public class GestionProduitBean implements Serializable {
 	public List<Produit> findallProduitBdd() {
 		listeProduitBdd = produitDAO.getAll();
 		return listeProduitBdd;
-	}// end listeLivre
+	}// end listeProduit
+	
+	public List<Produit> findProduitByCategorieBdd(ActionEvent event) {
+		//1. recup du paramètre passé au composant au click sur le lien "éditer"
+				UIParameter uip = (UIParameter) event.getComponent().findComponent("nomCategorie");
+				
+				//2 recup de la valeur
+				String NomCategorie = (String) uip.getValue();
+		listeProduitBdd = produitDAO.getByCategorie(NomCategorie);
+		return listeProduitBdd;
+	}// end listeProduit
 
 	/**
 	 * initialiser le produit
