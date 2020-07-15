@@ -13,19 +13,19 @@ import com.intiformation.siteECommerce.modele.Utilisateur;
 @SessionScoped
 public class UtilisateurBean {
 	
-	private List<Utilisateur> listeLivrebdd;
-	private Utilisateur livre;
-	private UtilisateurDAOImpl livreDao;
+	private List<Utilisateur> listeUserbdd;
+	private Utilisateur User;
+	private UtilisateurDAOImpl UserDao;
 	
 	public UtilisateurBean() {
-		livreDao = new UtilisateurDAOImpl();
+		UserDao = new UtilisateurDAOImpl();
 	}
 	
 	
 	public List<Utilisateur> findAllUtilisateurBdd(){
-		listeLivrebdd = livreDao.getAll();
+		listeUserbdd = UserDao.getAll();
 		
-		return listeLivrebdd;
+		return listeUserbdd;
 	}
 
-}
+}//end class

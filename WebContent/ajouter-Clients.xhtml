@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+	<title>Page d'ajout Clients</title>
+
+	<!--  Notre CSS -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+	
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+</head> 
+<body> 
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Catégorie</a>
+                </li>
+                <br></br>
+                <li>
+                	<p>Que recherchez-vous</p>
+					<form class="form-inline" action="#">
+						<div class="form-group mx-sm-3 mb-2">
+						   <input type="text" class="form-control" id="RechercheMotClef" name="MotRecherche"></input>
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
+					</form>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Bienvenu(e)</h1>
+                        <p>Nom catégorie</p>
+                        <p>telephone catégorie si nécessaire</p>
+                        
+                        <!-- Formulaire d'ajout d'un nouveau Clients  -->
+	<h:form>
+	<h:panelGrid columns="3" border="1" cellpadding="5" cellspacing="5" width="50%">
+	
+	<f:facet name="header">
+	Formulaire d'ajout d'un nouveau Clients
+	
+	</f:facet>
+	
+	<h:outputLabel for="idnom" value="Nom" />
+	<h:inputText id="idnom" value="#{ClientsBean.clients.nom_Client}" required="true" requiredMessage="nom obligatoire" />
+	<h:message for="idnom" styleClass="error"/>
+	
+	<h:outputLabel for="idadresse" value="Adresse" />
+	<h:inputText id="idadresse" value="#{ClientsBean.clients.adresse}" required="true" requiredMessage="adresse obligatoire"/>
+	<h:message for="idadresse" styleClass="error"/>
+	
+	<h:outputLabel for="idemail" value="Email" />
+	<h:inputText id="idemail" value="#{ClientsBean.clients.email}" required="true" requiredMessage="email obligatoire"/>
+	<h:message for="idemail" styleClass="error"/>
+	
+	<h:outputLabel for="idtelephone" value="Telephone" />
+	<h:inputText id="idtelephone" value="#{ClientsBean.clients.telephone}" required="true" requiredMessage="telephone obligatoire"/>
+	<h:message for="idtelephone" styleClass="error"/>
+	
+	
+	
+	<f:facet name="footer">
+	<!-- 
+	       > attribut : 
+	       
+	                       - action : clé d'outcom 'listClients' pour naviguer de ajouter-Clients
+	                       - actionListener : methode à invoquer du MB pour ajouter le Clients dans la bdd
+	 -->
+	
+	
+	<h:commandButton action="listClients" actionListener="#{ClientsBean.ajouterClients()}" value="Ajouter" />
+	</f:facet>
+	
+	</h:panelGrid>
+	
+	</h:form>
+<h:link value="retour à la page" outcome="accueil.xhtml?faces-redirect=true"/>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+	
+</body> 
+</html>

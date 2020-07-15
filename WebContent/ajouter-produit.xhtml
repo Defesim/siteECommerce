@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+	<title>Page d'ajout produit</title>
+
+	<!--  Notre CSS -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+	
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+</head> 
+<body> 
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Catégorie</a>
+                </li>
+                <br></br>
+                <li>
+                	<p>Que recherchez-vous</p>
+					<form class="form-inline" action="#">
+						<div class="form-group mx-sm-3 mb-2">
+						   <input type="text" class="form-control" id="RechercheMotClef" name="MotRecherche"></input>
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
+					</form>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Bienvenu(e)</h1>
+                        <p>Nom catégorie</p>
+                        <p>Description catégorie si nécessaire</p>
+                        
+                        <!-- Formulaire d'ajout d'un nouveau produit  -->
+	<h:form>
+	<h:panelGrid columns="3" border="1" cellpadding="5" cellspacing="5" width="50%">
+	
+	<f:facet name="header">
+	Formulaire d'ajout d'un nouveau produit
+	
+	</f:facet>
+	
+	<h:outputLabel for="idnom" value="Nom" />
+	<h:inputText id="idnom" value="#{produitBean.produit.nom}" required="true" requiredMessage="nom obligatoire" />
+	<h:message for="idnom" styleClass="error"/>
+	
+	<h:outputLabel for="idprix" value="Prix" />
+	<h:inputText id="idprix" value="#{produitBean.produit.prix}" required="true" requiredMessage="prix obligatoire"/>
+	<h:message for="idprix" styleClass="error"/>
+	
+	<h:outputLabel for="idquantite" value="Quantite" />
+	<h:inputText id="idquantite" value="#{produitBean.produit.quantite}" required="true" requiredMessage="quantite obligatoire"/>
+	<h:message for="idquantite" styleClass="error"/>
+	
+	<h:outputLabel for="iddescription" value="Description" />
+	<h:inputText id="iddescription" value="#{produitBean.produit.description}" required="true" requiredMessage="description obligatoire"/>
+	<h:message for="iddescription" styleClass="error"/>
+	
+	<h:outputLabel for="idselection" value="Selectionner" />
+	<h:selectBooleanCheckbox value="#{produitBean.produit.selectionner}"/>
+	<h:message for="idselection" styleClass="error"/>
+	
+	<h:outputLabel for="idphoto" value="Photo" />
+	<h:inputText id="idphoto" value="#{produitBean.produit.photo}" required="true" requiredMessage="photo obligatoire"/>
+	<h:message for="idphoto" styleClass="error"/>
+	
+	<h:outputLabel for="idcategorie" value="Categorie" />
+	<h:inputText id="idcategorie" value="#{produitBean.produit.categorie_NOM}" required="true" requiredMessage="categorie obligatoire"/>
+	<h:message for="idcategorie" styleClass="error"/>
+	
+	<f:facet name="footer">
+	<!-- 
+	       > attribut : 
+	       
+	                       - action : clé d'outcom 'listproduit' pour naviguer de ajouter-produit
+	                       - actionListener : methode à invoquer du MB pour ajouter le produit dans la bdd
+	 -->
+	
+	
+	<h:commandButton action="listproduit" actionListener="#{produitBean.ajouterProduit()}" value="Ajouter" />
+	</f:facet>
+	
+	</h:panelGrid>
+	
+	</h:form>
+<h:link value="retour à la page" outcome="accueil.xhtml?faces-redirect=true"/>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+	
+</body> 
+</html>
