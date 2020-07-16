@@ -26,7 +26,7 @@
 					    <h:dataTable value="#{categorieBean.findallCategorie()}" var="cat" border="0" width="80%">
 					    <h:column>
 								<h:commandLink id="selectionParCategorie" action="accueil"
-													   actionListener="#{produitBean.findallProduitBdd}">
+													   actionListener="#{produitBean.findProduitByCategorieBdd()}">
 										<f:param id="categorieChoisie" name="categorieChoisie" value="#{cat.nom_Categorie}"></f:param>
 										<h:outputText value="#{cat.nom_Categorie}" />		   
 								</h:commandLink>	
@@ -66,6 +66,17 @@
                         <h1>Bienvenu(e)</h1>
                         <h:outputText value ="#{categorieChoisie}"/>	
                         <h:outputText value ="#{categorieChoisie}"/>	
+                        	<div>
+						        	<!--  ajouter un produit  -->
+						        	<h:form>					
+										<h:commandLink id="ajoutProduit" action="ajoutProduit"
+													   actionListener="#{produitBean.initialiserProduit}">
+										<h:outputText value="Ajouter un produit" />		   
+										</h:commandLink>
+									</h:form>
+						        
+						        </div>
+                        	
                         	<h:form>
                         		<div>
 						        	<!--  ajouter un produit  -->
