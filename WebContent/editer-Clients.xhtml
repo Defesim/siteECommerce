@@ -53,7 +53,7 @@
                         <!-- Formulaire d'ajout d'un nouveau Clients  -->
 	<h:form>
 	<h:inputHidden value="#{ClientsBean.clients.id_Client}" />
-	<h:panelGrid columns="3" border="1" cellpadding="5" cellspacing="5" width="50%">
+	<h:panelGrid columns="4" border="1" cellpadding="5" cellspacing="5" width="50%">
 	
 	<f:facet name="header">
 	Formulaire de modification d'un Client
@@ -83,13 +83,15 @@
 	 -->
 	
 	
-	<h:commandButton action="listClients" actionListener="#{ClientsBean.modifierClients}" value="Modifier" />
+	<h:commandButton action="editClients" actionListener="#{ClientsBean.modifierClients}" value="Modifier">
+	<f:setPropertyActionListener value="#{ClientsBean.findAllClientsBdd()}" target="#{ClientsBean.listeClientsbdd}" />
+	</h:commandButton>
 	</f:facet>
 	
 	</h:panelGrid>
 	
 	</h:form>
-<h:link value="retour à la page" outcome="accueil.xhtml?faces-redirect=true"/>
+<h:link value="retour à la page" outcome="GestionClients.xhtml?faces-redirect=true"/>
                         
                     </div>
                 </div>

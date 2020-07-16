@@ -86,13 +86,15 @@
 	 -->
 	
 	
-	<h:commandButton action="listClients" actionListener="#{ClientsBean.ajouterClients}" value="Ajouter" />
+	<h:commandButton action="ajoutClients" actionListener="#{ClientsBean.ajouterClients}" value="Ajouter">
+	<f:setPropertyActionListener value="#{ClientsBean.findAllClientsBdd()}" target="#{ClientsBean.listeClientsbdd}" />
+	</h:commandButton>
 	</f:facet>
 	
 	</h:panelGrid>
 	
 	</h:form>
-<h:link value="retour à la page" outcome="accueil.xhtml?faces-redirect=true"/>
+<h:link value="retour à la page" outcome="GestionClients.xhtml?faces-redirect=true"/>
                         
                     </div>
                 </div>

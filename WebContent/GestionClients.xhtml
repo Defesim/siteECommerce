@@ -69,7 +69,8 @@
 						        	<!--  ajouter une categorie  -->
 						        	<h:form>					
 										
-											<h:commandButton action="ajoutClients" actionListener="#{ClientsBean.initialiserClients()}" value="Ajouter un client" />
+											<h:commandButton action="ajoutClients" actionListener="#{ClientsBean.initialiserClients()}" value="Ajouter un client">
+											</h:commandButton>
 										
 									</h:form>
 						        
@@ -109,12 +110,12 @@
 									</h:column>
 	
 									
-									<!--  editer une categorie  -->
+									<!--  editer une client  -->
 									<h:column>
 									<f:facet name="header"> Editer </f:facet>
 									
 									<h:commandLink id="editClients" action="editClients"
-							   						actionListener="#{ClientsBean.selectionnerClients()}">
+							   						actionListener="#{ClientsBean.selectionnerClients}">
 							   		<f:param id="updateID" name="id" value="#{clients.id_Client}"></f:param>
 									<h:outputText value="Editer Clients" />		   
 									</h:commandLink>     
@@ -127,7 +128,7 @@
 									<f:facet name="header"> Supprimer </f:facet>
 									
 									<h:commandLink id="deleteClients" action="deleteClients"
-							   						actionListener="#{ClientsBean.supprimerClients()}">
+							   						actionListener="#{ClientsBean.supprimerClients}">
 							   		<f:param id="deleteID" name="id" value="#{clients.id_Client}"></f:param>
 									<h:outputText value="Supprimer Client" />		   
 									</h:commandLink>     
