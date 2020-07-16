@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+	<title>Panier</title>
+
+	<!--  Notre CSS -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+	
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+</head> 
+<body> 
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Catégorie</a>
+                </li>
+                <br></br>
+                <li>
+                	<p>Que recherchez-vous</p>
+					<form class="form-inline" action="#">
+						<div class="form-group mx-sm-3 mb-2">
+						   <input type="text" class="form-control" id="RechercheMotClef" name="MotRecherche"></input>
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
+					</form>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Bienvenu(e)</h1>
+                        <p>Nom catégorie</p>
+                        <p>Description catégorie si nécessaire</p>
+                        <h:form>
+                        	<h:dataTable value="#{commandeBean.findallCommandeBdd()}" var="commande" border="1" width="60%">
+                        	
+                        	<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.IDCommande}"/>		
+							</h:column>
+                        	
+							<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.prixTotale}"/>		
+							</h:column>
+														
+							
+							<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.dateCommande}"/>		
+							</h:column>
+							
+							
+                        	
+                        	</h:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+	
+</body> 
+</html>

@@ -9,7 +9,7 @@ public class Commande {
 	
 	//----------------------------cstor----------------------------------
 	
-	public Commande(double prixTotale, int iDCommande, String dateCommande) {
+	public Commande(int iDCommande,double prixTotale,  String dateCommande) {
 		this.prixTotale = prixTotale;
 		IDCommande = iDCommande;
 		DateCommande = dateCommande;

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<head>
+	<title>Page d'accueil</title>
+	
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+
+</head> 
+<body> 
+
+<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+					  <div>
+					  	<p id="categorieTitre">Catégories</p>
+					    
+					  </div>  
+					    
+					  <div>
+						<h:form>
+						
+							<h:commandLink id="selectionParCategorie" action="accueil"
+													  actionListener="#{produitBean.findallProduitBdd()}">
+								<f:param id="categorieChoisie" name="categorieChoisie" value="Toutes catégories"></f:param>
+								<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
+								<h:outputText value="Toutes catégories" />	
+							</h:commandLink>	   
+						
+						
+						</h:form>
+						
+						
+					   </div> 
+					   <div>  
+					   	<h:form>	  
+					    <h:dataTable value="#{categorieBean.findallCategorie()}" var="cat" border="0" width="80%">
+					    <h:column>  
+								<h:commandLink id="selectionParCategorie" action="accueil" actionListener="#{produitBean.findProduitByCategorieBdd}">
+										<f:param id="nomCategorie" value="#{cat.nom_Categorie}"></f:param>
+										<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{cat}" /> 
+										<h:outputText value="#{cat.nom_Categorie}" />		  
+								</h:commandLink>	
+						</h:column>
+						</h:dataTable>
+						</h:form>
+
+					  </div>
+                </li>
+                
+                <br></br>
+                <br></br>
+
+                <li>
+                	<p>Que recherchez-vous</p>
+                	
+                	<h:form class="form-horizontal" method="post" id="formId">      
+					  <div class="control-group">
+					  <label class="sr-only" for="inputMotCle">Mot cle</label>
+					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
+					  </div> 
+					  <h:commandButton value="click" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
+					  	<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
+					  </h:commandButton>
+					  
+					</h:form>
+	
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        
+        
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Bienvenu(e)</h1>
+                        <h2>${categorieBean.categorie.nom_Categorie}</h2>
+                        <br></br>
+                        <h:outputText value ="#{categorieBean.categorie.description}"/>	
+                        	<h:form>
+                        		
+                        	   	
+                        	   	<h:dataTable value="#{produitBean.listeProduitBdd}" var="product" border="1" width="60%">
+
+	                        	<!--  Image produit  -->
+	                        	<h:column >
+								<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
+								</h:column>
+							
+							
+								<!--  nom du produit  -->
+								<h:column>
+								<f:facet name="header"> Nom </f:facet>
+								<h:outputText value = "#{product.nom}"/>	
+								</h:column>
+					
+					
+								<!--  description du produit  -->			
+								<h:column>
+								<f:facet name="header"> Description </f:facet>
+								<h:outputText value = "#{product.description}"/>		
+								</h:column>
+								
+								
+								<!--  prix du produit  -->
+								<h:column>
+								<f:facet name="header"> Prix </f:facet>
+								<h:outputText value = "#{product.prix} €"/>		
+								</h:column>
+
+								
+								
+								
+								
+								
+                        	
+                        	
+                        		</h:dataTable>
+
+								<c:if test="#{produitBean.listeProduitBdd}==null">
+								<p>test</p>
+	                        		<h:dataTable value="#{produitBean.findallProduitBdd}" var="product" border="1" width="60%">
+	
+		                        	<!--  Image produit  -->
+		                        	<h:column >
+									<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
+									</h:column>
+								
+								
+									<!--  nom du produit  -->
+									<h:column>
+									<f:facet name="header"> Nom </f:facet>
+									<h:outputText value = "#{product.nom}"/>	
+									</h:column>
+						
+						
+									<!--  description du produit  -->			
+									<h:column>
+									<f:facet name="header"> Description </f:facet>
+									<h:outputText value = "#{product.description}"/>		
+									</h:column>
+									
+									
+									<!--  prix du produit  -->
+									<h:column>
+									<f:facet name="header"> Prix </f:facet>
+									<h:outputText value = "#{product.prix} €"/>		
+									</h:column>
+	
+									
+									
+									
+									
+									
+	                        	
+	                        		</h:dataTable>
+                        		</c:if>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    
+    <!-- /#wrapper -->
+    
+    <!--  Bootstrap  -->
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+	<!--  Notre CSS  -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+</body> 
+</html>

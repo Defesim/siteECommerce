@@ -14,8 +14,7 @@ import javax.faces.event.ActionEvent;
 import com.intiformation.siteECommerce.dao.IPanierDAO;
 import com.intiformation.siteECommerce.dao.PanierDAOImpl;
 import com.intiformation.siteECommerce.modele.Panier;
-import com.intiformation.siteECommerce.modele.Panier;
-import com.intiformation.siteECommerce.modele.Panier;
+
 
 
 @ManagedBean(name = "panierBean")
@@ -51,7 +50,7 @@ public class GestionPanierBean implements Serializable {
 			
 			//envoi d'un message vers la vue via le context de JSF
 			contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
-					"suppresion produit", 
+					"vider panier", 
 					"- la suppresion a été faite correctement"));
 			// -> redirection vers accueil.xhtml (ref : clé d'outcom)
 			
@@ -61,11 +60,11 @@ public class GestionPanierBean implements Serializable {
 			
 			//=>
 			contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
-					"suppresion produit", 
+					"vider panier", 
 					"- la suppresion a échoué ta vie est un echec total :p"));
 		}//end else
 		
-	}// end listePanier
+	}// end ViderListePanier
 	
 	/**
 	 * initialiser le Panier
