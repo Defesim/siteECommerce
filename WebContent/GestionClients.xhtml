@@ -19,7 +19,19 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                
+            	<li>
+                <p>Que recherchez-vous</p>
+                	
+                	<h:form class="form-horizontal" method="post" id="formId">      
+					  <div class="control-group">
+					  <label class="sr-only" for="inputMotCle">Mot cle</label>
+					  </div> 
+					  <h:commandButton value="Rechercher" action="gestion_clients" actionListener="#{ClientsBean.findClientByMotCle}">
+					  	<h:inputText id="MotCle" placeholder="Mot cle" value="#{ClientsBean.motCle}"> </h:inputText>
+					  </h:commandButton>
+					  
+					</h:form>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -38,7 +50,7 @@
 			</h:form>
 			<h:form>
 				<div>
-					<label class="btn btn-secondary active">
+					<label class="btn btn-secondary">
 						<h:commandLink id="directionGestionCategories" action="gestion_categories"
 															  actionListener="#{categorieBean.findallCategorie()}">
 						<h:outputText value="Gestion Categories"/>
@@ -48,7 +60,7 @@
 			</h:form>
 			<h:form>
 				<div>
-					<label class="btn btn-secondary">
+					<label class="btn btn-secondary active">
 						<h:commandLink id="directionGestionClients" action="gestion_clients"
 															  actionListener="#{ClientsBean.findAllClientsBdd()}">
 						<h:outputText value="Gestion Clients"/>
@@ -76,7 +88,7 @@
 						        
 						        </div>
                         	
-	                        		<h:dataTable value="#{ClientsBean.findAllClientsBdd()}" var="clients" border="1" width="60%">
+	                        		<h:dataTable value="#{ClientsBean.listeClientsbdd}" var="clients" border="1" width="60%">
 	
 		                        	<!--  Nom Categorie  -->
 		                        	<h:column >

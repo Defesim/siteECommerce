@@ -1,7 +1,9 @@
 package com.intiformation.siteECommerce.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,14 +24,21 @@ public class ClientsBean {
 	private List<Clients> listeClientsbdd;
 	private Clients Clients;
 	private ClientsDAOImpl ClientsDAO;
+	private String motCle;
 	
 	public ClientsBean() {
 		ClientsDAO = new ClientsDAOImpl();
 	}
 	
-	
 	public List<Clients> findAllClientsBdd(){
 		listeClientsbdd = ClientsDAO.getAll();
+		setListeClientsbdd(listeClientsbdd);
+		return listeClientsbdd;
+	}//end findAllClients
+	
+	
+	public List<Clients> findClientByMotCle(){
+		listeClientsbdd = ClientsDAO.getByRecherche(motCle);
 		setListeClientsbdd(listeClientsbdd);
 		return listeClientsbdd;
 	}//end findAllClients
@@ -46,6 +55,17 @@ public class ClientsBean {
 		setClients(ClientsAdd);
 
 	}// end initialiserClients
+	
+	@PostConstruct
+	public void initialiserListeClients() {
+
+		// instanciation d'un nouveau objet de type Clients
+		List<Clients> listeClientsbdd = new ArrayList<>();
+		listeClientsbdd = ClientsDAO.getAll();
+		// affectation du Clients à la variable où à la prop du Clients
+		setListeClientsbdd(listeClientsbdd);
+
+	}// end initialiserListeClients
 
 	/**
 	 * ajouter Clients
@@ -224,6 +244,14 @@ public class ClientsBean {
 
 	public void setListeClientsbdd(List<Clients> listeClientsbdd) {
 		this.listeClientsbdd = listeClientsbdd;
+	}
+
+	public String getMotCle() {
+		return motCle;
+	}
+
+	public void setMotCle(String motCle) {
+		this.motCle = motCle;
 	}
 	
 	

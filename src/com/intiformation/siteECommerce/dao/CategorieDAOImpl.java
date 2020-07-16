@@ -256,5 +256,61 @@ public class CategorieDAOImpl implements ICategorieDAO {
 
 		return null;
 	}//end getByName()
+	
+	@Override
+	public List<Categorie> getByRecherche(String motCle) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			motCle = "%"+motCle+"%";
+			String requeteGetAllProduits = "select * from Categorie WHERE nom_Categorie like ?";
+			ps = this.connection.prepareStatement(requeteGetAllProduits);
+			ps.setString(1, motCle);
+			
+			rs = ps.executeQuery();
+			Categorie categorie = null;
+			List<Categorie> listeCategories = new ArrayList<>();
+			
+			while(rs.next()){
+				
+
+				String nom_Categorie = rs.getString(1);
+				String description = rs.getString(2);
+
+				
+				// 4.4 création d'un objet hotel et ajout a la liste
+				categorie = new Categorie(nom_Categorie, description);
+				listeCategories.add(categorie);
+				
+			}//end while
+			
+			return listeCategories;
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> getByRecherche() <-- : Erreur lors de la récupération de la liste des Produits dans CategorieDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}	
+				if (rs != null) {
+					rs.close();
+				}	
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return null;
+	}//end getByRecherche
+
+
 
 }//end class

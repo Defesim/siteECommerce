@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.intiformation.siteECommerce.modele.Categorie;
 import com.intiformation.siteECommerce.modele.Clients;
 import com.intiformation.siteECommerce.modele.Utilisateur;
 
@@ -210,5 +211,63 @@ public class ClientsDAOImpl implements IClientsDAO {
 
 		return false;
 	}// end isClientsExist
+	
+	@Override
+	public List<Clients> getByRecherche(String motCle) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			motCle = "%"+motCle+"%";
+			String requeteGetAllProduits = "select * from Clients WHERE nom_Client like ?";
+			ps = this.connection.prepareStatement(requeteGetAllProduits);
+			ps.setString(1, motCle);
+			
+			rs = ps.executeQuery();
+			 
+			
+			
+			Clients clients = null;
+			List<Clients> listeClients = new ArrayList<>();
+			
+			while(rs.next()){
+				
+				int id_Client = rs.getInt(1);
+				String nom_Client = rs.getString(2);
+				String adresse = rs.getString(3);
+				String email = rs.getString(4);
+				String telephone = rs.getString(5);
+				
+				// 4.4 création d'un objet hotel et ajout a la liste
+				clients = new Clients(id_Client, nom_Client, adresse, email, telephone);
+				listeClients.add(clients);
+				
+			}//end while
+			
+			return listeClients;
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> getByRecherche() <-- : Erreur lors de la récupération de la liste des Produits dans ClientsDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}	
+				if (rs != null) {
+					rs.close();
+				}	
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return null;
+	}//end getByRecherche
 
 }
