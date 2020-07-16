@@ -19,7 +19,19 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                
+            	<li>
+                <p>Que recherchez-vous</p>
+                	
+                	<h:form class="form-horizontal" method="post" id="formId">      
+					  <div class="control-group">
+					  <label class="sr-only" for="inputMotCle">Mot cle</label>
+					  </div> 
+					  <h:commandButton value="Rechercher" action="gestion_categories" actionListener="#{categorieBean.findCategorieByMotCle}">
+					  	<h:inputText id="MotCle" placeholder="Mot cle" value="#{categorieBean.motCle}"> </h:inputText>
+					  </h:commandButton>
+					  
+					</h:form>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -73,7 +85,7 @@
 						        
 						        </div>
                         	
-	                        		<h:dataTable value="#{categorieBean.findallCategorie()}" var="cat" border="1" width="60%">
+	                        		<h:dataTable value="#{categorieBean.listeCategorieBdd}" var="cat" border="1" width="60%">
 	
 		                        	<!--  Nom Categorie  -->
 		                        	<h:column >

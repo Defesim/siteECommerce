@@ -37,7 +37,6 @@ public class GestionProduitBean implements Serializable {
 
 	}// end gestionProduitBean
 	
-	@PostConstruct
 	public List<Produit> findallProduitBdd() {
 		listeProduitBdd = produitDAO.getAll();
 		setListeProduitBdd(listeProduitBdd);

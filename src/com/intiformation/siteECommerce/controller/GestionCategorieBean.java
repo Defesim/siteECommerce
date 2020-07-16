@@ -3,6 +3,7 @@ package com.intiformation.siteECommerce.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,6 +15,7 @@ import javax.faces.event.ActionEvent;
 import com.intiformation.siteECommerce.dao.CategorieDAOImpl;
 import com.intiformation.siteECommerce.dao.ICategorieDAO;
 import com.intiformation.siteECommerce.modele.Categorie;
+import com.intiformation.siteECommerce.modele.Produit;
 
 @ManagedBean(name = "categorieBean")
 @SessionScoped
@@ -22,19 +24,29 @@ public class GestionCategorieBean implements Serializable{
 	private List<Categorie> listeCategorieBdd;
 	private Categorie categorie;
 	private ICategorieDAO categorieDAO;
+	private String motCle;
 	
+
+
 	public GestionCategorieBean() {
 		
 		categorieDAO = new CategorieDAOImpl();
 		
 	}//end GestionCategorieBean
 	
+	@PostConstruct
 	public List<Categorie> findallCategorie(){
 		listeCategorieBdd = categorieDAO.getAll();
 		setListeCategorieBdd(listeCategorieBdd);
 		return listeCategorieBdd;
 		
 	}//findallCategorie
+	
+	public List<Categorie> findCategorieByMotCle(ActionEvent event) {
+		listeCategorieBdd = categorieDAO.getByRecherche(motCle);
+		setListeCategorieBdd(listeCategorieBdd);
+		return listeCategorieBdd;
+	}// end findProduitByMotCle
 	
 	/**
 	 * initialiser le categorie
@@ -223,6 +235,12 @@ public class GestionCategorieBean implements Serializable{
 		this.listeCategorieBdd = listeCategorieBdd;
 	}
 	
-   
+	public String getMotCle() {
+		return motCle;
+	}
+
+	public void setMotCle(String motCle) {
+		this.motCle = motCle;
+	}
 	
 }//end class

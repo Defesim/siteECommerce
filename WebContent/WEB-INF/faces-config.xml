@@ -310,6 +310,17 @@
 			<redirect/>
 		
 		</navigation-case>
+		
+			<!--  de 'accueilGrandPublic.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>accueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
 	
 	</navigation-rule>
 

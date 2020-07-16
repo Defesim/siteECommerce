@@ -82,3 +82,10 @@ insert into Commande (prixTotale) select totale from TotaleCommande;
 select * from Commande;
 
 select * from Produit WHERE nom like '%Ballon%';
+
+insert into Panier (id_Produit, nom, prix, quantite) values ((select id_Produit from Produit where id_Produit = 1), (select nom from Produit where id_Produit = 1), (select prix from Produit where id_Produit = 1), 1);
+update Panier set quantite=quantite+1; 
+
+
+
+SET SQL_SAFE_UPDATES = 0;

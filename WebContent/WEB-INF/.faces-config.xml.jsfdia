@@ -119,6 +119,8 @@
     TARGET="rules:#accueilGrandPublic.xhtml" TITLE="AjoutPanier" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="VoirPanier::#panier.xhtml" NAME="output1"
     PATH="/panier.xhtml" TARGET="rules:#panier.xhtml" TITLE="VoirPanier" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output2"
+    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#panier.xhtml" PATH="/panier.xhtml"

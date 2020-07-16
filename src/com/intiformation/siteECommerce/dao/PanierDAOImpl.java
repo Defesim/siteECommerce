@@ -68,7 +68,7 @@ try {
 	@Override
 	public boolean delete(Integer id) {
 
-try {
+		try {
 			
 			String requeteSuppression = "DELETE FROM Panier WHERE id_Produit=?";
 			ps = this.connection.prepareStatement(requeteSuppression);

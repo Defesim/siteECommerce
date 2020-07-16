@@ -1,5 +1,7 @@
 package com.intiformation.siteECommerce.dao;
 
+import java.util.List;
+
 import com.intiformation.siteECommerce.modele.Categorie;
 
 public interface ICategorieDAO extends IUniversalDAO<Categorie> {
@@ -17,5 +19,7 @@ public interface ICategorieDAO extends IUniversalDAO<Categorie> {
 	 * @return : Categorie a récupérer
 	 */
 	public Categorie getByName(String name);
+	
+	public List<Categorie> getByRecherche (String motCle); 
 	
 }//end interface

@@ -11,6 +11,8 @@
 	
 	<!-- Notre Script -->
     <script src="resources/scripts/scriptAccueil.js"></script>
+    
+
 
 </head> 
 <body> 
@@ -28,7 +30,7 @@
 					  <div>
 						<h:form>
 						
-							<h:commandLink id="selectionParCategorie" action="accueil"
+							<h:commandLink id="selectionParCategorie" action="AjoutPanier"
 													  actionListener="#{produitBean.findallProduitBdd()}">
 								<f:param id="categorieChoisie" name="categorieChoisie" value="Toutes catégories"></f:param>
 								<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
@@ -44,7 +46,7 @@
 					   	<h:form>	  
 					    <h:dataTable value="#{categorieBean.findallCategorie()}" var="cat" border="0" width="80%">
 					    <h:column>  
-								<h:commandLink id="selectionParCategorie" action="accueil" actionListener="#{produitBean.findProduitByCategorieBdd}">
+								<h:commandLink id="selectionParCategorie" action="AjoutPanier" actionListener="#{produitBean.findProduitByCategorieBdd}">
 										<f:param id="nomCategorie" value="#{cat.nom_Categorie}"></f:param>
 										<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{cat}" /> 
 										<h:outputText value="#{cat.nom_Categorie}" />		  
@@ -65,9 +67,10 @@
                 	<h:form class="form-horizontal" method="post" id="formId">      
 					  <div class="control-group">
 					  <label class="sr-only" for="inputMotCle">Mot cle</label>
-					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
+					  
 					  </div> 
-					  <h:commandButton value="click" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
+					  <h:commandButton value="Rechercher" action="AjoutPanier" actionListener="#{produitBean.findProduitByMotCle}">
+					  	<h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
 					  	<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
 					  </h:commandButton>
 					  
@@ -79,11 +82,20 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <h:form>
-        <h:commandLink id="VoirPanier" action="VoirPanier">	
-			<h:graphicImage library="img" name="panier.jpg"></h:graphicImage>
-		</h:commandLink>
-		</h:form>
+        <div>
+	        <h:form>
+	        <h:commandLink id="VoirPanier" action="VoirPanier">	
+				<h:graphicImage library="img" name="panier.jpg" width="128px" height="128px"></h:graphicImage>
+			</h:commandLink>
+			</h:form>
+		</div>
+		
+		<div>
+	        <h:form>
+	        <h:commandButton id="ConnectionAdmin" action="accueil" value="se connecter en tant qu'administateur">	
+			</h:commandButton>
+			</h:form>
+		</div>
         
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -93,6 +105,7 @@
                         <h2>${categorieBean.categorie.nom_Categorie}</h2>
                         <br></br>
                         <h:outputText value ="#{categorieBean.categorie.description}"/>	
+                        <br></br>
                         	<h:form>
                         		
                         	   	
@@ -100,7 +113,7 @@
 
 	                        	<!--  Image produit  -->
 	                        	<h:column >
-								<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
+								<h:graphicImage library = "img" name="#{product.photo}" styleClass="imageProduit" width="64px" height="64px" />	
 								</h:column>
 							
 							
@@ -135,12 +148,10 @@
 								
 								</h:column>
 								
-								
 						   						
 						   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
 								<h:outputText value="Editer Produit" />
 								
-                        	
                         	
                         		</h:dataTable>
 
@@ -155,11 +166,11 @@
     </div>
     
     <!-- /#wrapper -->
-    
-    <!--  Bootstrap  -->
+        <!--  Bootstrap  -->
 	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
 	
 	<!--  Notre CSS  -->
 	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+
 </body> 
 </html>
