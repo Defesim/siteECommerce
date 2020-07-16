@@ -18,26 +18,7 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Catégorie</a>
-                </li>
-                <br></br>
-                <li>
-                	<p>Que recherchez-vous</p>
-					<form class="form-inline" action="#">
-						<div class="form-group mx-sm-3 mb-2">
-						   <input type="text" class="form-control" id="RechercheMotClef" name="MotRecherche"></input>
-						</div>
-						<button type="submit" class="btn btn-primary mb-2">Rechercher</button>
-					</form>
-                </li>
-            </ul>
+           
         </div>
         <!-- /#sidebar-wrapper -->
 
@@ -46,9 +27,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Bienvenu(e)</h1>
-                        <p>Nom catégorie</p>
-                        <p>Description catégorie si nécessaire</p>
                         
                         <!-- Formulaire d'ajout d'un nouveau produit  -->
 	<h:form>
@@ -96,7 +74,7 @@
 	 -->
 	
 	
-	<h:commandButton action="listproduit" actionListener="#{produitBean.ajouterProduit()}" value="Ajouter" />
+	<h:commandButton action="accueil" actionListener="#{produitBean.ajouterProduit()}" value="Ajouter" />
 	</f:facet>
 	
 	</h:panelGrid>
@@ -114,7 +92,6 @@
     <!-- /#wrapper -->
 
 	<!-- Notre Script -->
-    <script src="resources/scripts/scriptAccueil.js"></script>
 	
 </body> 
 </html>

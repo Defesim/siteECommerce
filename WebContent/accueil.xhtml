@@ -6,13 +6,13 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
 	<title>Page d'accueil</title>
 	
 	<!-- Notre Script -->
     <script src="resources/scripts/scriptAccueil.js"></script>
 
-</head> 
+</h:head> 
 <body> 
 
 <div id="wrapper">
@@ -65,9 +65,9 @@
                 	<h:form class="form-horizontal" method="post" id="formId">      
 					  <div class="control-group">
 					  <label class="sr-only" for="inputMotCle">Mot cle</label>
-					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
 					  </div> 
-					  <h:commandButton value="click" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
+					  <h:commandButton value="Rechercher" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
+					  	<h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
 					  	<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
 					  </h:commandButton>
 					  
@@ -79,7 +79,38 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+			<h:form>
+				<div>
+					<label class="btn btn-secondary active">
+						<h:commandLink id="directionGestionProduits" action="accueil"
+															  actionListener="#{produitBean.findallProduitBdd()}">
+						<h:outputText value="Gestion Produits"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+			<h:form>
+				<div>
+					<label class="btn btn-secondary">
+						<h:commandLink id="directionGestionCategories" action="gestion_categories"
+															  actionListener="#{categorieBean.findallCategorie()}">
+						<h:outputText value="Gestion Categories"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+			<h:form>
+				<div>
+					<label class="btn btn-secondary">
+						<h:commandLink id="directionGestionClients" action="gestion_clients"
+															  actionListener="#{ClientsBean.findAllClientsBdd()}">
+						<h:outputText value="Gestion Clients"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+		</div>
         
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -100,7 +131,7 @@
 									</h:form>
 						        
 						        </div>
-                        	   	
+
                         	   	<h:dataTable value="#{produitBean.listeProduitBdd}" var="product" border="1" width="60%">
 
 	                        	<!--  Image produit  -->
@@ -127,6 +158,12 @@
 								<h:column>
 								<f:facet name="header"> Prix </f:facet>
 								<h:outputText value = "#{product.prix} €"/>		
+								</h:column>
+								
+								<!--  prix du produit  -->
+								<h:column>
+								<f:facet name="header"> Quantite disponible </f:facet>
+								<h:outputText value = "#{product.quantite}"/>		
 								</h:column>
 
 								
@@ -155,67 +192,8 @@
 
 								</h:column>
                         	
-                        	
                         		</h:dataTable>
 
-								<c:if test="#{produitBean.listeProduitBdd}==null">
-								<p>test</p>
-	                        		<h:dataTable value="#{produitBean.findallProduitBdd}" var="product" border="1" width="60%">
-	
-		                        	<!--  Image produit  -->
-		                        	<h:column >
-									<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
-									</h:column>
-								
-								
-									<!--  nom du produit  -->
-									<h:column>
-									<f:facet name="header"> Nom </f:facet>
-									<h:outputText value = "#{product.nom}"/>	
-									</h:column>
-						
-						
-									<!--  description du produit  -->			
-									<h:column>
-									<f:facet name="header"> Description </f:facet>
-									<h:outputText value = "#{product.description}"/>		
-									</h:column>
-									
-									
-									<!--  prix du produit  -->
-									<h:column>
-									<f:facet name="header"> Prix </f:facet>
-									<h:outputText value = "#{product.prix} €"/>		
-									</h:column>
-	
-									
-									<!--  editer un produit  -->
-									<h:column>
-									<f:facet name="header"> Editer </f:facet>
-									
-									<h:commandLink id="editProduit" action="editProduit"
-							   						actionListener="#{produitBean.selectionnerProduit}">
-							   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
-									<h:outputText value="Editer Produit" />		   
-									</h:commandLink>     
-	
-									</h:column>
-									
-									
-									<!--  supprimer un produit  -->
-									<h:column>
-									<f:facet name="header"> Supprimer </f:facet>
-									
-									<h:commandLink id="deleteProduit" action="deleteProduit"
-							   						actionListener="#{produitBean.supprimerProduit}">
-							   		<f:param id="deleteID" name="id" value="#{product.id_Produit}"></f:param>
-									<h:outputText value="Supprimer Produit" />		   
-									</h:commandLink>     
-	
-									</h:column>
-	                        	
-	                        		</h:dataTable>
-                        		</c:if>
                         </h:form>
                     </div>
                 </div>

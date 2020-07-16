@@ -366,7 +366,6 @@ public class ProduitDAOImpl implements IProduitDAO{
 		try {
 			motCle = "%"+motCle+"%";
 			String requeteGetAllProduits = "select * from Produit WHERE nom like ?";
-			System.out.println(motCle);
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
 			ps.setString(1, motCle);
 			

@@ -1,12 +1,15 @@
 package com.intiformation.siteECommerce.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
@@ -22,7 +25,7 @@ import com.intiformation.siteECommerce.modele.Produit;
 @SessionScoped
 public class GestionProduitBean implements Serializable {
 
-	private List<Produit> listeProduitBdd;
+	private List<Produit> listeProduitBdd = new ArrayList<>();
 	private Produit produit;
 	private String motCle;
 	
@@ -69,6 +72,7 @@ public class GestionProduitBean implements Serializable {
 		setProduit(produitAdd);
 
 	}// end initialiserProduit
+	
 	
 	/**
 	 * ajouter Produit
