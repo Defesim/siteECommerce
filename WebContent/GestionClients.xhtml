@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page d'accueil</title>
+	
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+
+</h:head> 
+<body> 
+
+<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+			<h:form>
+				<div>
+					<label class="btn btn-secondary">
+						<h:commandLink id="directionGestionProduits" action="accueil"
+															  actionListener="#{produitBean.findallProduitBdd()}">
+						<h:outputText value="Gestion Produits"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+			<h:form>
+				<div>
+					<label class="btn btn-secondary active">
+						<h:commandLink id="directionGestionCategories" action="gestion_categories"
+															  actionListener="#{categorieBean.findallCategorie()}">
+						<h:outputText value="Gestion Categories"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+			<h:form>
+				<div>
+					<label class="btn btn-secondary">
+						<h:commandLink id="directionGestionClients" action="gestion_clients"
+															  actionListener="#{ClientsBean.findAllClientsBdd()}">
+						<h:outputText value="Gestion Clients"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
+		</div>
+        
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Bienvenu(e)</h1>
+                        	<h:form>
+                        	
+                        		<div>
+						        	<!--  ajouter une categorie  -->
+						        	<h:form>					
+										
+											<h:commandButton action="ajoutClients" actionListener="#{ClientsBean.initialiserClients()}" value="Ajouter un client" />
+										
+									</h:form>
+						        
+						        </div>
+                        	
+	                        		<h:dataTable value="#{ClientsBean.findAllClientsBdd()}" var="clients" border="1" width="60%">
+	
+		                        	<!--  Nom Categorie  -->
+		                        	<h:column >
+		                        	<f:facet name="header"> ID Clients </f:facet>
+									<h:outputText value="#{clients.id_Client}"/>	
+									</h:column>
+								
+								
+									<!--  Description  -->
+									<h:column>
+									<f:facet name="header"> Nom Client </f:facet>
+									<h:outputText value = "#{clients.nom_Client}"/>	
+									</h:column>
+									
+									<!--  Description  -->
+									<h:column>
+									<f:facet name="header"> Adresse </f:facet>
+									<h:outputText value = "#{clients.adresse}"/>	
+									</h:column>
+									
+									<!--  Description  -->
+									<h:column>
+									<f:facet name="header"> Email </f:facet>
+									<h:outputText value = "#{clients.email}"/>	
+									</h:column>
+									
+									<!--  Description  -->
+									<h:column>
+									<f:facet name="header"> Telephone </f:facet>
+									<h:outputText value = "#{clients.telephone}"/>	
+									</h:column>
+	
+									
+									<!--  editer une categorie  -->
+									<h:column>
+									<f:facet name="header"> Editer </f:facet>
+									
+									<h:commandLink id="editClients" action="editClients"
+							   						actionListener="#{ClientsBean.selectionnerClients()}">
+							   		<f:param id="updateID" name="id" value="#{clients.id_Client}"></f:param>
+									<h:outputText value="Editer Clients" />		   
+									</h:commandLink>     
+	
+									</h:column>
+									
+									
+									<!--  supprimer une categorie  -->
+									<h:column>
+									<f:facet name="header"> Supprimer </f:facet>
+									
+									<h:commandLink id="deleteClients" action="deleteClients"
+							   						actionListener="#{ClientsBean.supprimerClients()}">
+							   		<f:param id="deleteID" name="id" value="#{clients.id_Client}"></f:param>
+									<h:outputText value="Supprimer Client" />		   
+									</h:commandLink>     
+	
+									</h:column>
+	                        	
+	                        		</h:dataTable>
+	                	</h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    
+    <!-- /#wrapper -->
+    
+    <!--  Bootstrap  -->
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+	<!--  Notre CSS  -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+</body> 
+</html>
