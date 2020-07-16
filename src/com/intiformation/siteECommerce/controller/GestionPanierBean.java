@@ -92,6 +92,15 @@ public String ajouterAuPanier(ActionEvent event) {
 			//2. recup de la valeur du paramètre
 			int PanierPanierId = (int) cp.getValue();
 			
+			
+			/*if (PanierPanierId == Panier.getId_Produit() ) {
+				
+			} else {
+
+			}//end else id non présent dans panier*/
+			
+			
+			
 			//3 suppression du livre dans la bdd via l'id
 			
 			//3.1 recup du context de JSFc
@@ -117,7 +126,7 @@ public String ajouterAuPanier(ActionEvent event) {
 				contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
 						"suppresion Panier", 
 						"- la suppresion a échoué ta vie est un echec total :p"));
-				return "panier.xhtml?faces-redirect=true";
+				return "accueil.xhtml?faces-redirect=true";
 			}//end else
 		
 	}//end ajouter
