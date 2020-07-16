@@ -52,7 +52,7 @@
                         
                         <!-- Formulaire d'ajout d'un nouveau categorie  -->
 	<h:form>	
-	<h:panelGrid columns="3" border="1" cellpadding="5" cellspacing="5" width="50%">
+	<h:panelGrid columns="4" border="1" cellpadding="5" cellspacing="5" width="50%">
 	
 	<f:facet name="header">
 	Formulaire d'ajout d'un nouveau categorie
@@ -60,10 +60,10 @@
 	</f:facet>
 	
 	<h:outputLabel for="idnom" value="Nom" />
-	<h:inputText id="idnom" value="#{categorieBean.categorie.nom_Categorie}" required="true" requiredMessage="nom obligatoire" />
+	<h:outputText id="idnom" value="#{categorieBean.categorie.nom_Categorie}"/>
 	
-	<h:outputLabel for="idcategorie" value="Categorie" />
-	<h:inputText id="idcategorie" value="#{categorieBean.categorie.description}" required="true" requiredMessage="categorie obligatoire"/>
+	<h:outputLabel for="idcategorie" value="Description" />
+	<h:inputText id="idcategorie" value="#{categorieBean.categorie.description}" required="true" requiredMessage="description obligatoire"/>
 	
 	
 	

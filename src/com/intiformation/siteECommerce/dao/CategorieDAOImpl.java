@@ -70,8 +70,8 @@ public class CategorieDAOImpl implements ICategorieDAO {
 			
 			String requeteUpdate = "UPDATE Categorie SET description=? WHERE nom_Categorie=?";
 			ps = this.connection.prepareStatement(requeteUpdate);
-			ps.setString(1, pCategorie.getNom_Categorie());
-			ps.setString(2, pCategorie.getDescription());
+			ps.setString(1, pCategorie.getDescription());
+			ps.setString(2, pCategorie.getNom_Categorie());
 
 			
 			int verifUpdate = ps.executeUpdate();

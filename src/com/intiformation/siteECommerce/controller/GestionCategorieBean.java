@@ -101,7 +101,6 @@ public class GestionCategorieBean implements Serializable{
 		if (categorieDAO.update(categorie)) {
 			
 			//modif ok
-			
 			//-> message vers la vue 
 			FacesMessage messageOk = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification", " - La modification a été faite avec succés");
 			
@@ -110,7 +109,7 @@ public class GestionCategorieBean implements Serializable{
 			
 			
 		} else {
-
+			
 			//modif not ok
 			//-> message vers la vue 
 			FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Echec de la Modification", " - La modification n'a pas fonctionnée");
