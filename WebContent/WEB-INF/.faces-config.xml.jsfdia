@@ -110,4 +110,17 @@
     TARGET="rules:#GestionClients.xhtml" TITLE="editClients" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#accueilGrandPublic.xhtml"
+  PATH="/accueilGrandPublic.xhtml" SHAPE="32,1857,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#accueilGrandPublic.xhtml:0" NAME="item"
+   PATH="/accueilGrandPublic.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="AjoutPanier::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="AjoutPanier" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="VoirPanier::#panier.xhtml" NAME="output1"
+    PATH="/panier.xhtml" TARGET="rules:#panier.xhtml" TITLE="VoirPanier" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#panier.xhtml" PATH="/panier.xhtml"
+  SHAPE="256,2209,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

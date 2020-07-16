@@ -284,4 +284,34 @@
 	
 	</navigation-rule>
 
+	<navigation-rule>
+		
+		<!--  page de départ : accueilGrandPublic  -->
+		<from-view-id>/accueilGrandPublic.xhtml</from-view-id>
+		
+		<!--  de 'accueilGrandPublic.xhtml' vers 'accueilGrandPublic.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>AjoutPanier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'accueilGrandPublic.xhtml' vers 'panier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>VoirPanier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/panier.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+	
+	</navigation-rule>
+
+
 </faces-config>

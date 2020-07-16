@@ -3,6 +3,7 @@ package com.intiformation.siteECommerce.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -37,6 +38,8 @@ public class GestionPanierBean implements Serializable {
 		return listePanierBdd;
 	}// end listePanier
 	
+	// @PostConstruct force l'utilisation de la méthode au début de l'application (dépend du scoped)
+	@PostConstruct
 	public void ViderPanierBdd() {
 		
 		

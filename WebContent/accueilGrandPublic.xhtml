@@ -79,7 +79,11 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        
+        <h:form>
+        <h:commandLink id="VoirPanier" action="VoirPanier">	
+			<h:graphicImage library="img" name="panier.jpg"></h:graphicImage>
+		</h:commandLink>
+		</h:form>
         
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -120,53 +124,27 @@
 								<h:outputText value = "#{product.prix} €"/>		
 								</h:column>
 
+								<!--  ajout au panier  -->
+								<h:column>
+								<f:facet name="header"> Ajout au panier </f:facet>
+								<h:commandLink id="AjoutPanier" action="AjoutPanier"
+												actionListener="#{panierBean.ajouterAuPanier}">
+									<h:outputText value="Ajouter au panier" />	
+									<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
+								</h:commandLink>
+								
+								</h:column>
 								
 								
-								
-								
+						   						
+						   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
+								<h:outputText value="Editer Produit" />
 								
                         	
                         	
                         		</h:dataTable>
 
-								<c:if test="#{produitBean.listeProduitBdd}==null">
-								<p>test</p>
-	                        		<h:dataTable value="#{produitBean.findallProduitBdd}" var="product" border="1" width="60%">
-	
-		                        	<!--  Image produit  -->
-		                        	<h:column >
-									<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
-									</h:column>
-								
-								
-									<!--  nom du produit  -->
-									<h:column>
-									<f:facet name="header"> Nom </f:facet>
-									<h:outputText value = "#{product.nom}"/>	
-									</h:column>
-						
-						
-									<!--  description du produit  -->			
-									<h:column>
-									<f:facet name="header"> Description </f:facet>
-									<h:outputText value = "#{product.description}"/>		
-									</h:column>
-									
-									
-									<!--  prix du produit  -->
-									<h:column>
-									<f:facet name="header"> Prix </f:facet>
-									<h:outputText value = "#{product.prix} €"/>		
-									</h:column>
-	
-									
-									
-									
-									
-									
-	                        	
-	                        		</h:dataTable>
-                        		</c:if>
+
                         </h:form>
                     </div>
                 </div>
