@@ -124,10 +124,9 @@
                         		<div>
 						        	<!--  ajouter un produit  -->
 						        	<h:form>					
-										<h:commandLink id="ajoutProduit" action="ajoutProduit"
-													   actionListener="#{produitBean.initialiserProduit}">
-										<h:outputText value="Ajouter un produit" />		   
-										</h:commandLink>
+										
+									<h:commandButton action="ajoutProduit" actionListener="#{produitBean.initialiserProduit}" value="Ajouter un produit" />
+										
 									</h:form>
 						        
 						        </div>
