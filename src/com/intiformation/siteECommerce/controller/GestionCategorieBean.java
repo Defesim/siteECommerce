@@ -31,6 +31,7 @@ public class GestionCategorieBean implements Serializable{
 	
 	public List<Categorie> findallCategorie(){
 		listeCategorieBdd = categorieDAO.getAll();
+		setListeCategorieBdd(listeCategorieBdd);
 		return listeCategorieBdd;
 		
 	}//findallCategorie
@@ -137,13 +138,13 @@ public class GestionCategorieBean implements Serializable{
 	public void selectionnerCategorie(ActionEvent event) {
 		
 		//1. recup du paramètre passé au composant au click sur le lien "éditer"
-		UIParameter uip = (UIParameter) event.getComponent().findComponent("updateID");
+		UIParameter uip = (UIParameter) event.getComponent().findComponent("nomCategorieSelection");
 		
 		//2 recup de la valeur
-		int categorieID = (int) uip.getValue();
+		String categorieID = (String) uip.getValue();
 		
 		//3 recup du categorie à éditer via l'id dans la bdd
-		Categorie categorieAEditer = categorieDAO.getById(categorieID);
+		Categorie categorieAEditer = categorieDAO.getByName(categorieID);
 		
 		//4 affectation du categorie à éditer à la variable 'categorie ' du MB
 		setCategorie(categorieAEditer);
@@ -205,15 +206,20 @@ public class GestionCategorieBean implements Serializable{
 	//-------------------getter/setter------------------------------------------------
 	
 	
-	
-	
-	
 	public Categorie getCategorie() {
 		return categorie;
 	}
 
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
+	}
+
+	public List<Categorie> getListeCategorieBdd() {
+		return listeCategorieBdd;
+	}
+
+	public void setListeCategorieBdd(List<Categorie> listeCategorieBdd) {
+		this.listeCategorieBdd = listeCategorieBdd;
 	}
 	
    

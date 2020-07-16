@@ -34,6 +34,7 @@ public class GestionPanierBean implements Serializable {
 
 	public List<Panier> findallPanierBdd() {
 		listePanierBdd = PanierDAO.getAll();
+		setListePanierBdd(listePanierBdd);
 		return listePanierBdd;
 	}// end listePanier
 	
@@ -219,6 +220,14 @@ public void supprimerPanier(ActionEvent event) {
 
 	public void setPanier(Panier panier) {
 		Panier = panier;
+	}
+
+	public List<Panier> getListePanierBdd() {
+		return listePanierBdd;
+	}
+
+	public void setListePanierBdd(List<Panier> listePanierBdd) {
+		this.listePanierBdd = listePanierBdd;
 	}
 	
 	

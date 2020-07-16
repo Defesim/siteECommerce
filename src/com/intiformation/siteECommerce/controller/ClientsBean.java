@@ -30,7 +30,7 @@ public class ClientsBean {
 	
 	public List<Clients> findAllClientsBdd(){
 		listeClientsbdd = ClientsDAO.getAll();
-		
+		setListeClientsbdd(listeClientsbdd);
 		return listeClientsbdd;
 	}//end findAllClients
 	
@@ -214,6 +214,16 @@ public class ClientsBean {
 
 	public void setClients(Clients clients) {
 		Clients = clients;
+	}
+
+
+	public List<Clients> getListeClientsbdd() {
+		return listeClientsbdd;
+	}
+
+
+	public void setListeClientsbdd(List<Clients> listeClientsbdd) {
+		this.listeClientsbdd = listeClientsbdd;
 	}
 	
 	
