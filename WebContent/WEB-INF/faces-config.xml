@@ -68,7 +68,7 @@
 	
 	<navigation-rule>
 		
-		<!--  page de départ : Accueil  -->
+		<!--  page de départ : ajouter-produit  -->
 		<from-view-id>/ajouter-produit.xhtml</from-view-id>
 		
 		<!--  de 'accueil.xhtml' vers 'ajouter-produit.xhtml'  -->
