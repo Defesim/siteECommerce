@@ -74,7 +74,9 @@
 	 -->
 	
 	
-	<h:commandButton action="accueil" actionListener="#{produitBean.ajouterProduit()}" value="Ajouter" />
+	<h:commandButton action="accueil" actionListener="#{produitBean.ajouterProduit()}" value="Ajouter">
+	<f:setPropertyActionListener value="#{produitBean.findallProduitBdd()}" target="#{produitBean.listeProduitBdd}" />
+	</h:commandButton>
 	</f:facet>
 	
 	</h:panelGrid>
