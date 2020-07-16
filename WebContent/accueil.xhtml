@@ -30,9 +30,9 @@
 						
 							<h:commandLink id="selectionParCategorie" action="accueil"
 													  actionListener="#{produitBean.findallProduitBdd()}">
-								<f:param id="categorieChoisie" name="categorieChoisie" value="Toutes catÃ©gories"></f:param>
+								<f:param id="categorieChoisie" name="categorieChoisie" value="Toutes catégories"></f:param>
 								<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
-								<h:outputText value="Toutes catÃ©gories" />	
+								<h:outputText value="Toutes catégories" />	
 							</h:commandLink>	   
 						
 						
@@ -126,7 +126,7 @@
 								<!--  prix du produit  -->
 								<h:column>
 								<f:facet name="header"> Prix </f:facet>
-								<h:outputText value = "#{product.prix} â‚¬"/>		
+								<h:outputText value = "#{product.prix} €"/>		
 								</h:column>
 
 								
@@ -185,7 +185,7 @@
 									<!--  prix du produit  -->
 									<h:column>
 									<f:facet name="header"> Prix </f:facet>
-									<h:outputText value = "#{product.prix} â‚¬"/>		
+									<h:outputText value = "#{product.prix} €"/>		
 									</h:column>
 	
 									
