@@ -24,6 +24,7 @@ public class GestionProduitBean implements Serializable {
 
 	private List<Produit> listeProduitBdd;
 	private Produit produit;
+	private String motCle;
 	
 	private IProduitDAO produitDAO;
 
@@ -51,12 +52,7 @@ public class GestionProduitBean implements Serializable {
 	}// end listeProduit
 	
 	public List<Produit> findProduitByMotCle(ActionEvent event) {
-		//1. recup du paramètre passé au composant au click sur le lien "Rechercher"
-		UIParameter uip = (UIParameter) event.getComponent().findComponent("MotCle");
-				
-		//2 recup de la valeur
-		String MotCle = (String) uip.getValue();
-		listeProduitBdd = produitDAO.getByRecherche(MotCle);
+		listeProduitBdd = produitDAO.getByRecherche(motCle);
 		setListeProduitBdd(listeProduitBdd);
 		return listeProduitBdd;
 	}// end listeProduit
@@ -242,6 +238,14 @@ public class GestionProduitBean implements Serializable {
 
 	public void setListeProduitBdd(List<Produit> listeProduitBdd) {
 		this.listeProduitBdd = listeProduitBdd;
+	}
+	
+	public String getMotCle() {
+		return motCle;
+	}
+
+	public void setMotCle(String motCle) {
+		this.motCle = motCle;
 	}
 
 }// end class

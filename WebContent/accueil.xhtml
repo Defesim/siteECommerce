@@ -65,7 +65,7 @@
                 	<h:form class="form-horizontal" method="post" id="formId">      
 					  <div class="control-group">
 					  <label class="sr-only" for="inputMotCle">Mot cle</label>
-					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{MotCle}"> </h:inputText>
+					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{produitBean.motCle}"> </h:inputText>
 					  </div> 
 					  <h:commandButton value="click" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
 					  	<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 

@@ -364,7 +364,7 @@ public class ProduitDAOImpl implements IProduitDAO{
 		ResultSet rs = null;
 		
 		try {
-			motCle = "'%"+motCle+"%'";
+			motCle = "%"+motCle+"%";
 			String requeteGetAllProduits = "select * from Produit WHERE nom like ?";
 			System.out.println(motCle);
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
@@ -395,7 +395,7 @@ public class ProduitDAOImpl implements IProduitDAO{
 		} //end try
 		catch (SQLException e) {
 			
-			System.out.println("--> getByCategorie() <-- : Erreur lors de la récupération de la liste des Produits dans ProduitDAOImpl");
+			System.out.println("--> getByRecherche() <-- : Erreur lors de la récupération de la liste des Produits dans ProduitDAOImpl");
 			e.printStackTrace();
 			
 		} //end catch
