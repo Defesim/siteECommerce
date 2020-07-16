@@ -182,18 +182,102 @@
 	
 	</navigation-rule>
 	
+	
+	
+	
+	
+	
+	<navigation-rule>
+		
+		<!--  page de départ : GestionClients  -->
+		<from-view-id>/GestionClients.xhtml</from-view-id>
+		
+		<!--  cas de navigation  -->
+		<!--  de 'GestionClients.xhtml' vers 'GestionClients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_clients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionClients.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'GestionCategories.xhtml' vers 'GestionClients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_categories</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'GestionCategories.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>accueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'GestionCategories.xhtml' vers 'ajouter-categorie.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>ajoutClients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/ajouter-Clients.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+		<!--  de 'GestionCategories.xhtml' vers 'editer-categorie.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>editClients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/editer-Clients.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : ajouter-categorie  -->
+		<from-view-id>/ajouter-Clients.xhtml</from-view-id>
+		
+		<!--  de 'accueil.xhtml' vers 'ajouter-produit.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>ajoutClients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionClients.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+	
+	</navigation-rule>
+	
 	<navigation-rule>
 		
 		<!--  page de départ : editer-categorie  -->
-		<from-view-id>/editer-categorie.xhtml</from-view-id>
+		<from-view-id>/editer-Clients.xhtml</from-view-id>
 		
 		<!--  de 'editer-produit.xhtml' vers 'accueil.xhtml'  -->
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
-			<from-outcome>editCategorie</from-outcome>
+			<from-outcome>editClients</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<to-view-id>/GestionClients.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>

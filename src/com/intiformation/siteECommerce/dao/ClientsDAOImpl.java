@@ -19,7 +19,7 @@ public class ClientsDAOImpl implements IClientsDAO {
 		try {
 
 			ps = this.connection
-					.prepareStatement(" INSERT INTO Clients (nom_Clients, adresse, email, telephone)" + " VALUES (?,?,?,?)");
+					.prepareStatement(" INSERT INTO Clients (nom_Client, adresse, email, telephone)" + " VALUES (?,?,?,?)");
 
 			
 			ps.setString(1, pClients.getNom_Client());
