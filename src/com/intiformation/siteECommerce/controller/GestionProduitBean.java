@@ -210,6 +210,7 @@ public class GestionProduitBean implements Serializable {
 		//3.2 suppression du produit
 		if (produitDAO.delete(produitId)) {
 			
+			this.findallProduitBdd();
 			//suppresion ok
 			
 			//envoi d'un message vers la vue via le context de JSF

@@ -46,9 +46,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Bienvenu(e)</h1>
-                        <p>Nom catégorie</p>
-                        <p>Description catégorie si nécessaire</p>
                         
                         <!-- Formulaire d'ajout d'un nouveau categorie  -->
 	<h:form>
@@ -78,13 +75,16 @@
 	 -->
 	
 	
-	<h:commandButton action="listcategorie" actionListener="#{categorieBean.ajouterCategorie()}" value="Ajouter" />
+	<h:commandButton action="ajoutCategorie" actionListener="#{categorieBean.ajouterCategorie()}" value="Ajouter">
+	<f:setPropertyActionListener value="#{categorieBean.findallCategorie()}" target="#{categorieBean.listeCategorieBdd}" />
+	</h:commandButton>
+	
 	</f:facet>
 	
 	</h:panelGrid>
 	
 	</h:form>
-<h:link value="retour à la page" outcome="accueil.xhtml?faces-redirect=true"/>
+<h:link value="retour à la page" outcome="GestionCategories.xhtml?faces-redirect=true"/>
                         
                     </div>
                 </div>

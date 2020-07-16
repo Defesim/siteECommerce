@@ -68,10 +68,7 @@
                         		<div>
 						        	<!--  ajouter une categorie  -->
 						        	<h:form>					
-										<h:commandLink id="ajoutCategorie" action="ajoutCategorie"
-													   actionListener="#{categorieBean.initialiserCategorie}">
-										<h:outputText value="Ajouter une categorie" />		   
-										</h:commandLink>
+										<h:commandButton action="ajoutCategorie" actionListener="#{categorieBean.initialiserCategorie}" value="Ajouter une catégorie" />
 									</h:form>
 						        
 						        </div>
@@ -98,7 +95,7 @@
 									
 									<h:commandLink id="editCategorie" action="editCategorie"
 							   						actionListener="#{categorieBean.selectionnerCategorie}">
-							   		<f:param id="updateId" name="id" value="#{cat.nom_Categorie}"></f:param>
+							   		<f:param id="nomCategorieSelection" name="id" value="#{cat.nom_Categorie}"></f:param>
 									<h:outputText value="Editer Categorie" />		   
 									</h:commandLink>     
 	

@@ -76,7 +76,9 @@
 	 -->
 	
 	
-	<h:commandButton action="listcategorie" actionListener="#{categorieBean.modifierCategorie}" value="Modifier" />
+	<h:commandButton action="editCategorie" actionListener="#{categorieBean.modifierCategorie}" value="Modifier">
+	<f:setPropertyActionListener value="#{categorieBean.findallCategorie()}" target="#{categorieBean.listeCategorieBdd}" />
+	</h:commandButton>
 	</f:facet>
 	
 	</h:panelGrid>

@@ -22,7 +22,14 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter-categorie.xhtml"
-  PATH="/ajouter-categorie.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/ajouter-categorie.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ajouter-categorie.xhtml:0" NAME="item"
+   PATH="/ajouter-categorie.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#GestionCategories.xhtml"
+    NAME="output" PATH="/GestionCategories.xhtml"
+    TARGET="rules:#GestionCategories.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter-produit.xhtml"
   PATH="/ajouter-produit.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter-produit.xhtml:0" NAME="item"
@@ -59,6 +66,18 @@
    <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#ajouter-categorie.xhtml"
     NAME="output3" PATH="/ajouter-categorie.xhtml"
     TARGET="rules:#ajouter-categorie.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editCategorie::#editer-categorie.xhtml"
+    NAME="output1" PATH="/editer-categorie.xhtml"
+    TARGET="rules:#editer-categorie.xhtml" TITLE="editCategorie" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editer-categorie.xhtml"
+  PATH="/editer-categorie.xhtml" SHAPE="80,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editer-categorie.xhtml:0" NAME="item"
+   PATH="/editer-categorie.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editCategorie::#GestionCategories.xhtml"
+    NAME="output" PATH="/GestionCategories.xhtml"
+    TARGET="rules:#GestionCategories.xhtml" TITLE="editCategorie" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

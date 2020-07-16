@@ -86,7 +86,7 @@
 	
 	<navigation-rule>
 		
-		<!--  page de départ : Accueil  -->
+		<!--  page de départ : editer-produit  -->
 		<from-view-id>/editer-produit.xhtml</from-view-id>
 		
 		<!--  de 'editer-produit.xhtml' vers 'accueil.xhtml'  -->
@@ -156,10 +156,46 @@
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
+			<from-outcome>editCategorie</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/editer-categorie.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : ajouter-categorie  -->
+		<from-view-id>/ajouter-categorie.xhtml</from-view-id>
+		
+		<!--  de 'accueil.xhtml' vers 'ajouter-produit.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
 			<from-outcome>ajoutCategorie</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/ajouter-categorie.xhtml</to-view-id>
+			<to-view-id>/GestionCategories.xhtml</to-view-id>
 			<redirect/>
+		
+		</navigation-case>
+	
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : editer-categorie  -->
+		<from-view-id>/editer-categorie.xhtml</from-view-id>
+		
+		<!--  de 'editer-produit.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>editCategorie</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<redirect/>
+		
 		</navigation-case>
 	
 	</navigation-rule>

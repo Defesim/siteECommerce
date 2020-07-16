@@ -172,7 +172,7 @@ public class GestionCategorieBean implements Serializable{
 		UIParameter cp = (UIParameter) composantParam;
 		
 		//2. recup de la valeur du paramètre
-		int categorieId = (int) cp.getValue();
+		String categorieId = (String) cp.getValue();
 		
 		//3 suppression du categorie dans la bdd via l'id
 		
@@ -181,6 +181,8 @@ public class GestionCategorieBean implements Serializable{
 		
 		//3.2 suppression du categorie
 		if (categorieDAO.delete(categorieId)) {
+			
+			this.findallCategorie();
 			
 			//suppresion ok
 			
