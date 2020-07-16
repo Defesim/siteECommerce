@@ -24,6 +24,7 @@ public class GestionProduitBean implements Serializable {
 
 	private List<Produit> listeProduitBdd;
 	private Produit produit;
+	
 	private IProduitDAO produitDAO;
 
 	public GestionProduitBean() {
@@ -34,16 +35,29 @@ public class GestionProduitBean implements Serializable {
 
 	public List<Produit> findallProduitBdd() {
 		listeProduitBdd = produitDAO.getAll();
+		setListeProduitBdd(listeProduitBdd);
 		return listeProduitBdd;
 	}// end listeProduit
 	
 	public List<Produit> findProduitByCategorieBdd(ActionEvent event) {
-		//1. recup du paramètre passé au composant au click sur le lien "éditer"
-				UIParameter uip = (UIParameter) event.getComponent().findComponent("nomCategorie");
+		//1. recup du paramètre passé au composant au click sur la catégorie choisie
+		UIParameter uip = (UIParameter) event.getComponent().findComponent("nomCategorie");
 				
-				//2 recup de la valeur
-				String NomCategorie = (String) uip.getValue();
+		//2 recup de la valeur
+		String NomCategorie = (String) uip.getValue();
 		listeProduitBdd = produitDAO.getByCategorie(NomCategorie);
+		setListeProduitBdd(listeProduitBdd);
+		return listeProduitBdd;
+	}// end listeProduit
+	
+	public List<Produit> findProduitByMotCle(ActionEvent event) {
+		//1. recup du paramètre passé au composant au click sur le lien "Rechercher"
+		UIParameter uip = (UIParameter) event.getComponent().findComponent("MotCle");
+				
+		//2 recup de la valeur
+		String MotCle = (String) uip.getValue();
+		listeProduitBdd = produitDAO.getByRecherche(MotCle);
+		setListeProduitBdd(listeProduitBdd);
 		return listeProduitBdd;
 	}// end listeProduit
 
@@ -163,9 +177,6 @@ public class GestionProduitBean implements Serializable {
 		//5 redirection vers la page édition 'editer-produit.xhtml' (ref : les clés d'outcom 'editbook' du faces-config.xml)
 		
 		
-		
-		
-		
 	}//end selectionner produit
 	
 	
@@ -223,6 +234,14 @@ public class GestionProduitBean implements Serializable {
 
 	public void setProduit(Produit produit) {
 		this.produit = produit;
+	}
+	
+	public List<Produit> getListeProduitBdd() {
+		return listeProduitBdd;
+	}
+
+	public void setListeProduitBdd(List<Produit> listeProduitBdd) {
+		this.listeProduitBdd = listeProduitBdd;
 	}
 
 }// end class

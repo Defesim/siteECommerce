@@ -8,6 +8,10 @@
 
 <head>
 	<title>Page d'accueil</title>
+	
+	<!-- Notre Script -->
+    <script src="resources/scripts/scriptAccueil.js"></script>
+
 </head> 
 <body> 
 
@@ -23,12 +27,27 @@
 					    
 					  <div>
 						<h:form>
+						
+							<h:commandLink id="selectionParCategorie" action="accueil"
+													  actionListener="#{produitBean.findallProduitBdd()}">
+								<f:param id="categorieChoisie" name="categorieChoisie" value="Toutes catégories"></f:param>
+								<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
+								<h:outputText value="Toutes catégories" />	
+							</h:commandLink>	   
+						
+						
+						</h:form>
+						
+						
+					   </div> 
+					   <div>  
+					   	<h:form>	  
 					    <h:dataTable value="#{categorieBean.findallCategorie()}" var="cat" border="0" width="80%">
-					    <h:column>
-								<h:commandLink id="selectionParCategorie" action="accueil"
-													   actionListener="#{produitBean.findallProduitBdd}">
-										<f:param id="categorieChoisie" name="categorieChoisie" value="#{cat.nom_Categorie}"></f:param>
-										<h:outputText value="#{cat.nom_Categorie}" />		   
+					    <h:column>  
+								<h:commandLink id="selectionParCategorie" action="accueil" actionListener="#{produitBean.findProduitByCategorieBdd}">
+										<f:param id="nomCategorie" value="#{cat.nom_Categorie}"></f:param>
+										<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{cat}" /> 
+										<h:outputText value="#{cat.nom_Categorie}" />		  
 								</h:commandLink>	
 						</h:column>
 						</h:dataTable>
@@ -46,9 +65,12 @@
                 	<h:form class="form-horizontal" method="post" id="formId">      
 					  <div class="control-group">
 					  <label class="sr-only" for="inputMotCle">Mot cle</label>
-					  <h:inputText id="inputMotCle" placeholder="Mot cle" value="nomCategorie"> </h:inputText>
+					  <h:inputText id="MotCle" placeholder="Mot cle" value="#{MotCle}"> </h:inputText>
 					  </div> 
-					  <h:commandButton value="click" action="#{produitBean.findallProduitBdd()}"/>       
+					  <h:commandButton value="click" action="accueil" actionListener="#{produitBean.findProduitByMotCle}">
+					  	<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
+					  </h:commandButton>
+					  
 					</h:form>
 	
                 </li>
@@ -64,8 +86,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Bienvenu(e)</h1>
-                        <h:outputText value ="#{categorieChoisie}"/>	
-                        <h:outputText value ="#{categorieChoisie}"/>	
+                        <h2>${categorieBean.categorie.nom_Categorie}</h2>
+                        <br></br>
+                        <h:outputText value ="#{categorieBean.categorie.description}"/>	
                         	<h:form>
                         		<div>
 						        	<!--  ajouter un produit  -->
@@ -78,7 +101,7 @@
 						        
 						        </div>
                         	   	
-                        		<h:dataTable value="#{produitBean.findallProduitBdd()}" var="product" border="1" width="60%">
+                        	   	<h:dataTable value="#{produitBean.listeProduitBdd}" var="product" border="1" width="60%">
 
 	                        	<!--  Image produit  -->
 	                        	<h:column >
@@ -134,7 +157,66 @@
                         	
                         	
                         		</h:dataTable>
-                        		
+
+								<c:if test="#{produitBean.listeProduitBdd}==null">
+								<p>test</p>
+	                        		<h:dataTable value="#{produitBean.findallProduitBdd}" var="product" border="1" width="60%">
+	
+		                        	<!--  Image produit  -->
+		                        	<h:column >
+									<h:graphicImage library = "img" name="#{product.photo}" width="64px" height="64px" />	
+									</h:column>
+								
+								
+									<!--  nom du produit  -->
+									<h:column>
+									<f:facet name="header"> Nom </f:facet>
+									<h:outputText value = "#{product.nom}"/>	
+									</h:column>
+						
+						
+									<!--  description du produit  -->			
+									<h:column>
+									<f:facet name="header"> Description </f:facet>
+									<h:outputText value = "#{product.description}"/>		
+									</h:column>
+									
+									
+									<!--  prix du produit  -->
+									<h:column>
+									<f:facet name="header"> Prix </f:facet>
+									<h:outputText value = "#{product.prix} €"/>		
+									</h:column>
+	
+									
+									<!--  editer un produit  -->
+									<h:column>
+									<f:facet name="header"> Editer </f:facet>
+									
+									<h:commandLink id="editProduit" action="editProduit"
+							   						actionListener="#{produitBean.selectionnerProduit}">
+							   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
+									<h:outputText value="Editer Produit" />		   
+									</h:commandLink>     
+	
+									</h:column>
+									
+									
+									<!--  supprimer un produit  -->
+									<h:column>
+									<f:facet name="header"> Supprimer </f:facet>
+									
+									<h:commandLink id="deleteProduit" action="deleteProduit"
+							   						actionListener="#{produitBean.supprimerProduit}">
+							   		<f:param id="deleteID" name="id" value="#{product.id_Produit}"></f:param>
+									<h:outputText value="Supprimer Produit" />		   
+									</h:commandLink>     
+	
+									</h:column>
+	                        	
+	                        	
+	                        		</h:dataTable>
+                        		</c:if>
                         </h:form>
                     </div>
                 </div>
@@ -145,14 +227,6 @@
     </div>
     
     <!-- /#wrapper -->
-
-	<!-- Notre Script -->
-    <script src="resources/scripts/scriptAccueil.js"></script>
-
-	<!-- Bootstrap -->
-	<script src="resources/scripts/bootstrap.bundle.min.js"></script>
-	<script src="resources/scripts/util.js"></script>
-    <script src="resources/scripts/bootstrap.min.js"></script>
     
     <!--  Bootstrap  -->
 	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>

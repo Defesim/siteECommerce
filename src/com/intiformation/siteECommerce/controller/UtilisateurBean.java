@@ -24,8 +24,29 @@ public class UtilisateurBean {
 	
 	public List<Utilisateur> findAllUtilisateurBdd(){
 		listeUserbdd = UserDao.getAll();
-		
+		setListeUserbdd(listeUserbdd);
 		return listeUserbdd;
+	}
+
+
+	
+	/*____________ gt&st ______________*/
+	
+	public Utilisateur getUser() {
+		return User;
+	}
+
+
+	public void setUser(Utilisateur user) {
+		User = user;
+	}
+	
+	public List<Utilisateur> getListeUserbdd() {
+		return listeUserbdd;
+	}
+
+	public void setListeUserbdd(List<Utilisateur> listeUserbdd) {
+		this.listeUserbdd = listeUserbdd;
 	}
 
 }//end class

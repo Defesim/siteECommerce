@@ -322,7 +322,7 @@ public class ProduitDAOImpl implements IProduitDAO{
 
 	@Override
 	public boolean ModifierQuantite(int quantiteRetirer, int IdProduit) {
-PreparedStatement ps = null;
+		PreparedStatement ps = null;
 		
 		try {
 			
@@ -358,17 +358,17 @@ PreparedStatement ps = null;
 	}//end updateQuantite
 
 	@Override
-	public List<Produit> getByRecherche(String nomRecup, String motCle) {
+	public List<Produit> getByRecherche(String motCle) {
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
 		try {
-			
-			String requeteGetAllProduits = "select * from Produit WHERE ? like '%' + ? + '%';";
+			motCle = "'%"+motCle+"%'";
+			String requeteGetAllProduits = "select * from Produit WHERE nom like ?";
+			System.out.println(motCle);
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
-			ps.setString(1, nomRecup);
-			ps.setString(2, motCle);
+			ps.setString(1, motCle);
 			
 			rs = ps.executeQuery();
 			Produit produit = null;

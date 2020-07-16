@@ -80,3 +80,5 @@ insert into Commande (prixTotale) select totale from TotaleCommande;
 
 
 select * from Commande;
+
+select * from Produit WHERE nom like '%Ballon%';
