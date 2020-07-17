@@ -124,5 +124,17 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#panier.xhtml" PATH="/panier.xhtml"
-  SHAPE="256,2209,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="256,2209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#panier.xhtml:0" NAME="item"
+   PATH="/panier.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="VoirCommande::#commande.xhtml" NAME="output"
+    PATH="/commande.xhtml" TARGET="rules:#commande.xhtml"
+    TITLE="VoirCommande" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="panierValider::#panier.xhtml" NAME="output1"
+    PATH="/panier.xhtml" TARGET="rules:#panier.xhtml"
+    TITLE="panierValider" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#commande.xhtml" PATH="/commande.xhtml"
+  SHAPE="640,2593,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

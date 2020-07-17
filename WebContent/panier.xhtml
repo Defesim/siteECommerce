@@ -73,7 +73,8 @@
 								<h:column>
 									<f:facet name="header"> Supprimer </f:facet>
 
-									<h:commandLink id="deletePanierProduit" action="deletePanierProduit"
+									<h:commandLink id="deletePanierProduit"
+										action="deletePanierProduit"
 										actionListener="#{panierBean.supprimerPanier}">
 										<f:param id="deleteID" name="id" value="#{panier.id_Produit}"></f:param>
 										<h:outputText value="Supprimer du Panier" />
@@ -83,18 +84,30 @@
 
 							</h:dataTable>
 						</h:form>
-						
+
+
+
 						<div>
-								<h:form>
-									<h:commandLink id="VoirCommande" action="VoirCommande">
-										<h:graphicImage library="img" name="payer.png" width="128px"
-											height="128px"></h:graphicImage>
-												<f:setPropertyActionListener value="#{produitBean.findallProduitBdd()}" target="#{produitBean.listeProduitBdd}" />
-											
-									</h:commandLink>
-								</h:form>
-							</div>
-						
+							<h:form>
+								<h:commandLink id="VoirCommande" action="VoirCommande">
+									<h:graphicImage library="img" name="Payer.png" width="128px"
+										height="128px"></h:graphicImage>
+									<f:setPropertyActionListener
+										value="#{commandeBean.findallCommandeBdd()}"
+										target="#{commandeBean.listeCommandeBdd}" />
+
+								</h:commandLink>
+							</h:form>
+						</div>
+						<div>
+							<h:form>
+								<h:commandButton action="panierValider"
+									actionListener="#{commandeBean.PanierDansCommande()}"
+									value="Valider Panier">								
+								</h:commandButton>
+							</h:form>
+						</div>
+
 					</div>
 				</div>
 			</div>

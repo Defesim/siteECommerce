@@ -68,14 +68,14 @@ public String PanierDansCommande() {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "ajout commande ", "Ajout fait avec succés"));
 			
 			//redirection vers la page 'accueil.xhtml'
-			return "accueil.xhtml?faces-redirect=true";
+			return "commande.xhtml?faces-redirect=true";
 			
 		} else { //ajout not ok
 
 			FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "ajout commande raté ", "Ajout pas fait avec succés");
 
 			// envoie d'un message vers la vue 'ajouter-commande.xhtml'
-			return "ajouter-commande.xhtml?faces-redirect=true";
+			return "commande.xhtml?faces-redirect=true";
 			
 		}//end else
 		

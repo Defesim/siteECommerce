@@ -323,6 +323,36 @@
 		</navigation-case>
 	
 	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : accueilGrandPublic  -->
+		<from-view-id>/panier.xhtml</from-view-id>
+		
+		<!--  de 'accueilGrandPublic.xhtml' vers 'accueilGrandPublic.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>VoirCommande</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/commande.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>panierValider</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/panier.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		
+	
+	</navigation-rule>
 
 
 </faces-config>

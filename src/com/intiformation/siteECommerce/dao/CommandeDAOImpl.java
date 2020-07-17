@@ -170,9 +170,7 @@ try {
 		try {
 
 			// 1 def du contenue de la requete SQL
-			String requeteDelete = "Create view TotaleCommande as\r\n" + 
-					"SELECT SUM(prix * quantite) AS totale FROM Panier;\r\n" + 
-					"insert into Commande (prixTotale) select totale from TotaleCommande;";
+			String requeteDelete = "Create view TotaleCommande as SELECT SUM(prix * quantite) AS totale FROM Panier;";
 
 			// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
 			// l'objet connexion
@@ -182,12 +180,24 @@ try {
 
 			// 4 envoie de la requete + execution + recup resultat
 			int verifDelete = ps.executeUpdate();
+			
+			// 1 def du contenue de la requete SQL
+						String requeteDelete2 = "insert into Commande (prixTotale) select totale from TotaleCommande;";
+
+						// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
+						// l'objet connexion
+						ps = this.connection.prepareStatement(requeteDelete2);
+
+						
+
+						// 4 envoie de la requete + execution + recup resultat
+						int verifDelete2 = ps.executeUpdate();
 
 			// 5 renvoi du resultat
-			return (verifDelete == 1);
+			return (verifDelete2 == 1);
 
 		} catch (SQLException e) {
-			System.out.println("erreur lors de l'execution de la méthode delete de l'hotel");
+			System.out.println("erreur lors de l'execution de la méthode PanierDansCommande de commande");
 			e.printStackTrace();
 		} finally {
 			// 6 fermeture des ressources
