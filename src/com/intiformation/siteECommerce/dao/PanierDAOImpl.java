@@ -160,9 +160,39 @@ try {
 	 */
 	@Override
 	public Panier getById(Integer id) {
-		// TODO Auto-generated method stub
+		try {
+
+			ps = this.connection.prepareStatement("SELECT * FROM panier WHERE id_Produit=?");
+
+			ps.setInt(1, id);
+
+			rs = ps.executeQuery();
+
+			Panier panier = null;
+
+			while (rs.next()) {
+
+				panier  = new Panier(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4));
+
+			} // end while
+
+			return panier ;
+
+		} catch (SQLException e) {
+			System.out.println("... (PanierDAOImpl) Erreur lors de l'excéution de la méthode getById() ...");
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // end finally
+
 		return null;
-	}
+	}// end getById
 
 	
 	@Override

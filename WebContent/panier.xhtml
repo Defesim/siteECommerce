@@ -69,7 +69,7 @@
 									<!--  données de la colonne  -->
 									<h:outputLabel for="idquantite" />
 									<h:inputText id="idquantite"
-										value="#{panier.quantite}" />
+										value="#{panier.quantite} required="true" requiredMessage="quantite obligatoire" />
 								</h:column>
 
 								<!--  supprimer un produit  -->
@@ -81,6 +81,19 @@
 										actionListener="#{panierBean.supprimerPanier}">
 										<f:param id="deleteID" name="id" value="#{panier.id_Produit}"></f:param>
 										<h:outputText value="Supprimer du Panier" />
+									</h:commandLink>
+
+								</h:column>
+								
+								<h:column>
+
+									<h:commandLink id="modifierPanier" action="modifierPanier"
+										actionListener="#{panierBean.modifierPanier}">
+										<f:param id="updateID" name="id" value="#{panier.id_Produit}"></f:param>
+										<h:outputText value="Modifier Quantite" />
+										<f:setPropertyActionListener
+										value="#{panierBean.findallPanierBdd()}"
+										target="#{panierBean.listePanierBdd}" />
 									</h:commandLink>
 
 								</h:column>

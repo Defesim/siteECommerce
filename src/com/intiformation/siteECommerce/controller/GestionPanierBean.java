@@ -162,47 +162,55 @@ public class GestionPanierBean implements Serializable {
  * au click, l'évènement encapsule toutes les infos concernant le composant
  * 
  */
-public void modifierPanier(ActionEvent event) {
-	
-	/**
-	 * la prop 'livre' du MB encapsule les infos du livre à modifier dans
-	 * la base de donnée
-	 */
-	
-	// 1. recup du context de JSF
-	FacesContext contextJSF = FacesContext.getCurrentInstance();
-	
-	//2. modification du livre dans la bdd
-	if (PanierDAO.update(Panier)) {
+	public void modifierPanier(ActionEvent event) {
 		
-		//modif ok
+		/**
+		 * la prop 'livre' du MB encapsule les infos du livre à modifier dans
+		 * la base de donnée
+		 */
+	UIComponent composantParam = event.getComponent().findComponent("updateID");
 		
-		//-> message vers la vue 
-		FacesMessage messageOk = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification", " - La modification a été faite avec succés");
+		UIParameter cp = (UIParameter) composantParam;
 		
-		//--> envoie du message
-		contextJSF.addMessage(null, messageOk);
+		//2. recup de la valeur du paramètre
+		int PanierId = (int) cp.getValue();
 		
+		Panier panierAEditer = PanierDAO.getById(PanierId);
 		
-	} else {
+		// 1. recup du context de JSF
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
+		
+		//2. modification du livre dans la bdd
+		if (PanierDAO.update(panierAEditer)) {
+			this.findallPanierBdd();
+			//modif ok
+			
+			//-> message vers la vue 
+			FacesMessage messageOk = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification", " - La modification a été faite avec succés");
+			
+			//--> envoie du message
+			contextJSF.addMessage(null, messageOk);
+			
+			
+		} else {
 
-		//modif not ok
-		//-> message vers la vue 
-		FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Echec de la Modification", " - La modification n'a pas fonctionnée");
+			//modif not ok
+			//-> message vers la vue 
+			FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Echec de la Modification", " - La modification n'a pas fonctionnée");
+			
+			//--> envoie du message
+			contextJSF.addMessage(null, messagenotOk);
+			
+			
+			
+		}//end if else
 		
-		//--> envoie du message
-		contextJSF.addMessage(null, messagenotOk);
-		
-		
-		
-	}//end if else
-	
-	// redirection vers la page accueil.xhtml ref : la clé d'outcom : 'listPanier'
+		// redirection vers la page accueil.xhtml ref : la clé d'outcom : 'listPanier'
 
-	// naviguer de edit-Panier à accueil
-	
-	
-}//end modifier Panier
+		// naviguer de edit-Panier à accueil
+		
+		
+	}//end modifier Panier
 
 public void supprimerPanier(ActionEvent event) {
 	
