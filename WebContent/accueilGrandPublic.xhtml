@@ -144,13 +144,10 @@
 												actionListener="#{panierBean.ajouterAuPanier}">
 									<h:outputText value="Ajouter au panier" />	
 									<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
+									<f:setPropertyActionListener value="#{panierBean.findallPanierBdd()}" target="#{panierBean.listePanierBdd}" />
 								</h:commandLink>
 								
 								</h:column>
-								
-						   						
-						   		<f:param id="updateID" name="id" value="#{product.id_Produit}"></f:param>
-								<h:outputText value="Editer Produit" />
 								
                         	
                         		</h:dataTable>

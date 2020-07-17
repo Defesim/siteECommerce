@@ -82,7 +82,7 @@ public class GestionPanierBean implements Serializable {
 
 	}// end initialiserPanier
 
-public String ajouterAuPanier(ActionEvent event) {
+	public void ajouterAuPanier(ActionEvent event) {
 		
 	//1 recup du param pasé dans le composant au click sur le lien supprimer
 			UIComponent composantParam = event.getComponent().findComponent("ajoutPanierID");
@@ -93,41 +93,65 @@ public String ajouterAuPanier(ActionEvent event) {
 			int PanierPanierId = (int) cp.getValue();
 			
 			
-			/*if (PanierPanierId == Panier.getId_Produit() ) {
-				
-			} else {
-
-			}//end else id non présent dans panier*/
-			
-			
-			
 			//3 suppression du livre dans la bdd via l'id
 			
 			//3.1 recup du context de JSFc
 			FacesContext contextJSF = FacesContext.getCurrentInstance();
 			
-			//3.2 suppression du livre
-			if (PanierDAO.ajouterAuPanier(PanierPanierId)) {
-				
-				//suppresion ok
-				
-				//envoi d'un message vers la vue via le context de JSF
-				contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
-						"suppresion Panier", 
-						"- la suppresion a été faite correctement"));
-				// -> redirection vers accueil.xhtml (ref : clé d'outcom)
-				return "accueil.xhtml?faces-redirect=true";
-				
-			} else {
-
-				//suppresion échoué
-				
-				//=>
-				contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
-						"suppresion Panier", 
-						"- la suppresion a échoué ta vie est un echec total :p"));
-				return "accueil.xhtml?faces-redirect=true";
-			}//end else
+			boolean PremierAjout = true;
+			List<Panier> ListePanierEnCours = getListePanierBdd();
+			if (ListePanierEnCours!=null) {
+				for (Panier panierEnCours : ListePanierEnCours) {
+					if (panierEnCours.getId_Produit()==PanierPanierId) {
+						PremierAjout = false;
+					}
+				}
+			}
+			
+			if (PremierAjout) {
+				//3.2 ajout au panier
+				if (PanierDAO.ajouterAuPanier(PanierPanierId)) {
+					
+					//suppresion ok
+					
+					//envoi d'un message vers la vue via le context de JSF
+					contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
+							"Ajout au Panier", 
+							"- l'ajout a été effectué correctement"));
+					// -> redirection vers accueil.xhtml (ref : clé d'outcom)
+					
+				} else {
+	
+					//ajout échoué
+					
+					//=>
+					contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
+							"ajout Panier", 
+							"- l'ajout a échoué ta vie est un echec total :p"));
+				}//end else
+			}
+			else {
+				//3.2 ajout au panier
+				if (PanierDAO.ajouterAuPanierProduitExistant(PanierPanierId)) {
+					
+					//suppresion ok
+					
+					//envoi d'un message vers la vue via le context de JSF
+					contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
+							"Ajout au Panier", 
+							"- l'ajout a été effectué correctement"));
+					// -> redirection vers accueil.xhtml (ref : clé d'outcom)
+					
+				} else {
+	
+					//ajout échoué
+					
+					//=>
+					contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
+							"ajout Panier", 
+							"- l'ajout a échoué ta vie est un echec total :p"));
+				}//end else
+			}
 		
 	}//end ajouter
 
