@@ -160,9 +160,10 @@
    <PROCESS-ITEM-OUTPUT ID="panierValider::#panier.xhtml" NAME="output1"
     PATH="/panier.xhtml" TARGET="rules:#panier.xhtml"
     TITLE="panierValider" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#accueilGrandPublic.xhtml"
-    NAME="output2" PATH="/accueilGrandPublic.xhtml"
-    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="HeureDeLaPaye::#authentificationClient.xhtml" NAME="output2"
+    PATH="/authentificationClient.xhtml"
+    TARGET="rules:#authentificationClient.xhtml" TITLE="HeureDeLaPaye" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#authentificationAdmin.xhtml"
@@ -181,4 +182,22 @@
     TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#authentificationClient.xhtml"
+  PATH="/authentificationClient.xhtml" SHAPE="640,2721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#authentificationClient.xhtml:0" NAME="item"
+   PATH="/authentificationClient.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="AccesAutorise::#Facture.xhtml" NAME="output"
+    PATH="/Facture.xhtml" TARGET="rules:#Facture.xhtml"
+    TITLE="AccesAutorise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="AccesNonAutorise::#authentificationAdmin.xhtml" NAME="output1"
+    PATH="/authentificationAdmin.xhtml"
+    TARGET="rules:#authentificationAdmin.xhtml" TITLE="AccesNonAutorise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#panier.xhtml" NAME="output2"
+    PATH="/panier.xhtml" TARGET="rules:#panier.xhtml"
+    TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Facture.xhtml" PATH="/Facture.xhtml"
+  SHAPE="368,3249,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

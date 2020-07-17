@@ -11,6 +11,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpSession;
 
 import com.intiformation.siteECommerce.dao.ClientsDAOImpl;
 import com.intiformation.siteECommerce.modele.Clients;
@@ -25,7 +26,10 @@ public class ClientsBean {
 	private Clients Clients;
 	private ClientsDAOImpl ClientsDAO;
 	private String motCle;
+	private String email;
+	private String tel;
 	
+
 	public ClientsBean() {
 		ClientsDAO = new ClientsDAOImpl();
 	}
@@ -221,6 +225,56 @@ public class ClientsBean {
 		
 		
 	}//end supprimer
+	
+	
+	public String connecterClient() {
+		// déclaration du context JSF (l'objet FacesContext)
+		/**
+		 * FacesContext encapsule l'arbtre
+		 */
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
+		
+		//1 verif si l'user existe dans la bdd
+		if (ClientsDAO.isClientsExists(this.email, this.tel)) {
+			
+			//----------l'utilisateur existe
+			HttpSession session = (HttpSession) contextJSF.getExternalContext().getSession(true);
+			
+			session.setAttribute("user_login", "userIdentifiant");
+			
+			// -> naviagtion vers la page acceuil.xhtml
+			return "AccesAutorise";
+			
+			
+			// -> création de la session 
+			
+		} else {
+			
+			// l'utilisateur existe pas 
+
+			/**
+			 * > envoie d'un message vers la vue via l'objet FacesMessage et l'objet FacesContexte
+			 * 
+			 */
+			//defition du message à envoyer avec un objet de type FacesMessages
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Echec de connexion", "Identifiant ou Mot de passe invalide");
+			
+			// -> envoi du message vers la vue via le context de JSF (l'objet 'FacesContext') et sa méthode addMessage
+			/**
+			 * addmessage(arg1 , FacesMessage message)
+			 * arg 1 = l'id du composant pour lequel le message est destiné
+			 * ou peut prendre valeur null : le message st globale
+			 * message : message à envoyer
+			 */
+			contextJSF.addMessage(null, message);
+
+			//-> naviagtion vers la page formulaire 
+			return "AccesNonAutorise";
+			
+			
+		}//end else
+		
+	}//end connecterUser
 
 
 	
@@ -255,7 +309,21 @@ public class ClientsBean {
 		this.motCle = motCle;
 	}
 	
-	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	
 	
 	

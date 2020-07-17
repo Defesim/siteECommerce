@@ -42,18 +42,20 @@
     	<h:graphicImage library="img" name="login.jpg" width="240" height="180" />
   		<h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
   		
-  		<label for="inputIdentifiant" class="sr-only">Identifiant</label>
-  		<h:inputText id="inputIdentifiant" name="p_identifiant" class="form-control" placeholder="Identifiant" required="true" value="#{authenticationBean.useridentifiant}"/>
+  		<label for="inputIdentifiant" class="sr-only"></label>
+  		<h:inputText id="inputIdentifiant" name="p_identifiant" class="form-control" placeholder="Adresse mail" required="true" value="#{ClientsBean.email}"/>
   		
-  		<label for="inputPassword" class="sr-only">Mot de passe</label>
-  		<h:inputSecret type="password" id="inputPassword" name="p_password" class="form-control" placeholder="Mot de passe" required="true" value="#{authenticationBean.userMdp}"/>
+  		<label for="inputPassword" class="sr-only"></label>
+  		<h:inputSecret type="password" id="inputPassword" name="p_password" class="form-control" placeholder="Mot de passe (téléphone)" required="true" value="#{ClientsBean.tel}"/>
   		
-  		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{authenticationBean.connecterUtilisateur()}" value="Se connecter" >
+  		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{ClientsBean.connecterClient()}" value="Se connecter" >
   		</h:commandButton>
   		
-  		<h:link value="retour à la page" outcome="accueilGrandPublic.xhtml?faces-redirect=true"/>
+  		<h:link value="retour à la page" outcome="panier.xhtml?faces-redirect=true"/>
 
-	</h:form>	
+	</h:form>
+	
+	
   
   </body>
   

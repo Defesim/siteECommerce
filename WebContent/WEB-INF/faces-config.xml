@@ -469,6 +469,16 @@
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
+			<from-outcome>HeureDeLaPaye</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/authentificationClient.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
 			<from-outcome>RetourAccueil</from-outcome>
 			<!--  destination  -->
 			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
@@ -511,6 +521,45 @@
 			<from-outcome>RetourAccueil</from-outcome>
 			<!--  destination  -->
 			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+	
+	</navigation-rule>
+	
+		<navigation-rule>
+		
+		<!--  page de départ : authentificationClient.xhtml  -->
+		<from-view-id>/authentificationClient.xhtml</from-view-id>
+		
+		<!--  de 'authentificationClient.xhtml' vers 'Facture.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>AccesAutorise</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/Facture.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'authentificationClient.xhtml' vers 'authentificationClient.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>AccesNonAutorise</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/authentificationAdmin.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>RetourAccueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/panier.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
