@@ -43,32 +43,32 @@
 					<div class="col-lg-12">
 						<h1>Bienvenu(e)</h1>
 						<h:form>
-							<h:dataTable value="#{panierBean.listePanierBdd}" var="panier"
+							<h:dataTable value="#{panierBean.listePanierBdd}" var="pan"
 								border="1" width="60%">
 
 								<h:column>
 									<!--  données de la colonne  -->
 									<h:graphicImage library="img"
-										name="#{produitBean.afficherImage(panier.id_Produit)}"
+										name="#{produitBean.afficherImage(pan.id_Produit)}"
 										width="64px" height="64px" />
 								</h:column>
 
 								<h:column>
 									<!--  données de la colonne  -->
-									<h:outputText value="#{panier.nom}" />
+									<h:outputText value="#{pan.nom}" />
 								</h:column>
 
 
 								<h:column>
 									<!--  données de la colonne  -->
-									<h:outputText value="#{panier.prix}" />
+									<h:outputText value="#{pan.prix}" />
 								</h:column>
 
 								<h:column>
 									<!--  données de la colonne  -->
 									<h:outputLabel for="idquantite" />
 									<h:inputText id="idquantite"
-										value="#{panier.quantite}" required="true" requiredMessage="quantite obligatoire"/>
+										value="#{pan.quantite}" required="true" requiredMessage="quantite obligatoire"/>
 								</h:column>
 
 								<!--  supprimer un produit  -->
@@ -78,21 +78,18 @@
 									<h:commandLink id="deletePanierProduit"
 										action="deletePanierProduit"
 										actionListener="#{panierBean.supprimerPanier}">
-										<f:param id="deleteID" name="id" value="#{panier.id_Produit}"></f:param>
+										<f:param id="deleteID" name="id" value="#{pan.id_Produit}"></f:param>
 										<h:outputText value="Supprimer du Panier" />
 									</h:commandLink>
 
-								</h:column>
+								</h:column> 
 								
 								<h:column>
 
 									<h:commandLink action="panierValider"
 										actionListener="#{panierBean.modifierPanier}">
-										<f:param id="updateID" name="id" value="#{panier.id_Produit}"></f:param>
+										<f:param id="updateID" name="id" value="#{pan.id_Produit}"></f:param>
 										<h:outputText value="Modifier Quantite" />
-										<f:setPropertyActionListener
-										value="#{panier.quantite}"
-										target="#{panierBean.quantiteModif}" />
 									</h:commandLink>
 
 								</h:column>

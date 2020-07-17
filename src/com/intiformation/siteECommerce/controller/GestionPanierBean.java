@@ -25,7 +25,6 @@ public class GestionPanierBean implements Serializable {
 	private List<Panier> listePanierBdd;
 	private Panier Panier;
 	private IPanierDAO PanierDAO;
-	private int quantiteModif;
 
 
 
@@ -179,9 +178,12 @@ public class GestionPanierBean implements Serializable {
 		int PanierId = (int) cp.getValue();
 		
 		Panier panierAEditer = PanierDAO.getById(PanierId);
-		System.out.println(PanierId);
 		
-		panierAEditer.setQuantite(getQuantiteModif());
+		for(Panier pPanier : listePanierBdd) {
+			if (pPanier.getId_Produit()==PanierId) {
+				panierAEditer.setQuantite(pPanier.getQuantite());
+			}
+		}
 		
 		// 1. recup du context de JSF
 		FacesContext contextJSF = FacesContext.getCurrentInstance();
@@ -282,13 +284,5 @@ public void supprimerPanier(ActionEvent event) {
 		this.listePanierBdd = listePanierBdd;
 	}
 	
-	public int getQuantiteModif() {
-		return quantiteModif;
-	}
-
-
-	public void setQuantiteModif(int quantiteModif) {
-		this.quantiteModif = quantiteModif;
-	}
 	
 }//end class
