@@ -442,7 +442,7 @@
 	
 	<navigation-rule>
 		
-		<!--  page de départ : panier  -->
+		<!--  page de départ : panier.xhtml  -->
 		<from-view-id>/panier.xhtml</from-view-id>
 		
 		<!--  de 'accueilGrandPublic.xhtml' vers 'accueilGrandPublic.xhtml'  -->
@@ -455,7 +455,7 @@
 			<redirect/>
 		
 		</navigation-case>
-		
+
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
