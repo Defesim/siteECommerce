@@ -174,8 +174,7 @@ try {
 			// 2. création de l'objet 'PreparedStatement' qui permet d'exécuter la requête et de récupérer le résultat
 			ps = this.connection.prepareStatement(requeteAjout);
 			ps.setInt(1, pProduitIdPourPanier);
-			
-			System.out.println("ici");
+		
 			
 			int verifAjout = ps.executeUpdate();
 
@@ -256,7 +255,6 @@ try {
 						
 			ps.setInt(1, idProduit);
 			
-			System.out.println("la");
 			
 			int verifUpdate = ps.executeUpdate();
 			return (verifUpdate == 1)?true:false;

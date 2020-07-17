@@ -368,8 +368,28 @@ public class ProduitDAOImpl implements IProduitDAO{
 			String requeteGetAllProduits = "select * from Produit WHERE nom like ?";
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
 			ps.setString(1, motCle);
-			
 			rs = ps.executeQuery();
+			
+			if (rs.next()==false) {
+				String requeteGetAllProduits2 = "select * from Produit WHERE categorie_NOM like ?";
+				ps = this.connection.prepareStatement(requeteGetAllProduits2);
+				ps.setString(1, motCle);
+				rs = ps.executeQuery();
+				
+				if (rs.next()==false) {
+					String requeteGetAllProduits3 = "select * from Produit WHERE description like ?";
+					ps = this.connection.prepareStatement(requeteGetAllProduits3);
+					ps.setString(1, motCle);
+					rs = ps.executeQuery();
+				}
+				else {
+					rs = ps.executeQuery();
+				}
+			}
+			else {
+				rs = ps.executeQuery();
+			}
+			
 			Produit produit = null;
 			List<Produit> listeProduits = new ArrayList<>();
 			

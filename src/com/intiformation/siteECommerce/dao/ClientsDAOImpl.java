@@ -222,8 +222,40 @@ public class ClientsDAOImpl implements IClientsDAO {
 			String requeteGetAllProduits = "select * from Clients WHERE nom_Client like ?";
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
 			ps.setString(1, motCle);
-			
 			rs = ps.executeQuery();
+			
+			if (rs.next()==false) {
+				String requeteGetAllProduits2 = "select * from Clients WHERE telephone like ?";
+				ps = this.connection.prepareStatement(requeteGetAllProduits2);
+				ps.setString(1, motCle);
+				rs = ps.executeQuery();
+				
+				if (rs.next()==false) {
+					String requeteGetAllProduits3 = "select * from Clients WHERE email like ?";
+					ps = this.connection.prepareStatement(requeteGetAllProduits3);
+					ps.setString(1, motCle);
+					rs = ps.executeQuery();
+					
+					if (rs.next()==false) {
+						String requeteGetAllProduits4 = "select * from Clients WHERE adresse like ?";
+						ps = this.connection.prepareStatement(requeteGetAllProduits4);
+						ps.setString(1, motCle);
+						rs = ps.executeQuery();
+						
+					}
+					else {
+						rs = ps.executeQuery();
+					}
+				}
+				else {
+					rs = ps.executeQuery();
+				}
+				
+				
+			}
+			else {
+				rs = ps.executeQuery();
+			}
 			 
 			
 			

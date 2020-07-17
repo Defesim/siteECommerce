@@ -267,8 +267,20 @@ public class CategorieDAOImpl implements ICategorieDAO {
 			String requeteGetAllProduits = "select * from Categorie WHERE nom_Categorie like ?";
 			ps = this.connection.prepareStatement(requeteGetAllProduits);
 			ps.setString(1, motCle);
-			
 			rs = ps.executeQuery();
+			
+			if (rs.next()==false) {
+				String requeteGetAllProduits2 = "select * from Categorie WHERE description like ?";
+				ps = this.connection.prepareStatement(requeteGetAllProduits2);
+				ps.setString(1, motCle);
+				rs = ps.executeQuery();
+				
+			}
+			else {
+				rs = ps.executeQuery();
+			}
+			
+			
 			Categorie categorie = null;
 			List<Categorie> listeCategories = new ArrayList<>();
 			
