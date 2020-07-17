@@ -181,6 +181,21 @@ public class GestionProduitBean implements Serializable {
 		
 		//5 redirection vers la page édition 'editer-produit.xhtml' (ref : les clés d'outcom 'editbook' du faces-config.xml)
 		
+	}//end selectionner produit
+	
+	/**
+	 * Permet de editer un produit dans la bdd;
+	 * invoquée au click sur le lien "editer" de accueil.xhtml
+	 * au click, l'évènement encapsule toutes les infos concernant le composant
+	 * 
+	 */
+	public String afficherImage(int id) {
+		
+		//3 recup du produit à éditer via l'id dans la bdd
+		Produit produitAEditer = produitDAO.getById(id);
+		
+		//4 affectation du produit à éditer à la variable 'produit' du MB
+		return produitAEditer.getPhoto();
 		
 	}//end selectionner produit
 	

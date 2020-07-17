@@ -79,9 +79,8 @@ try {
 			
 			while(rs.next()){
 				
-				int id_Commande = rs.getInt(1);
-			
-				double prixTotale = rs.getDouble(2);
+				double prixTotale = rs.getDouble(1);
+				int id_Commande = rs.getInt(2);
 				String date =rs.getString(3);
 				
 				
@@ -135,7 +134,7 @@ try {
 			rs.next();
 				
 			double prixtotale = rs.getDouble(1);
-			String date = rs.getString(2);
+			String date = rs.getString(3);
 				
 			commande = new Commande(prixtotale, date);
 			
