@@ -83,6 +83,14 @@
 							</h:dataTable>
 						</h:form>
 						
+						<div>
+							<h:form>
+								<h:commandButton action="panierValider"
+									actionListener="#{commandeBean.PanierDansCommande()}"
+									value="Valider Panier">								
+								</h:commandButton>
+							</h:form>
+						</div>
 						<h:form>
                         	<h:dataTable value="#{commandeBean.findallCommandeBdd()}" var="commande" border="1" width="60%">
                         	
@@ -101,15 +109,11 @@
 							<!--  données de la colonne  -->
 							<h:outputText value = "#{commande.dateCommande}"/>		
 							</h:column>
-							
-							
-                        	
+
                         	</h:dataTable>
                         </h:form>
-
-
-
-						<div>
+                        
+                        <div>
 
 							<h:form>
 								<h:commandLink id="VoirCommande" action="VoirCommande">
@@ -120,14 +124,6 @@
 										target="#{commandeBean.listeCommandeBdd}" />
 
 								</h:commandLink>
-							</h:form>
-						</div>
-						<div>
-							<h:form>
-								<h:commandButton action="panierValider"
-									actionListener="#{commandeBean.PanierDansCommande()}"
-									value="Valider Panier">								
-								</h:commandButton>
 							</h:form>
 						</div>
 

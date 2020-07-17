@@ -75,6 +75,8 @@ constraint pk_Commande primary key (id_Command)
 Create view TotaleCommande as
 SELECT SUM(prix * quantite) AS totale FROM Panier;
 
+select * from TotaleCommande;
+
 insert into Commande (prixTotale) select totale from TotaleCommande;
 
 
@@ -89,3 +91,7 @@ update Panier set quantite=quantite+1;
 
 
 SET SQL_SAFE_UPDATES = 0;
+
+insert into Commande (prixTotale)
+SELECT SUM(prix * quantite)
+FROM Panier;

@@ -170,7 +170,9 @@ try {
 		try {
 
 			// 1 def du contenue de la requete SQL
-			String requeteDelete = "Create view TotaleCommande as SELECT SUM(prix * quantite) AS totale FROM Panier;";
+			String requeteDelete = "insert into Commande (prixTotale)\r\n" + 
+					"SELECT SUM(prix * quantite)\r\n" + 
+					"FROM Panier;";
 
 			// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
 			// l'objet connexion
@@ -181,20 +183,8 @@ try {
 			// 4 envoie de la requete + execution + recup resultat
 			int verifDelete = ps.executeUpdate();
 			
-			// 1 def du contenue de la requete SQL
-						String requeteDelete2 = "insert into Commande (prixTotale) select totale from TotaleCommande;";
-
-						// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
-						// l'objet connexion
-						ps = this.connection.prepareStatement(requeteDelete2);
-
-						
-
-						// 4 envoie de la requete + execution + recup resultat
-						int verifDelete2 = ps.executeUpdate();
-
 			// 5 renvoi du resultat
-			return (verifDelete2 == 1);
+			return (verifDelete == 1);
 
 		} catch (SQLException e) {
 			System.out.println("erreur lors de l'execution de la méthode PanierDansCommande de commande");
