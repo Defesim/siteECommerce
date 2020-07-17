@@ -82,6 +82,30 @@
 
 							</h:dataTable>
 						</h:form>
+						
+						<h:form>
+                        	<h:dataTable value="#{commandeBean.findallCommandeBdd()}" var="commande" border="1" width="60%">
+                        	
+                        	<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.IDCommande}"/>		
+							</h:column>
+                        	
+							<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.prixTotale}"/>		
+							</h:column>
+														
+							
+							<h:column>
+							<!--  données de la colonne  -->
+							<h:outputText value = "#{commande.dateCommande}"/>		
+							</h:column>
+							
+							
+                        	
+                        	</h:dataTable>
+                        </h:form>
 
 
 

@@ -3,6 +3,7 @@ package com.intiformation.siteECommerce.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -81,6 +82,7 @@ public String PanierDansCommande() {
 		
 	}//end ajout
 
+@PostConstruct
 public void ViderCommandeBdd() {
 	
 	
@@ -108,7 +110,37 @@ public void ViderCommandeBdd() {
 				"- la suppresion a échoué ta vie est un echec total :p"));
 	}//end else
 	
-}// end ViderListePanier
+}// end ViderCommande
+
+@PostConstruct
+public void DetruireView() {
+	
+	
+	//3.1 recup du context de JSFc
+	FacesContext contextJSF = FacesContext.getCurrentInstance();
+	
+	//3.2 suppression du commande
+	if (CommandeDAO.DetruireView()) {
+		
+		//suppresion ok
+		
+		//envoi d'un message vers la vue via le context de JSF
+		contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
+				"vider commande", 
+				"- la suppresion a été faite correctement"));
+		// -> redirection vers accueil.xhtml (ref : clé d'outcom)
+		
+	} else {
+
+		//suppresion échoué
+		
+		//=>
+		contextJSF.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, 
+				"vider commande", 
+				"- la suppresion a échoué ta vie est un echec total :p"));
+	}//end else
+	
+}// end DetruireView
 	
 
 

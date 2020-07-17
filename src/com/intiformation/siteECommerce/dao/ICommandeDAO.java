@@ -8,6 +8,8 @@ public interface ICommandeDAO extends IUniversalDAO<Commande> {
 	
 	public boolean ViderCommande();
 	
+	public boolean DetruireView();
+	
 	
 }//end interface
 

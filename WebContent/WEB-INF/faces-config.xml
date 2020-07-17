@@ -335,7 +335,7 @@
 			<!--  clé d'outcom  -->
 			<from-outcome>VoirCommande</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/commande.xhtml</to-view-id>
+			<to-view-id>/panier.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
