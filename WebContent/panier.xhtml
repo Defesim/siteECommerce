@@ -43,13 +43,16 @@
 					<div class="col-lg-12">
 						<h1>Bienvenu(e)</h1>
 						<h:form>
-							<h:dataTable value="#{panierBean.listePanierBdd}"
-								var="panier" border="1" width="60%">
+							<h:dataTable value="#{panierBean.listePanierBdd}" var="panier"
+								border="1" width="60%">
 
 								<h:column>
 									<!--  données de la colonne  -->
-									<h:graphicImage library = "img" name="#{produitBean.afficherImage(panier.id_Produit)}" width="64px" height="64px" />
+									<h:graphicImage library="img"
+										name="#{produitBean.afficherImage(panier.id_Produit)}"
+										width="64px" height="64px" />
 								</h:column>
+
 
 								<h:column>
 									<!--  données de la colonne  -->
@@ -64,7 +67,9 @@
 
 								<h:column>
 									<!--  données de la colonne  -->
-									<h:outputText value="#{panier.quantite}" />
+									<h:outputLabel for="idquantite" />
+									<h:inputText id="idquantite"
+										value="#{panier.quantite}" />
 								</h:column>
 
 								<!--  supprimer un produit  -->
@@ -82,38 +87,32 @@
 
 							</h:dataTable>
 						</h:form>
-						
+
 						<div>
 							<h:form>
 								<h:commandButton action="panierValider"
 									actionListener="#{commandeBean.PanierDansCommande()}"
-									value="Valider Panier">								
+									value="Valider Panier">
 								</h:commandButton>
 							</h:form>
 						</div>
 						<h:form>
-                        	<h:dataTable value="#{commandeBean.findallCommandeBdd()}" var="commande" border="1" width="60%">
-                        	
-                        	<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{commande.IDCommande}"/>		
-							</h:column>
-                        	
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{commande.prixTotale}"/>		
-							</h:column>
-														
-							
-							<h:column>
-							<!--  données de la colonne  -->
-							<h:outputText value = "#{commande.dateCommande}"/>		
-							</h:column>
+							<h:dataTable value="#{commandeBean.findallCommandeBdd()}"
+								var="commande" border="1" width="60%">
 
-                        	</h:dataTable>
-                        </h:form>
-                        
-                        <div>
+
+								<h:column>
+									<!--  données de la colonne  -->
+									<h:outputText value="#{commande.prixTotale}" />
+								</h:column>
+
+
+
+
+							</h:dataTable>
+						</h:form>
+
+						<div>
 
 							<h:form>
 								<h:commandLink id="VoirCommande" action="VoirCommande">
@@ -127,16 +126,19 @@
 							</h:form>
 						</div>
 
+						<h:link value="retour à la page"
+							outcome="accueilGrandPublic.xhtml?faces-redirect=true" />
 
-								
-						</div>
-						
+
 
 					</div>
+
+
 				</div>
 			</div>
 		</div>
-		<!-- /#page-content-wrapper -->
+	</div>
+	<!-- /#page-content-wrapper -->
 
 
 	<!-- /#wrapper -->

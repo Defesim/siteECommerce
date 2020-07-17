@@ -32,6 +32,7 @@ public class GestionPanierBean implements Serializable {
 
 	}// end gestionPanierBean
 
+	
 	public List<Panier> findallPanierBdd() {
 		listePanierBdd = PanierDAO.getAll();
 		setListePanierBdd(listePanierBdd);
@@ -220,6 +221,8 @@ public void supprimerPanier(ActionEvent event) {
 	
 	//3.2 suppression du livre
 	if (PanierDAO.delete(PanierId)) {
+		
+		this.findallPanierBdd();
 		
 		//suppresion ok
 		

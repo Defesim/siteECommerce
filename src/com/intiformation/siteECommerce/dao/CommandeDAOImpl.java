@@ -167,6 +167,17 @@ try {
 	@Override
 	public boolean PanierDansCommande() {
 		try {
+			// 1 def du contenue de la requete SQL
+						String requeteDelete2 = "truncate table Commande; ";
+
+						// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
+						// l'objet connexion
+						ps = this.connection.prepareStatement(requeteDelete2);
+
+						
+
+						// 4 envoie de la requete + execution + recup resultat
+						int verifDelete2 = ps.executeUpdate();
 
 			// 1 def du contenue de la requete SQL
 			String requeteDelete = "insert into Commande (prixTotale)\r\n" + 
