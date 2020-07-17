@@ -152,8 +152,6 @@ public class GestionPanierBean implements Serializable {
 							"- l'ajout a échoué ta vie est un echec total :p"));
 				}//end else
 			}
-			
-			this.findallPanierBdd();
 		
 	}//end ajouter
 
