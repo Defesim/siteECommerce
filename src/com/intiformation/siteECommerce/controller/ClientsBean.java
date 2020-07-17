@@ -200,6 +200,7 @@ public class ClientsBean {
 		//3.2 suppression du Clients
 		if (ClientsDAO.delete(ClientsId)) {
 			
+			this.findAllClientsBdd();
 			//suppresion ok
 			
 			//envoi d'un message vers la vue via le context de JSF

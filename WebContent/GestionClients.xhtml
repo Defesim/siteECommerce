@@ -20,6 +20,12 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
             	<li>
+            	<div>
+            	        <h:form>
+						<h:commandButton value="Se déconnecter" action="#{authenticationBean.deconnecterUtilisateur()}">
+						</h:commandButton>
+						</h:form>
+            	</div>
                 <p>Que recherchez-vous</p>
                 	
                 	<h:form class="form-horizontal" method="post" id="formId">      
@@ -37,6 +43,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+        
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
 			<h:form>
 				<div>
@@ -139,7 +146,7 @@
 									<h:column>
 									<f:facet name="header"> Supprimer </f:facet>
 									
-									<h:commandLink id="deleteClients" action="deleteClients"
+									<h:commandLink id="gestion_clients" action="gestion_clients"
 							   						actionListener="#{ClientsBean.supprimerClients}">
 							   		<f:param id="deleteID" name="id" value="#{clients.id_Client}"></f:param>
 									<h:outputText value="Supprimer Client" />		   

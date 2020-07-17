@@ -18,11 +18,22 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+        	<ul class="sidebar-nav">
+                <li>
+               		<div>
+        	        <h:form>
+					<h:commandButton value="Se déconnecter" action="#{authenticationBean.deconnecterUtilisateur()}">
+					</h:commandButton>
+					</h:form>
+					</div>
+				</li>
+			</ul>
 
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+        
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">

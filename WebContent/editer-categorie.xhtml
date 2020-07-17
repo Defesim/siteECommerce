@@ -19,10 +19,13 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
+                <li >
+                	<div>
+                     <h:form>
+					<h:commandButton value="Se déconnecter" action="#{authenticationBean.deconnecterUtilisateur()}">
+					</h:commandButton>
+					</h:form>
+					</div>
                 </li>
                 <li>
                     <a href="#">Catégorie</a>
@@ -42,6 +45,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+        
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">

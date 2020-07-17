@@ -22,6 +22,14 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
+			        <div>
+				        <h:form>
+				        <h:commandButton id="ConnectionAdmin" action="accueil" value="Se connecter (admin)">	
+						</h:commandButton>
+						</h:form>
+					</div>
+                
+                
 					  <div>
 					  	<p id="categorieTitre">Catégories</p>
 					    
@@ -36,7 +44,6 @@
 								<f:setPropertyActionListener target = "#{categorieBean.categorie}" value = "#{null}" /> 
 								<h:outputText value="Toutes catégories" />	
 							</h:commandLink>	   
-						
 						
 						</h:form>
 						
@@ -77,34 +84,31 @@
 					</h:form>
 	
                 </li>
+                <br></br>
+                <li>		
+                			<h:form>
+					        <h:commandLink id="VoirPanier" action="VoirPanier">	
+					        	<h:outputText value="Voir mon panier" />
+								<h:graphicImage library="img" name="panier.jpg" width="128px" height="128px"></h:graphicImage>
+							</h:commandLink>
+							</h:form>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div>
-	        <h:form>
-	        <h:commandLink id="VoirPanier" action="VoirPanier">	
-				<h:graphicImage library="img" name="panier.jpg" width="128px" height="128px"></h:graphicImage>
-			</h:commandLink>
-			</h:form>
-		</div>
-		
-		<div>
-	        <h:form>
-	        <h:commandButton id="ConnectionAdmin" action="accueil" value="se connecter en tant qu'administateur">	
-			</h:commandButton>
-			</h:form>
-		</div>
         
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Bienvenu(e)</h1>
+
                         <h2>${categorieBean.categorie.nom_Categorie}</h2>
                         <br></br>
                         <h:outputText value ="#{categorieBean.categorie.description}"/>	
+                        <br></br>
                         <br></br>
                         	<h:form>
                         		

@@ -59,7 +59,7 @@ public class AuthentificationBean implements Serializable{
         contextJSF.addMessage(null, messageDeconnexion);
 
         // 4 redirection vers la page du formulaire 'authentification.xhtml'
-        return "accueil.xhtml";
+        return "Deconnection";
     }//end 	deconnecterUser
     
     public String connecterUtilisateur() {

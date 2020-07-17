@@ -6,8 +6,11 @@
    PATH="/accueil.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output"
     PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output1" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajoutProduit::#ajouter-produit.xhtml"
-    NAME="output1" PATH="/ajouter-produit.xhtml"
+    NAME="output2" PATH="/ajouter-produit.xhtml"
     TARGET="rules:#ajouter-produit.xhtml" TITLE="ajoutProduit" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editProduit::#editer-produit.xhtml"
     NAME="output4" PATH="/editer-produit.xhtml"
@@ -25,17 +28,20 @@
   PATH="/ajouter-categorie.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter-categorie.xhtml:0" NAME="item"
    PATH="/ajouter-categorie.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#GestionCategories.xhtml"
-    NAME="output" PATH="/GestionCategories.xhtml"
-    TARGET="rules:#GestionCategories.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter-produit.xhtml"
   PATH="/ajouter-produit.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter-produit.xhtml:0" NAME="item"
    PATH="/ajouter-produit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajouter-produit::#accueil.xhtml"
-    NAME="output" PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml"
+    NAME="output1" PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml"
     TITLE="ajouter-produit" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -46,26 +52,32 @@
    <PROCESS-ITEM-OUTPUT ID="editer-produit::#accueil.xhtml"
     NAME="output" PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml"
     TITLE="editer-produit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output1" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#GestionClients.xhtml"
   PATH="/GestionClients.xhtml" SHAPE="304,929,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#GestionClients.xhtml:0" NAME="item"
    PATH="/GestionClients.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="gestion_clients::#GestionClients.xhtml"
-    NAME="output" PATH="/GestionClients.xhtml"
+    NAME="output1" PATH="/GestionClients.xhtml"
     TARGET="rules:#GestionClients.xhtml" TITLE="gestion_clients" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="gestion_categories::#GestionCategories.xhtml" NAME="output1"
+    ID="gestion_categories::#GestionCategories.xhtml" NAME="output2"
     PATH="/GestionCategories.xhtml"
     TARGET="rules:#GestionCategories.xhtml" TITLE="gestion_categories" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output2"
+   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output3"
     PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajoutClients::#ajouter-Clients.xhtml"
-    NAME="output3" PATH="/ajouter-Clients.xhtml"
+    NAME="output4" PATH="/ajouter-Clients.xhtml"
     TARGET="rules:#ajouter-Clients.xhtml" TITLE="ajoutClients" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editClients::#editer-Clients.xhtml"
-    NAME="output4" PATH="/editer-Clients.xhtml"
+    NAME="output5" PATH="/editer-Clients.xhtml"
     TARGET="rules:#editer-Clients.xhtml" TITLE="editClients" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -73,6 +85,9 @@
   PATH="/GestionCategories.xhtml" SHAPE="304,369,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#GestionCategories.xhtml:0" NAME="item"
    PATH="/GestionCategories.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="gestion_categories::#GestionCategories.xhtml" NAME="output7"
     PATH="/GestionCategories.xhtml"
@@ -80,8 +95,6 @@
    <PROCESS-ITEM-OUTPUT ID="gestion_clients::#GestionClients.xhtml"
     NAME="output8" PATH="/GestionClients.xhtml"
     TARGET="rules:#GestionClients.xhtml" TITLE="gestion_clients" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output"
-    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#ajouter-categorie.xhtml"
     NAME="output3" PATH="/ajouter-categorie.xhtml"
     TARGET="rules:#ajouter-categorie.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
@@ -91,13 +104,26 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#editer-categorie.xhtml"
-  PATH="/editer-categorie.xhtml" SHAPE="80,481,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/editer-categorie.xhtml" SHAPE="80,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editer-categorie.xhtml:0" NAME="item"
+   PATH="/editer-categorie.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editCategorie::#GestionCategories.xhtml"
+    NAME="output1" PATH="/GestionCategories.xhtml"
+    TARGET="rules:#GestionCategories.xhtml" TITLE="editCategorie" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#ajouter-Clients.xhtml"
   PATH="/ajouter-Clients.xhtml" SHAPE="96,1169,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#ajouter-Clients.xhtml:0" NAME="item"
    PATH="/ajouter-Clients.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajoutClients::#GestionClients.xhtml"
-    NAME="output" PATH="/GestionClients.xhtml"
+    NAME="output1" PATH="/GestionClients.xhtml"
     TARGET="rules:#GestionClients.xhtml" TITLE="ajoutClients" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -105,9 +131,9 @@
   PATH="/editer-Clients.xhtml" SHAPE="96,1409,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#editer-Clients.xhtml:0" NAME="item"
    PATH="/editer-Clients.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="editClients::#GestionClients.xhtml"
-    NAME="output" PATH="/GestionClients.xhtml"
-    TARGET="rules:#GestionClients.xhtml" TITLE="editClients" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Deconnection::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="Deconnection" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#accueilGrandPublic.xhtml"
