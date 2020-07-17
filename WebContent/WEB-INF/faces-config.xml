@@ -311,13 +311,13 @@
 		
 		</navigation-case>
 		
-			<!--  de 'accueilGrandPublic.xhtml' vers 'accueil.xhtml'  -->
+			<!--  de 'accueilGrandPublic.xhtml' vers 'authentificationAdmin.xhtml'  -->
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
 			<from-outcome>accueil</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/accueil.xhtml</to-view-id>
+			<to-view-id>/authentificationAdmin.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
@@ -361,6 +361,46 @@
 		</navigation-case>
 	
 	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : authentificationAdmin.xhtml  -->
+		<from-view-id>/authentificationAdmin.xhtml</from-view-id>
+		
+		<!--  de 'authentificationAdmin.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>AccesAutorise</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'authentificationAdmin.xhtml' vers 'authentificationAdmin.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>AccesNonAutorise</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/authentificationAdmin.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>RetourAccueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+	
+	</navigation-rule>
 
+	
 
 </faces-config>

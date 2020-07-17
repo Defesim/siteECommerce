@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <h:head>
+    <title>Page d'authentification</title>
+
+    <!-- Bootstrap core CSS -->
+	<link href="resources/styles/bootstrap.min.css" rel="stylesheet"/>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="resources/styles/sign-in.css" rel="stylesheet"/>
+    
+  </h:head>
+  
+  <body class="text-center">
+  
+  <!-- AFFICHAGE DES MESSAGES D'ERREURS POUR AUTHENTIFICATION -->  
+  
+	<h:form class="form-signin">
+    
+    	<h:graphicImage library="img" name="login.jpg" width="240" height="180" />
+  		<h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
+  		
+  		<label for="inputIdentifiant" class="sr-only">Identifiant</label>
+  		<h:inputText id="inputIdentifiant" name="p_identifiant" class="form-control" placeholder="Identifiant" required="true" value="#{authenticationBean.useridentifiant}"/>
+  		
+  		<label for="inputPassword" class="sr-only">Mot de passe</label>
+  		<h:inputSecret type="password" id="inputPassword" name="p_password" class="form-control" placeholder="Mot de passe" required="true" value="#{authenticationBean.userMdp}"/>
+  		
+  		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{authenticationBean.connecterUtilisateur()}" value="Se connecter" >
+  		</h:commandButton>
+
+	</h:form>
+  
+  </body>
+  
+</html>

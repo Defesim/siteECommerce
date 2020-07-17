@@ -119,8 +119,9 @@
     TARGET="rules:#accueilGrandPublic.xhtml" TITLE="AjoutPanier" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="VoirPanier::#panier.xhtml" NAME="output1"
     PATH="/panier.xhtml" TARGET="rules:#panier.xhtml" TITLE="VoirPanier" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output2"
-    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="accueil::#authentificationAdmin.xhtml"
+    NAME="output2" PATH="/authentificationAdmin.xhtml"
+    TARGET="rules:#authentificationAdmin.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#panier.xhtml" PATH="/panier.xhtml"
@@ -133,6 +134,22 @@
    <PROCESS-ITEM-OUTPUT ID="panierValider::#panier.xhtml" NAME="output1"
     PATH="/panier.xhtml" TARGET="rules:#panier.xhtml"
     TITLE="panierValider" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#accueilGrandPublic.xhtml"
+    NAME="output2" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#authentificationAdmin.xhtml"
+  PATH="/authentificationAdmin.xhtml" SHAPE="96,2593,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#authentificationAdmin.xhtml:0" NAME="item"
+   PATH="/authentificationAdmin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="AccesAutorise::#accueil.xhtml" NAME="output"
+    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml"
+    TITLE="AccesAutorise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="AccesNonAutorise::#authentificationAdmin.xhtml" NAME="output1"
+    PATH="/authentificationAdmin.xhtml"
+    TARGET="rules:#authentificationAdmin.xhtml" TITLE="AccesNonAutorise" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#accueilGrandPublic.xhtml"
     NAME="output2" PATH="/accueilGrandPublic.xhtml"
     TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>

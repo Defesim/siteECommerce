@@ -79,7 +79,7 @@ public class AuthentificationBean implements Serializable{
 			session.setAttribute("user_login", "userIdentifiant");
 			
 			// -> naviagtion vers la page acceuil.xhtml
-			return "accueil.xhtml";
+			return "AccesAutorise";
 			
 			
 			// -> création de la session 
@@ -105,7 +105,7 @@ public class AuthentificationBean implements Serializable{
 			contextJSF.addMessage(null, message);
 			
 			//-> naviagtion vers la page formulaire 
-			return "accueil.xhtml";
+			return "AccesNonAutorise";
 			
 			
 		}//end else
