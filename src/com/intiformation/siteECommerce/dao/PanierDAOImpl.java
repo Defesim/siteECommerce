@@ -34,8 +34,8 @@ try {
 			String requeteUpdate = "UPDATE Panier SET quantite=? WHERE id_Produit=?";
 			ps = this.connection.prepareStatement(requeteUpdate);
 			
-			ps.setInt(3, pPannier.getQuantite());			
-			ps.setInt(8, pPannier.getId_Produit());
+			ps.setInt(1, pPannier.getQuantite());			
+			ps.setInt(2, pPannier.getId_Produit());
 			
 			int verifUpdate = ps.executeUpdate();
 			return (verifUpdate == 1)?true:false;
@@ -169,7 +169,7 @@ try {
 	public boolean ajouterAuPanier(Integer pProduitIdPourPanier) {
 
 		try {
-			String requeteAjout = "insert into Panier select id_Produit, nom, prix, quantite from Produit where id_Produit = ?;";
+			String requeteAjout = "insert into Panier (id_Produit, nom, prix, quantite) select id_Produit, nom, prix, 1 from Produit where id_Produit = ?;";
 			
 			// 2. création de l'objet 'PreparedStatement' qui permet d'exécuter la requête et de récupérer le résultat
 			ps = this.connection.prepareStatement(requeteAjout);
@@ -244,5 +244,41 @@ try {
 		return false;
 
 	}// enddelete
+
+	@Override
+	public boolean ajouterAuPanierProduitExistant(Panier pPannier) {
+try {
+			
+			String requeteUpdate = "UPDATE Panier SET quantite = quantite + 1  WHERE id_Produit=?";
+			ps = this.connection.prepareStatement(requeteUpdate);
+			
+						
+			ps.setInt(1, pPannier.getId_Produit());
+			
+			int verifUpdate = ps.executeUpdate();
+			return (verifUpdate == 1)?true:false;
+			
+		} //end try
+		catch (SQLException e) {
+			
+			System.out.println("--> update() <-- : Erreur lors de la modifajoutproduitdejaexistant d'un panier dans PannierDAOImpl");
+			e.printStackTrace();
+			
+		} //end catch
+		finally {
+			// fermeture des ressources
+			try {
+				if (ps != null) {
+					ps.close();
+				}		
+			}
+			catch(Exception e){
+				e.printStackTrace();			
+			}		
+		}//end finally
+
+		return false;
+	}//end update ajout une quantité()
+
 
 }
