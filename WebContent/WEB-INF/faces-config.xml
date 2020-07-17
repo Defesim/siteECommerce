@@ -326,7 +326,7 @@
 	
 	<navigation-rule>
 		
-		<!--  page de départ : accueilGrandPublic  -->
+		<!--  page de départ : panier  -->
 		<from-view-id>/panier.xhtml</from-view-id>
 		
 		<!--  de 'accueilGrandPublic.xhtml' vers 'accueilGrandPublic.xhtml'  -->
@@ -350,9 +350,15 @@
 		
 		</navigation-case>
 		
+		<navigation-case>
 		
+			<!--  clé d'outcom  -->
+			<from-outcome>RetourAccueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
 		
-		
+		</navigation-case>
 	
 	</navigation-rule>
 

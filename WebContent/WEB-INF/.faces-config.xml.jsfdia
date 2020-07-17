@@ -133,6 +133,9 @@
    <PROCESS-ITEM-OUTPUT ID="panierValider::#panier.xhtml" NAME="output1"
     PATH="/panier.xhtml" TARGET="rules:#panier.xhtml"
     TITLE="panierValider" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#accueilGrandPublic.xhtml"
+    NAME="output2" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

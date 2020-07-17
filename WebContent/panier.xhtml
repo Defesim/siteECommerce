@@ -125,9 +125,11 @@
 								</h:commandLink>
 							</h:form>
 						</div>
-
-						<h:link value="retour à la page"
-							outcome="accueilGrandPublic.xhtml?faces-redirect=true" />
+						<h:form>
+						<h:commandLink id="RetourAccueil" action="RetourAccueil" actionListener="#{commandeBean.ViderCommandeBdd()}">
+						<h:outputText value="Retour à l'accueil" />
+						</h:commandLink>
+						</h:form>
 
 
 
