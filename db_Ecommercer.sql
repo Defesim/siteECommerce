@@ -90,8 +90,46 @@ update Panier set quantite=quantite+1;
 
 
 
+
 SET SQL_SAFE_UPDATES = 0;
 
 insert into Commande (prixTotale)
 SELECT SUM(prix * quantite)
 FROM Panier;
+
+
+
+create table BilanCommande (id_BilanCommande integer auto_increment, prixtotale double,DATE_Commande  TIMESTAMP (0),
+constraint pk_Commande primary key (id_BilanCommande));
+insert into BilanCommande (prixtotale)
+SELECT prixTotale
+FROM Commande;
+
+create table BilanPanier (id_Produit integer, nom varchar(200), prix double, quantite integer, IDBilanCommande integer,
+foreign key (IDBilanCommande) references BilanCommande(id_BilanCommande)
+ );
+
+
+
+INSERT INTO ma_nouvelle_table (numero_client, date, info1) SELECT '000' || id_client, paate, info1 FROM ma_table;
+
+SELECT COUNT(*) FROM bilanpanier;
+
+drop procedure if exists doWhile;
+DELIMITER //  
+CREATE PROCEDURE doWhile()   
+BEGIN
+DECLARE i INT DEFAULT 2376921001; 
+WHILE (i <= 237692200) DO
+       INSERT INTO `mytable` (code, active, total) values (i, 1, 1);
+       SET i = i+1;
+END WHILE;
+END;
+//  
+
+CALL doWhile();
+
+
+
+
+
