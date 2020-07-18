@@ -11,7 +11,6 @@
 	
 	<!-- Notre Script -->
     <script src="resources/scripts/scriptAccueil.js"></script>
-    
 
 
 </head> 
@@ -110,6 +109,28 @@
                         <h:outputText value ="#{categorieBean.categorie.description}"/>	
                         <br></br>
                         <br></br>
+                        
+                        <h:form>
+                        	<ui:repeat value="#{produitBean.listeProduitBdd}" var="product">
+                        	<h3 style="text-decoration: bold">${product.nom}</h3>
+						    <p:panel footer="----------------------" style="margin-bottom:10px">
+						        <h:panelGrid columns="2" cellpadding="10">
+						            <p:graphicImage library="img" name="#{product.photo}" width="120x" height="120px" />
+						            <h:outputText value="#{product.description}" />
+						            <h:outputText value="#{product.categorie_NOM}" />
+						            <h:outputText value="#{product.prix} € | #{product.quantite} exemplaires disponibles" />
+						            <h:commandLink id="AjoutPanier" action="AjoutPanier"
+												actionListener="#{panierBean.ajouterAuPanier}">
+									<h:outputText value="Ajouter au panier" />	
+									<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
+									<f:setPropertyActionListener value="#{panierBean.findallPanierBdd()}" target="#{panierBean.listePanierBdd}" />
+									</h:commandLink>
+						        </h:panelGrid>
+						    </p:panel>
+						    </ui:repeat>
+						</h:form>	
+                        
+                        
                         	<h:form>
                         		
                         	   	
