@@ -105,64 +105,27 @@
 						        
 						        </div>
                         	
-	                        		<h:dataTable value="#{ClientsBean.listeClientsbdd}" var="clients" border="1" width="60%">
+	                        		<h:dataTable value="#{bilanCommandeBean.listeBilanCommandeBdd}" var="BC" border="1" width="60%">
 	
 		                        	<!--  Nom Categorie  -->
 		                        	<h:column >
-		                        	<f:facet name="header"> ID Clients </f:facet>
-									<h:outputText value="#{clients.id_Client}"/>	
+		                        	<f:facet name="header"> ID Commande </f:facet>
+									<h:outputText value="#{BC.IDCommande}"/>	
 									</h:column>
 								
 								
 									<!--  Description  -->
 									<h:column>
-									<f:facet name="header"> Nom Client </f:facet>
-									<h:outputText value = "#{clients.nom_Client}"/>	
+									<f:facet name="header"> Prix Totale </f:facet>
+									<h:outputText value = "#{BC.prixTotale}"/>	
 									</h:column>
 									
 									<!--  Description  -->
 									<h:column>
-									<f:facet name="header"> Adresse </f:facet>
-									<h:outputText value = "#{clients.adresse}"/>	
+									<f:facet name="header"> Date Commande </f:facet>
+									<h:outputText value = "#{BC.dateCommande}"/>	
 									</h:column>
-									
-									<!--  Description  -->
-									<h:column>
-									<f:facet name="header"> Email </f:facet>
-									<h:outputText value = "#{clients.email}"/>	
-									</h:column>
-									
-									<!--  Description  -->
-									<h:column>
-									<f:facet name="header"> Telephone </f:facet>
-									<h:outputText value = "#{clients.telephone}"/>	
-									</h:column>
-	
-									
-									<!--  editer une client  -->
-									<h:column>
-									<f:facet name="header"> Editer </f:facet>
-									
-									<h:commandLink id="editClients" action="editClients"
-							   						actionListener="#{ClientsBean.selectionnerClients}">
-							   		<f:param id="updateID" name="id" value="#{clients.id_Client}"></f:param>
-									<h:outputText value="Editer Clients" />		   
-									</h:commandLink>     
-	
-									</h:column>
-									
-									
-									<!--  supprimer une categorie  -->
-									<h:column>
-									<f:facet name="header"> Supprimer </f:facet>
-									
-									<h:commandLink id="gestion_clients" action="gestion_clients"
-							   						actionListener="#{ClientsBean.supprimerClients}">
-							   		<f:param id="deleteID" name="id" value="#{clients.id_Client}"></f:param>
-									<h:outputText value="Supprimer Client" />		   
-									</h:commandLink>     
-	
-									</h:column>
+				
 	                        	
 	                        		</h:dataTable>
 	                	</h:form>

@@ -76,6 +76,16 @@
 					</label>
 				</div>
 			</h:form>
+			<h:form>
+				<div>
+					<label class="btn btn-secondary">
+						<h:commandLink id="directionBilanCommande" action="bilan_commande"
+															  actionListener="#{bilanCommandeBean.findallBilanCommandeBdd()}">
+						<h:outputText value="Bilan Commande"/>
+						</h:commandLink>
+					</label>
+				</div>
+			</h:form>
 		</div>
         
         <div id="page-content-wrapper">
