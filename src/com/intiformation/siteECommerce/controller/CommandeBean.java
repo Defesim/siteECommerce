@@ -15,8 +15,7 @@ import javax.faces.event.ActionEvent;
 import com.intiformation.siteECommerce.dao.CommandeDAOImpl;
 import com.intiformation.siteECommerce.dao.ICommandeDAO;
 import com.intiformation.siteECommerce.modele.Commande;
-import com.intiformation.siteECommerce.modele.Commande;
-import com.intiformation.siteECommerce.modele.Commande;
+
 
 
 

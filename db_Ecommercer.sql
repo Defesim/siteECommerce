@@ -105,30 +105,11 @@ insert into BilanCommande (prixtotale)
 SELECT prixTotale
 FROM Commande;
 
-create table BilanPanier (id_Produit integer, nom varchar(200), prix double, quantite integer, IDBilanCommande integer,
+create table BilanPanier (IDBilanCommande integer, id_Produit integer, nom varchar(200), prix double, quantite integer, 
 foreign key (IDBilanCommande) references BilanCommande(id_BilanCommande)
  );
 
-
-
-INSERT INTO ma_nouvelle_table (numero_client, date, info1) SELECT '000' || id_client, paate, info1 FROM ma_table;
-
-SELECT COUNT(*) FROM bilanpanier;
-
-drop procedure if exists doWhile;
-DELIMITER //  
-CREATE PROCEDURE doWhile()   
-BEGIN
-DECLARE i INT DEFAULT 2376921001; 
-WHILE (i <= 237692200) DO
-       INSERT INTO `mytable` (code, active, total) values (i, 1, 1);
-       SET i = i+1;
-END WHILE;
-END;
-//  
-
-CALL doWhile();
-
+INSERT INTO BilanPanier select (SELECT id_BilanCommande FROM BilanCommande), Panier.* from Panier ;
 
 
 
