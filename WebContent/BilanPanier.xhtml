@@ -85,7 +85,6 @@
 					</label>
 				</div>
 			</h:form>
-			
 			<h:form>
 				<div>
 					<label class="btn btn-secondary">
@@ -105,13 +104,14 @@
                         <h1>Bienvenu(e)</h1>
                         	<h:form>
                         	
-              	
-	                        		<h:dataTable value="#{bilanCommandeBean.listeBilanCommandeBdd}" var="BC" border="1" width="60%">
+                        	
+                        	
+	                        		<h:dataTable value="#{bilanPanierBean.listeBilanPanierBdd}" var="BilanPanier" border="1" width="60%">
 	
 		                        	<!--  Nom Categorie  -->
 		                        	<h:column >
 		                        	<f:facet name="header"> ID Commande </f:facet>
-									<h:outputText value="#{BC.IDCommande}"/>	
+									<h:outputText value="#{BilanPanier.}"/>	
 									</h:column>
 								
 								

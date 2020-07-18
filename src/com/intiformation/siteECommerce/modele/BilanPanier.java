@@ -12,7 +12,6 @@ public class BilanPanier {
 	//--------------------constructor--------------------------------------------------
 	
 	public BilanPanier(int iDCommande, int id_Produit, String nom, double prix, int quantite) {
-		super();
 		IDCommande = iDCommande;
 		this.id_Produit = id_Produit;
 		this.nom = nom;
@@ -20,10 +19,8 @@ public class BilanPanier {
 		this.quantite = quantite;
 	}
 	public BilanPanier() {
-		super();
 	}
 	public BilanPanier(int id_Produit, String nom, double prix, int quantite) {
-		super();
 		this.id_Produit = id_Produit;
 		this.nom = nom;
 		this.prix = prix;

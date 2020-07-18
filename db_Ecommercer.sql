@@ -99,13 +99,13 @@ FROM Panier;
 
 
 
-create table BilanCommande (id_BilanCommande integer auto_increment, prixtotale double,DATE_Commande  TIMESTAMP (0),
+create table E_commerce.BilanCommande (id_BilanCommande integer auto_increment, prixtotale double,DATE_Commande  TIMESTAMP (0),
 constraint pk_Commande primary key (id_BilanCommande));
 insert into BilanCommande (prixtotale)
 SELECT prixTotale
 FROM Commande;
 
-create table BilanPanier (IDBilanCommande integer, id_Produit integer, nom varchar(200), prix double, quantite integer, 
+create table E_commerce.BilanPanier (IDBilanCommande integer, id_Produit integer, nom varchar(200), prix double, quantite integer, 
 foreign key (IDBilanCommande) references BilanCommande(id_BilanCommande)
  );
 
