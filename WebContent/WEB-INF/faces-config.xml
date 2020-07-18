@@ -67,6 +67,17 @@
 			<redirect/>
 		</navigation-case>
 		
+		<!--  de 'accueil.xhtml' vers 'BilanPanier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_panier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanPanier.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
 		<!--  de 'accueil.xhtml' vers 'GestionClients.xhtml'  -->
 		<navigation-case>
 		
@@ -185,6 +196,17 @@
 			<from-outcome>accueil</from-outcome>
 			<!--  destination  -->
 			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'GestionCategories.xhtml' vers 'BilanPanier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_panier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanPanier.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>

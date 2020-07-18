@@ -19,6 +19,9 @@
     ID="gestion_categories::#GestionCategories.xhtml" NAME="output6"
     PATH="/GestionCategories.xhtml"
     TARGET="rules:#GestionCategories.xhtml" TITLE="gestion_categories" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bilan_panier::#BilanPanier.xhtml"
+    NAME="output3" PATH="/BilanPanier.xhtml"
+    TARGET="rules:#BilanPanier.xhtml" TITLE="bilan_panier" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="gestion_clients::#GestionClients.xhtml"
     NAME="output7" PATH="/GestionClients.xhtml"
     TARGET="rules:#GestionClients.xhtml" TITLE="gestion_clients" model-entity="JSFProcessItemOutput"/>
@@ -95,11 +98,16 @@
    <PROCESS-ITEM-OUTPUT ID="gestion_clients::#GestionClients.xhtml"
     NAME="output8" PATH="/GestionClients.xhtml"
     TARGET="rules:#GestionClients.xhtml" TITLE="gestion_clients" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output1"
+    PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bilan_panier::#BilanPanier.xhtml"
+    NAME="output2" PATH="/BilanPanier.xhtml"
+    TARGET="rules:#BilanPanier.xhtml" TITLE="bilan_panier" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="ajoutCategorie::#ajouter-categorie.xhtml"
     NAME="output3" PATH="/ajouter-categorie.xhtml"
     TARGET="rules:#ajouter-categorie.xhtml" TITLE="ajoutCategorie" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editCategorie::#editer-categorie.xhtml"
-    NAME="output1" PATH="/editer-categorie.xhtml"
+    NAME="output4" PATH="/editer-categorie.xhtml"
     TARGET="rules:#editer-categorie.xhtml" TITLE="editCategorie" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -200,4 +208,6 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Facture.xhtml" PATH="/Facture.xhtml"
   SHAPE="368,3249,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#BilanPanier.xhtml" PATH="/BilanPanier.xhtml"
+  SHAPE="640,545,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
