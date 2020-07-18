@@ -49,6 +49,8 @@
   		<h:inputSecret type="password" id="inputPassword" name="p_password" class="form-control" placeholder="Mot de passe" required="true" value="#{authenticationBean.userMdp}"/>
   		
   		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{authenticationBean.connecterUtilisateur()}" value="Se connecter" >
+  			<f:setPropertyActionListener value="" target="#{produitBean.motCle}"></f:setPropertyActionListener>
+  			<f:setPropertyActionListener value="#{produitBean.findallProduitBdd()}" target="#{produitBean.listeProduitBdd}"></f:setPropertyActionListener>
   		</h:commandButton>
   		
   		<h:link value="retour à la page" outcome="accueilGrandPublic.xhtml?faces-redirect=true"/>

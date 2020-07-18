@@ -6,11 +6,17 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 
+
+
 <head>
 	<title>Page d'accueil</title>
 	
-	<!-- Notre Script -->
-    <script src="resources/scripts/scriptAccueil.js"></script>
+	<!--  Bootstrap  -->
+	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
+	
+	<!--  Notre CSS  -->
+	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+   
 
 
 </head> 
@@ -97,102 +103,56 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Bienvenu(e)</h1>
+        
 
+                        <h1>Bienvenu(e)</h1>
                         <h2>${categorieBean.categorie.nom_Categorie}</h2>
                         <br></br>
                         <h:outputText value ="#{categorieBean.categorie.description}"/>	
                         <br></br>
                         <br></br>
                         
+                        <ui:repeat value="#{produitBean.listeProduitBdd}" var="product">
                         <h:form>
-                        	<ui:repeat value="#{produitBean.listeProduitBdd}" var="product">
                         	<h3 style="text-decoration: bold">${product.nom}</h3>
-						    <p:panel footer="----------------------" style="margin-bottom:10px">
-						        <h:panelGrid columns="2" cellpadding="10">
-						            <p:graphicImage library="img" name="#{product.photo}" width="120x" height="120px" />
-						            <h:outputText value="#{product.description}" />
-						            <h:outputText value="#{product.categorie_NOM}" />
-						            <h:outputText value="#{product.prix} € | #{product.quantite} exemplaires disponibles" />
+						    <p:panel footer="-------------------------------------------------------------" style="margin-bottom:10px">
+						        <p:panelGrid columns="2" cellpadding="10">
+						            
+						            <p:graphicImage library="img" name="#{product.photo}" width="120x" height="120px"/>
+						            
+						            <h:outputText value="#{product.description}" style="margin-left:20px"/>
+						            
+						            <h:outputText value="Prix : #{product.prix} €" />
+						            
 						            <h:commandLink id="AjoutPanier" action="AjoutPanier"
-												actionListener="#{panierBean.ajouterAuPanier}">
-									<h:outputText value="Ajouter au panier" />	
-									<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
-									<f:setPropertyActionListener value="#{panierBean.findallPanierBdd()}" target="#{panierBean.listePanierBdd}" />
+												actionListener="#{panierBean.ajouterAuPanier}" style="margin-left:20px">
+										<h:outputText value="Ajouter au panier" />	
+										<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
+										<f:setPropertyActionListener value="#{panierBean.findallPanierBdd()}" target="#{panierBean.listePanierBdd}" />
 									</h:commandLink>
-						        </h:panelGrid>
+									
+									<h:outputText value="#{product.quantite} en stock" />
+						        </p:panelGrid>
 						    </p:panel>
-						    </ui:repeat>
+
 						</h:form>	
-                        
-                        
-                        	<h:form>
-                        		
-                        	   	
-                        	   	<h:dataTable value="#{produitBean.listeProduitBdd}" var="product" border="1" width="60%">
-
-	                        	<!--  Image produit  -->
-	                        	<h:column >
-								<h:graphicImage library = "img" name="#{product.photo}" styleClass="imageProduit" width="64px" height="64px" />	
-								</h:column>
-							
-							
-								<!--  nom du produit  -->
-								<h:column>
-								<f:facet name="header"> Nom </f:facet>
-								<h:outputText value = "#{product.nom}"/>	
-								</h:column>
-					
-					
-								<!--  description du produit  -->			
-								<h:column>
-								<f:facet name="header"> Description </f:facet>
-								<h:outputText value = "#{product.description}"/>		
-								</h:column>
-								
-								
-								<!--  prix du produit  -->
-								<h:column>
-								<f:facet name="header"> Prix </f:facet>
-								<h:outputText value = "#{product.prix} €"/>		
-								</h:column>
-
-								<!--  ajout au panier  -->
-								<h:column>
-								<f:facet name="header"> Ajout au panier </f:facet>
-								<h:commandLink id="AjoutPanier" action="AjoutPanier"
-												actionListener="#{panierBean.ajouterAuPanier}">
-									<h:outputText value="Ajouter au panier" />	
-									<f:param id="ajoutPanierID" value="#{product.id_Produit}"></f:param>
-									<f:setPropertyActionListener value="#{panierBean.findallPanierBdd()}" target="#{panierBean.listePanierBdd}" />
-								</h:commandLink>
-								
-								</h:column>
-								
-                        	
-                        		</h:dataTable>
-
-
-                        </h:form>
-                    </div>
+						 </ui:repeat>
+						 </div>
                 </div>
             </div>
         </div>
+                        
+        </div>
         <!-- /#page-content-wrapper -->
 
-    </div>
     
     <!-- /#wrapper -->
-        <!--  Bootstrap  -->
-	<link rel="stylesheet" href="resources/styles/bootstrap.min.css"/>
 	
-	<!--  Notre CSS  -->
-	<link rel="stylesheet" href="resources/styles/styleAccueil.css"/>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
 
 </body> 
 </html>

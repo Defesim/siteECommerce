@@ -47,7 +47,7 @@
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
 			<h:form>
 				<div>
-					<label class="btn btn-secondary">
+					<label class="btn btn-dark">
 						<h:commandLink id="directionGestionProduits" action="accueil"
 															  actionListener="#{produitBean.findallProduitBdd()}">
 						<h:outputText value="Gestion Produits"/>
@@ -57,7 +57,7 @@
 			</h:form>
 			<h:form>
 				<div>
-					<label class="btn btn-secondary">
+					<label class="btn btn-dark">
 						<h:commandLink id="directionGestionCategories" action="gestion_categories"
 															  actionListener="#{categorieBean.findallCategorie()}">
 						<h:outputText value="Gestion Categories"/>
@@ -67,7 +67,7 @@
 			</h:form>
 			<h:form>
 				<div>
-					<label class="btn btn-secondary active">
+					<label class="btn btn-dark active">
 						<h:commandLink id="directionGestionClients" action="gestion_clients"
 															  actionListener="#{ClientsBean.findAllClientsBdd()}">
 						<h:outputText value="Gestion Clients"/>
@@ -77,7 +77,7 @@
 			</h:form>
 			<h:form>
 				<div>
-					<label class="btn btn-secondary">
+					<label class="btn btn-dark active">
 						<h:commandLink id="directionBilanCommande" action="bilan_commande"
 															  actionListener="#{bilanCommandeBean.findallBilanCommandeBdd()}">
 						<h:outputText value="Bilan Commande"/>
