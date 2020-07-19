@@ -71,9 +71,9 @@
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
-			<from-outcome>bilan_panier</from-outcome>
+			<from-outcome>bilan_commande</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/BilanPanier.xhtml</to-view-id>
+			<to-view-id>/BilanCommande.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
@@ -204,9 +204,9 @@
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
-			<from-outcome>bilan_panier</from-outcome>
+			<from-outcome>bilan_commande</from-outcome>
 			<!--  destination  -->
-			<to-view-id>/BilanPanier.xhtml</to-view-id>
+			<to-view-id>/BilanCommande.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
@@ -298,6 +298,17 @@
 			<from-outcome>gestion_categories</from-outcome>
 			<!--  destination  -->
 			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'GestionClients.xhtml' vers 'BilanCommande.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_commande</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanCommande.xhtml</to-view-id>
 			<redirect/>
 		
 		</navigation-case>
@@ -587,6 +598,167 @@
 		</navigation-case>
 	
 	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : BilanCommande  -->
+		<from-view-id>/BilanCommande.xhtml</from-view-id>
+		
+		<!--  cas de navigation  -->
+		<!--  de 'BilanCommande.xhtml' vers 'accueilGrandPublic.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>Deconnection</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'GestionClients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_clients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionClients.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'GestionCategories.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_categories</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'BilanCommande.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_commande</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanCommande.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>accueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'BilanPanier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_panier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanPanier.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		
+	
+	
+		
+		
+	
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : BilanPanier  -->
+		<from-view-id>/BilanPanier.xhtml</from-view-id>
+		
+		<!--  cas de navigation  -->
+		<!--  de 'BilanPanier.xhtml' vers 'accueilGrandPublic.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>Deconnection</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanPanier.xhtml' vers 'GestionClients.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_clients</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionClients.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanPanier.xhtml' vers 'GestionCategories.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>gestion_categories</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/GestionCategories.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanCommande.xhtml' vers 'BilanPanier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_commande</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanCommande.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanPanier.xhtml' vers 'accueil.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>accueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueil.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		<!--  de 'BilanPanier.xhtml' vers 'BilanPanier.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>bilan_panier</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/BilanPanier.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+		
+	
+	
+		
+		
+	
+	</navigation-rule>
+
 
 	
 

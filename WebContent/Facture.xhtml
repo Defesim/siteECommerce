@@ -1,17 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
 
-</h:head> 
-<body> 
+</h:head>
+<body>
 	<h1>MERCI POUR TON ARGENT</h1>
+	<div id="page-content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>Facture de beau goss</h1>
+					<h:form>
 
-</body> 
+
+						<h:dataTable value="#{panierBean.listePanierBdd}" var="pan"
+							border="1" width="60%">
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<h:graphicImage library="img"
+									name="#{produitBean.afficherImage(pan.id_Produit)}"
+									width="64px" height="64px" />
+							</h:column>
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> Nom </f:facet>
+
+								<h:outputText value="#{pan.nom}" />
+							</h:column>
+
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> Prix Unité</f:facet>
+
+								<h:outputText value="#{pan.prix}" />
+							</h:column>
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> Quantite </f:facet>
+
+								<h:outputText value="#{pan.quantite}" />
+							</h:column>
+
+
+
+						</h:dataTable>
+					</h:form>
+				</div>
+
+				<div>
+					<h:form>
+						<h:dataTable value="#{commandeBean.listeCommandeBdd}"
+							var="commande" border="1" width="60%">
+
+
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> ID Commande </f:facet>
+
+								<h:outputText value="#{commande.IDCommande}" />
+							</h:column>
+
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> Date Commande</f:facet>
+
+								<h:outputText value="#{commande.dateCommande}" />
+							</h:column>
+
+							<h:column>
+								<!--  données de la colonne  -->
+								<f:facet name="header"> Prix Total</f:facet>
+
+								<h:outputText value="#{commande.prixTotale}" />
+							</h:column>
+
+
+
+						</h:dataTable>
+
+						<h:form>
+							<h:commandLink id="RetourAccueil" action="RetourAccueil"
+								actionListener="#{commandeBean.ViderCommandeBdd()}">
+								<h:outputText value="Retour à l'accueil" />
+							</h:commandLink>
+						</h:form>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>

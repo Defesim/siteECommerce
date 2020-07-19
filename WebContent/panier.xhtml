@@ -55,20 +55,26 @@
 
 								<h:column>
 									<!--  données de la colonne  -->
+									<f:facet name="header"> Nom </f:facet>
+
 									<h:outputText value="#{pan.nom}" />
 								</h:column>
 
 
 								<h:column>
 									<!--  données de la colonne  -->
+									<f:facet name="header"> Prix </f:facet>
+
 									<h:outputText value="#{pan.prix}" />
 								</h:column>
 
 								<h:column>
 									<!--  données de la colonne  -->
+									<f:facet name="header"> Quantite </f:facet>
+
 									<h:outputLabel for="idquantite" />
-									<h:inputText id="idquantite"
-										value="#{pan.quantite}" required="true" requiredMessage="quantite obligatoire"/>
+									<h:inputText id="idquantite" value="#{pan.quantite}"
+										required="true" requiredMessage="quantite obligatoire" />
 								</h:column>
 
 								<!--  supprimer un produit  -->
@@ -82,12 +88,14 @@
 										<h:outputText value="Supprimer du Panier" />
 									</h:commandLink>
 
-								</h:column> 
-								
+								</h:column>
+
 								<h:column>
 
 									<h:commandLink action="panierValider"
 										actionListener="#{panierBean.modifierPanier}">
+										<f:facet name="header"> Prix Total </f:facet>
+
 										<f:param id="updateID" name="id" value="#{pan.id_Produit}"></f:param>
 										<h:outputText value="Modifier Quantite" />
 									</h:commandLink>
@@ -135,9 +143,10 @@
 							</h:form>
 						</div>
 						<h:form>
-						<h:commandLink id="RetourAccueil" action="RetourAccueil" actionListener="#{commandeBean.ViderCommandeBdd()}">
-						<h:outputText value="Retour à l'accueil" />
-						</h:commandLink>
+							<h:commandLink id="RetourAccueil" action="RetourAccueil"
+								actionListener="#{commandeBean.ViderCommandeBdd()}">
+								<h:outputText value="Retour à l'accueil" />
+							</h:commandLink>
 						</h:form>
 
 
