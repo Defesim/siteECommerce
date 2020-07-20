@@ -3,6 +3,7 @@ package com.intiformation.siteECommerce.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -25,14 +26,14 @@ public class BilanCommandeBean implements Serializable {
 		BilanCommandeDAO = new BilanCommandeDAOImpl();
 
 	}// end gestionCommandeBean
-
+	
 	public List<BilanCommande> findallBilanCommandeBdd() {
 		listeBilanCommandeBdd = BilanCommandeDAO.getAll();
 		setListeBilanCommandeBdd(listeBilanCommandeBdd);
 		return listeBilanCommandeBdd;
 	}// end listeCommande
 
-	public String CommandeDansBilanCommande() {
+	public void CommandeDansBilanCommande() {
 
 		// 1 recup du context de JSF
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -48,16 +49,12 @@ public class BilanCommandeBean implements Serializable {
 			context.addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "ajout commande ", "Ajout fait avec succés"));
 
-			// redirection vers la page 'accueil.xhtml'
-			return "commande.xhtml?faces-redirect=true";
 
 		} else { // ajout not ok
 
 			FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "ajout commande raté ",
 					"Ajout pas fait avec succés");
 
-			// envoie d'un message vers la vue 'ajouter-commande.xhtml'
-			return "commande.xhtml?faces-redirect=true";
 
 		} // end else
 

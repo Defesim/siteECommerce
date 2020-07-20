@@ -91,12 +91,8 @@
 
 						</h:dataTable>
 
-						<h:form>
-							<h:commandLink id="RetourAccueil" action="RetourAccueil"
-								actionListener="#{commandeBean.ViderListeCommande()}">
-								<h:outputText value="Retour à l'accueil" />
-							</h:commandLink>
-						</h:form>
+						<h:link value="retour à la page d'accueil" outcome="accueilGrandPublic.xhtml?faces-redirect=true"/>
+					
 					</h:form>
 				</div>
 			</div>

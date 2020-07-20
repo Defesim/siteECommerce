@@ -18,6 +18,7 @@ import javax.faces.event.ActionEvent;
 
 import com.intiformation.siteECommerce.dao.IProduitDAO;
 import com.intiformation.siteECommerce.dao.ProduitDAOImpl;
+import com.intiformation.siteECommerce.modele.Panier;
 import com.intiformation.siteECommerce.modele.Produit;
 
 
@@ -28,7 +29,8 @@ public class GestionProduitBean implements Serializable {
 	private List<Produit> listeProduitBdd = new ArrayList<>();
 	private Produit produit;
 	private String motCle;
-	
+	private List<Panier> listePanierBdd;
+
 	private IProduitDAO produitDAO;
 
 	public GestionProduitBean() {
@@ -160,6 +162,56 @@ public class GestionProduitBean implements Serializable {
 	}//end modifier produit
 	
 	/**
+	 * Permet de modifier un produit dans la bdd;
+	 * invoquée au click sur le lien "modifier" de editer-produit.xhtml
+	 * au click, l'évènement encapsule toutes les infos concernant le composant
+	 * 
+	 */
+	public void diminuerQuantiteProduit() {
+		
+		/**
+		 * la prop 'produit' du MB encapsule les infos du produit à modifier dans
+		 * la base de donnée
+		 */
+		
+		// 1. recup du context de JSF
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
+		
+		for (Panier produit : listePanierBdd) {
+			
+			Produit produitAModifier = produitDAO.getById(produit.getId_Produit());
+			produitAModifier.setQuantite(produit.getQuantite());
+			
+		//2. modification du produit dans la bdd
+		if (produitDAO.ModifierQuantite(produitAModifier.getQuantite(), produitAModifier.getId_Produit())) {
+			
+			//modif ok
+			
+			//-> message vers la vue 
+			FacesMessage messageOk = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification", " - La modification a été faite avec succés");
+			
+			//--> envoie du message
+			contextJSF.addMessage(null, messageOk);
+			
+			
+		} else {
+
+			//modif not ok
+			//-> message vers la vue 
+			FacesMessage messagenotOk = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Echec de la Modification", " - La modification n'a pas fonctionnée");
+			
+			//--> envoie du message
+			contextJSF.addMessage(null, messagenotOk);
+			
+			
+			
+		}//end if else
+		
+		}
+		
+	}//end modifier produit
+	
+	/**
 	 * Permet de editer un produit dans la bdd;
 	 * invoquée au click sur le lien "editer" de accueil.xhtml
 	 * au click, l'évènement encapsule toutes les infos concernant le composant
@@ -272,5 +324,16 @@ public class GestionProduitBean implements Serializable {
 	public void setMotCle(String motCle) {
 		this.motCle = motCle;
 	}
+	
+	
+
+	public List<Panier> getListePanierBdd() {
+		return listePanierBdd;
+	}
+
+	public void setListePanierBdd(List<Panier> listePanierBdd) {
+		this.listePanierBdd = listePanierBdd;
+	}
+
 
 }// end class

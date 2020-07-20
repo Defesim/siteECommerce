@@ -49,6 +49,9 @@
   		<h:inputSecret type="password" id="inputPassword" name="p_password" class="form-control" placeholder="Mot de passe (téléphone)" required="true" value="#{ClientsBean.tel}"/>
   		
   		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{ClientsBean.connecterClient()}" value="Se connecter" >
+  				<f:setPropertyActionListener value="#{panierBean.listePanierBdd}" target="#{produitBean.listePanierBdd}" />
+  				<f:actionListener binding="#{produitBean.diminuerQuantiteProduit()}"/>
+  				<f:actionListener binding="#{bilanCommandeBean.CommandeDansBilanCommande()}"/>
   		</h:commandButton>
   		
   		<h:link value="retour à la page" outcome="panier.xhtml?faces-redirect=true"/>
