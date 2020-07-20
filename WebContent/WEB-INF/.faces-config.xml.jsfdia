@@ -82,9 +82,9 @@
     TARGET="rules:#BilanCommande.xhtml" TITLE="bilan_commande" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output4"
     PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="editClients::#editer-Clients.xhtml"
-    NAME="output5" PATH="/editer-Clients.xhtml"
-    TARGET="rules:#editer-Clients.xhtml" TITLE="editClients" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ajoutClients::#ajouter-Clients.xhtml"
+    NAME="output5" PATH="/ajouter-Clients.xhtml"
+    TARGET="rules:#ajouter-Clients.xhtml" TITLE="ajoutClients" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#GestionCategories.xhtml"
@@ -216,7 +216,14 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Facture.xhtml" PATH="/Facture.xhtml"
-  SHAPE="368,3249,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="368,3249,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Facture.xhtml:0" NAME="item"
+   PATH="/Facture.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="RetourAccueil::#accueilGrandPublic.xhtml"
+    NAME="output" PATH="/accueilGrandPublic.xhtml"
+    TARGET="rules:#accueilGrandPublic.xhtml" TITLE="RetourAccueil" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#BilanCommande.xhtml"
   PATH="/BilanCommande.xhtml" SHAPE="640,1361,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#BilanCommande.xhtml:0" NAME="item"

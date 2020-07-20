@@ -35,7 +35,7 @@ public class CommandeDAOImpl implements ICommandeDAO {
 
 	@Override
 	public boolean delete(Integer id) {
-try {
+		try {
 			
 			String requeteSuppression = "DELETE FROM Commande WHERE id_Command=?";
 			ps = this.connection.prepareStatement(requeteSuppression);
@@ -68,7 +68,7 @@ try {
 
 	@Override
 	public List<Commande> getAll() {
-try {
+		try {
 			
 			String requeteGetAllCommande = "SELECT * FROM Commande";
 			ps = this.connection.prepareStatement(requeteGetAllCommande);
@@ -122,7 +122,7 @@ try {
 	 */
 	@Override
 	public Commande getById(Integer id) {
-try {
+		try {
 			
 			String requeteGetByIdProduit = "SELECT * FROM Commande WHERE id_Command = ?";
 			ps = this.connection.prepareStatement(requeteGetByIdProduit);
@@ -229,10 +229,9 @@ try {
 			// l'objet connexion
 			ps = this.connection.prepareStatement(requeteDelete);
 
-			
-
 			// 4 envoie de la requete + execution + recup resultat
 			int verifDelete = ps.executeUpdate();
+			
 
 			// 5 renvoi du resultat
 			return (verifDelete == 1);

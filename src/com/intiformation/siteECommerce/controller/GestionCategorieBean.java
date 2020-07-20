@@ -35,6 +35,11 @@ public class GestionCategorieBean implements Serializable{
 	}//end GestionCategorieBean
 	
 	@PostConstruct
+	public void SetallCategorie(){
+		listeCategorieBdd = categorieDAO.getAll();
+		setListeCategorieBdd(listeCategorieBdd);
+	}
+	
 	public List<Categorie> findallCategorie(){
 		listeCategorieBdd = categorieDAO.getAll();
 		setListeCategorieBdd(listeCategorieBdd);

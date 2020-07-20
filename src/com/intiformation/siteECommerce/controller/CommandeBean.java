@@ -1,6 +1,7 @@
 package com.intiformation.siteECommerce.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -52,7 +53,7 @@ public class CommandeBean implements Serializable {
 
 	}// end initialiserCommande
 	
-public String PanierDansCommande() {
+	public String PanierDansCommande() {
 		
 		//1 recup du context de JSF 
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -81,8 +82,8 @@ public String PanierDansCommande() {
 		
 	}//end ajout
 
-@PostConstruct
-public void ViderCommandeBdd() {
+	@PostConstruct
+	public void ViderCommandeBdd() {
 	
 	
 	//3.1 recup du context de JSFc
@@ -110,6 +111,13 @@ public void ViderCommandeBdd() {
 	}//end else
 	
 }// end ViderCommande
+	
+	public void ViderListeCommande() {
+		
+		List<Commande> ListeVide = new ArrayList<>();
+		setListeCommandeBdd(ListeVide);
+		
+	}// end ViderCommande
 
 public void selectionnerCommande(ActionEvent event) {
 	

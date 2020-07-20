@@ -750,14 +750,29 @@
 			<redirect/>
 		
 		</navigation-case>
-		
-		
-	
-	
-		
-		
+
 	
 	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<!--  page de départ : panier.xhtml  -->
+		<from-view-id>/Facture.xhtml</from-view-id>
+		
+		<!--  de 'accueilGrandPublic.xhtml' vers 'accueilGrandPublic.xhtml'  -->
+		<navigation-case>
+		
+			<!--  clé d'outcom  -->
+			<from-outcome>RetourAccueil</from-outcome>
+			<!--  destination  -->
+			<to-view-id>/accueilGrandPublic.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+
+	
+	</navigation-rule>
+	
 
 
 	
