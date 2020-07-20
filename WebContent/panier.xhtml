@@ -105,11 +105,12 @@
 							</h:dataTable>
 						</h:form>
 
-						<div>
+						<div id="validation">
 							<h:form>
 								<h:commandButton action="panierValider"
 									actionListener="#{commandeBean.PanierDansCommande()}"
 									value="Valider Panier">
+									<f:setPropertyActionListener value="#{true}" target="#{panierBean.validation}" />
 								</h:commandButton>
 							</h:form>
 						</div>
@@ -129,9 +130,9 @@
 							</h:dataTable>
 						</h:form>
 
-						<div>
+						<div id="Paye">
 
-							<h:form>
+							<h:form rendered="#{panierBean.validation}">
 								<h:commandLink action="HeureDeLaPaye">
 									<h:graphicImage library="img" name="Payer.png" width="128px"
 										height="128px"></h:graphicImage>
@@ -164,7 +165,7 @@
 	<!-- /#wrapper -->
 
 	<!-- Notre Script -->
-	<script src="resources/scripts/scriptAccueil.js"></script>
+	
 
 </body>
 </html>

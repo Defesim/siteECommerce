@@ -25,6 +25,7 @@ public class GestionPanierBean implements Serializable {
 	private List<Panier> listePanierBdd;
 	private Panier Panier;
 	private IPanierDAO PanierDAO;
+	private boolean validation;
 
 
 
@@ -40,6 +41,11 @@ public class GestionPanierBean implements Serializable {
 		setListePanierBdd(listePanierBdd);
 		return listePanierBdd;
 	}// end listePanier
+	
+	@PostConstruct
+	public void initialisationValidation() {
+		setValidation(false);
+	}
 	
 	// @PostConstruct force l'utilisation de la méthode au début de l'application (dépend du scoped)
 	@PostConstruct
@@ -282,6 +288,15 @@ public void supprimerPanier(ActionEvent event) {
 
 	public void setListePanierBdd(List<Panier> listePanierBdd) {
 		this.listePanierBdd = listePanierBdd;
+	}
+	
+	public boolean isValidation() {
+		return validation;
+	}
+
+
+	public void setValidation(boolean validation) {
+		this.validation = validation;
 	}
 	
 	
