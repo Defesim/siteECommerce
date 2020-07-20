@@ -76,6 +76,51 @@ public class BilanCommandeDAOImpl implements IBilanCommandeDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int getLastId() {
+		try {
+			
+
+			// 1 def du contenue de la requete SQL
+			String requeteDelete = "select max(id_BilanCommande) from BilanCommande;";
+
+			// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
+			// l'objet connexion
+			ps = this.connection.prepareStatement(requeteDelete);
+
+			
+
+			// 4 envoie de la requete + execution + recup resultat
+			rs = ps.executeQuery();
+			
+			rs.next();
+			
+			// 5 renvoi du resultat
+			return (rs.getInt(1));
+
+		} catch (SQLException e) {
+			System.out.println("erreur lors de l'execution de la méthode PanierDansCommande de commande");
+			e.printStackTrace();
+		} finally {
+			// 6 fermeture des ressources
+
+			try {
+
+				if (ps != null) {
+					ps.close();
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // end catch
+
+		} // end finnaly
+		return 0;
+
+
+	}// PanierDansCommande
 
 	@Override
 	public boolean AjouterCommandeDansBilanCommande() {

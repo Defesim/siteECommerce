@@ -85,17 +85,7 @@
 					</label>
 				</div>
 			</h:form>
-			
-			<h:form>
-				<div>
-					<label class="btn btn-secondary">
-						<h:commandLink id="directionBilanPanier" action="bilan_panier"
-															  actionListener="#{bilanPanierBean.findallBilanPanierBdd()}">
-						<h:outputText value="Bilan Panier"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
+		
 		</div>
         
         <div id="page-content-wrapper">
@@ -125,6 +115,17 @@
 									<h:column>
 									<f:facet name="header"> Date Commande </f:facet>
 									<h:outputText value = "#{BC.dateCommande}"/>	
+									</h:column>
+									
+									<h:column>
+									<f:facet name="header"> Voir détails </f:facet>
+									
+									<h:commandLink id="VoirDetailsCommande" action="VoirDetailsCommande"
+							   						actionListener="#{bilanPanierBean.findallBilanPanierBddParId()}">
+							   		<f:setPropertyActionListener value="#{BC.IDCommande}" target="#{bilanPanierBean.idCommande}" />
+									<h:outputText value="Voir détails" />		   
+									</h:commandLink>     
+	
 									</h:column>
 				
 	                        	

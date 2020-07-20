@@ -26,76 +26,12 @@
 						</h:commandButton>
 						</h:form>
             	</div>
-                <p>Que recherchez-vous</p>
-                	
-                	<h:form class="form-horizontal" method="post" id="formId">      
-					  <div class="control-group">
-					  <label class="sr-only" for="inputMotCle">Mot cle</label>
-					  </div> 
-					  <h:commandButton value="Rechercher" action="gestion_clients" actionListener="#{ClientsBean.findClientByMotCle}">
-					  	<h:inputText id="MotCle" placeholder="Mot cle" value="#{ClientsBean.motCle}"> </h:inputText>
-					  </h:commandButton>
-					  
-					</h:form>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-			<h:form>
-				<div>
-					<label class="btn btn-secondary">
-						<h:commandLink id="directionGestionProduits" action="accueil"
-															  actionListener="#{produitBean.findallProduitBdd()}">
-						<h:outputText value="Gestion Produits"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
-			<h:form>
-				<div>
-					<label class="btn btn-secondary">
-						<h:commandLink id="directionGestionCategories" action="gestion_categories"
-															  actionListener="#{categorieBean.findallCategorie()}">
-						<h:outputText value="Gestion Categories"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
-			<h:form>
-				<div>
-					<label class="btn btn-secondary active">
-						<h:commandLink id="directionGestionClients" action="gestion_clients"
-															  actionListener="#{ClientsBean.findAllClientsBdd()}">
-						<h:outputText value="Gestion Clients"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
-			<h:form>
-				<div>
-					<label class="btn btn-secondary">
-						<h:commandLink id="directionBilanCommande" action="bilan_commande"
-															  actionListener="#{bilanCommandeBean.findallBilanCommandeBdd()}">
-						<h:outputText value="Bilan Commande"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
-			<h:form>
-				<div>
-					<label class="btn btn-secondary">
-						<h:commandLink id="directionBilanPanier" action="bilan_panier"
-															  actionListener="#{bilanPanierBean.findallBilanPanierBdd()}">
-						<h:outputText value="Bilan Panier"/>
-						</h:commandLink>
-					</label>
-				</div>
-			</h:form>
-		</div>
         
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -104,32 +40,38 @@
                         <h1>Bienvenu(e)</h1>
                         	<h:form>
                         	
-                        	
-                        	
-	                        		<h:dataTable value="#{bilanPanierBean.listeBilanPanierBdd}" var="BilanPanier" border="1" width="60%">
+	                        		<h:dataTable value="#{bilanPanierBean.listeBilanPanierBdd}" var="ItemsInBilanPanier" border="1" width="60%">
 	
 		                        	<!--  Nom Categorie  -->
 		                        	<h:column >
-		                        	<f:facet name="header"> ID Commande </f:facet>
-									<h:outputText value="#{bilanPanierBean.listeBilanPanierBdd.}"/>	
+		                        	<f:facet name="header"> ID Produit </f:facet>
+									<h:outputText value="#{ItemsInBilanPanier.id_Produit}"/>	
 									</h:column>
 								
 								
 									<!--  Description  -->
 									<h:column>
-									<f:facet name="header"> Prix Totale </f:facet>
-									<h:outputText value = "#{BC.prixTotale}"/>	
+									<f:facet name="header"> Nom </f:facet>
+									<h:outputText value="#{ItemsInBilanPanier.nom}"/>	
 									</h:column>
 									
 									<!--  Description  -->
 									<h:column>
-									<f:facet name="header"> Date Commande </f:facet>
-									<h:outputText value = "#{BC.dateCommande}"/>	
+									<f:facet name="header"> Prix </f:facet>
+									<h:outputText value = "#{ItemsInBilanPanier.prix}"/>	
 									</h:column>
 				
+									<!--  Description  -->
+									<h:column>
+									<f:facet name="header"> Quantité </f:facet>
+									<h:outputText value = "#{ItemsInBilanPanier.quantite}"/>	
+									</h:column>
+									
 	                        	
 	                        		</h:dataTable>
 	                	</h:form>
+	                	
+	                	<h:link value="retour à la page de gestion des commandes" outcome="BilanCommande.xhtml?faces-redirect=true"/>
                     </div>
                 </div>
             </div>

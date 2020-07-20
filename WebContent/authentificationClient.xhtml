@@ -50,8 +50,11 @@
   		
   		<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{ClientsBean.connecterClient()}" value="Se connecter" >
   				<f:setPropertyActionListener value="#{panierBean.listePanierBdd}" target="#{produitBean.listePanierBdd}" />
+  				<f:setPropertyActionListener value="#{panierBean.listePanierBdd}" target="#{bilanPanierBean.listePanier}" />
   				<f:actionListener binding="#{produitBean.diminuerQuantiteProduit()}"/>
   				<f:actionListener binding="#{bilanCommandeBean.CommandeDansBilanCommande()}"/>
+  				<f:setPropertyActionListener value="#{bilanCommandeBean.obtainLastID()}" target="#{bilanPanierBean.idCommande}" />
+  				<f:actionListener binding="#{bilanPanierBean.PanierDansBilanPanier()}"/>
   		</h:commandButton>
   		
   		<h:link value="retour à la page" outcome="panier.xhtml?faces-redirect=true"/>

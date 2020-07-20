@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.intiformation.siteECommerce.modele.BilanPanier;
 import com.intiformation.siteECommerce.modele.Clients;
+import com.intiformation.siteECommerce.modele.Panier;
 
 public class BilanPanierDAOImpl implements IBilanPanierDAO{
 
@@ -78,18 +79,21 @@ public class BilanPanierDAOImpl implements IBilanPanierDAO{
 	}
 
 	@Override
-	public boolean AjoutPanierDansBilanPanier() {
+	public boolean AjoutPanierDansBilanPanier(Panier pan, int IdCommande) {
 		try {
 			
 
 			// 1 def du contenue de la requete SQL
-			String requeteDelete = "INSERT INTO BilanPanier select (SELECT id_BilanCommande FROM BilanCommande), Panier.* from Panier;";
+			String requeteDelete = "INSERT INTO BilanPanier(IDBilanCommande ,id_Produit ,nom ,prix ,quantite) values (?, ?, ?, ?, ?)";
 
 			// 2 def de l'objet 'PreparedSatement' pour envoyer la requete à partir de
 			// l'objet connexion
 			ps = this.connection.prepareStatement(requeteDelete);
-
-			
+			ps.setInt(1, IdCommande);
+			ps.setInt(2, pan.getId_Produit());
+			ps.setString(3, pan.getNom());
+			ps.setDouble(4, pan.getPrix());
+			ps.setInt(5, pan.getQuantite());
 
 			// 4 envoie de la requete + execution + recup resultat
 			int verifDelete = ps.executeUpdate();

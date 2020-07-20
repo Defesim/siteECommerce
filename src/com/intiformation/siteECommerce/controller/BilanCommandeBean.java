@@ -27,6 +27,12 @@ public class BilanCommandeBean implements Serializable {
 
 	}// end gestionCommandeBean
 	
+	public int obtainLastID() {
+
+		return (BilanCommandeDAO.getLastId());
+
+	}// end gestionCommandeBean
+	
 	public List<BilanCommande> findallBilanCommandeBdd() {
 		listeBilanCommandeBdd = BilanCommandeDAO.getAll();
 		setListeBilanCommandeBdd(listeBilanCommandeBdd);
@@ -39,6 +45,7 @@ public class BilanCommandeBean implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 
 		// 2 ajout nouveau commande
+		
 		boolean verifAjout = BilanCommandeDAO.AjouterCommandeDansBilanCommande();
 
 		if (verifAjout) {

@@ -664,7 +664,7 @@
 		<navigation-case>
 		
 			<!--  clé d'outcom  -->
-			<from-outcome>bilan_panier</from-outcome>
+			<from-outcome>VoirDetailsCommande</from-outcome>
 			<!--  destination  -->
 			<to-view-id>/BilanPanier.xhtml</to-view-id>
 			<redirect/>

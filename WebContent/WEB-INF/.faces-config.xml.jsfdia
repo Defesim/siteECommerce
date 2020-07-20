@@ -85,6 +85,9 @@
    <PROCESS-ITEM-OUTPUT ID="ajoutClients::#ajouter-Clients.xhtml"
     NAME="output5" PATH="/ajouter-Clients.xhtml"
     TARGET="rules:#ajouter-Clients.xhtml" TITLE="ajoutClients" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editClients::#editer-Clients.xhtml"
+    NAME="output6" PATH="/editer-Clients.xhtml"
+    TARGET="rules:#editer-Clients.xhtml" TITLE="editClients" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#GestionCategories.xhtml"
@@ -243,9 +246,9 @@
     TARGET="rules:#BilanCommande.xhtml" TITLE="bilan_commande" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="accueil::#accueil.xhtml" NAME="output4"
     PATH="/accueil.xhtml" TARGET="rules:#accueil.xhtml" TITLE="accueil" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="bilan_panier::#BilanPanier.xhtml"
+   <PROCESS-ITEM-OUTPUT ID="VoirDetailsCommande::#BilanPanier.xhtml"
     NAME="output5" PATH="/BilanPanier.xhtml"
-    TARGET="rules:#BilanPanier.xhtml" TITLE="bilan_panier" model-entity="JSFProcessItemOutput"/>
+    TARGET="rules:#BilanPanier.xhtml" TITLE="VoirDetailsCommande" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#BilanPanier.xhtml" PATH="/BilanPanier.xhtml"

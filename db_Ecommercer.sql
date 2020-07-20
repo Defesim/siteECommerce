@@ -111,6 +111,9 @@ foreign key (IDBilanCommande) references BilanCommande(id_BilanCommande)
 
 INSERT INTO BilanPanier select (SELECT id_BilanCommande FROM BilanCommande), Panier.* from Panier ;
 
+select * from BilanPanier;
+select * from BilanCommande;
 
+INSERT INTO BilanPanier select (SELECT id_Commande FROM Commande), Panier.* from Panier;
 
-
+select max(id_BilanCommande) from BilanCommande;
