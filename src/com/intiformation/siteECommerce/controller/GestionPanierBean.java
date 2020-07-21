@@ -13,8 +13,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.intiformation.siteECommerce.dao.IPanierDAO;
+import com.intiformation.siteECommerce.dao.IProduitDAO;
 import com.intiformation.siteECommerce.dao.PanierDAOImpl;
+import com.intiformation.siteECommerce.dao.ProduitDAOImpl;
 import com.intiformation.siteECommerce.modele.Panier;
+import com.intiformation.siteECommerce.modele.Produit;
 
 
 
@@ -172,6 +175,9 @@ public class GestionPanierBean implements Serializable {
  */
 	public void modifierPanier(ActionEvent event) {
 		
+		
+		// 1. recup du context de JSF
+		FacesContext contextJSF = FacesContext.getCurrentInstance();
 		/**
 		 * la prop 'livre' du MB encapsule les infos du livre à modifier dans
 		 * la base de donnée
@@ -183,16 +189,31 @@ public class GestionPanierBean implements Serializable {
 		//2. recup de la valeur du paramètre
 		int PanierId = (int) cp.getValue();
 		
+		
+		
+		IProduitDAO ProduitDAOPourQuantite;
+		ProduitDAOPourQuantite = new ProduitDAOImpl();
+		
 		Panier panierAEditer = PanierDAO.getById(PanierId);
+		Produit ProduitSelection = ProduitDAOPourQuantite.getById(PanierId);
+		int QuantiteDisponible = ProduitSelection.getQuantite();
 		
 		for(Panier pPanier : listePanierBdd) {
 			if (pPanier.getId_Produit()==PanierId) {
-				panierAEditer.setQuantite(pPanier.getQuantite());
+				if (pPanier.getQuantite() < QuantiteDisponible) {
+					panierAEditer.setQuantite(pPanier.getQuantite());
+				}
+				else {
+					panierAEditer.setQuantite(QuantiteDisponible);
+					FacesMessage messageYouWantTooMuch = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification", "La quantité a été fixée au maximum disponible, celle que vous aviez demandée était plus grande...");
+					
+					//--> envoie du message
+					contextJSF.addMessage(null, messageYouWantTooMuch);
+				}
 			}
 		}
 		
-		// 1. recup du context de JSF
-		FacesContext contextJSF = FacesContext.getCurrentInstance();
+		
 		
 		//2. modification du livre dans la bdd
 		if (PanierDAO.update(panierAEditer)) {

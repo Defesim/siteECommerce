@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
@@ -71,10 +72,12 @@
 								<h:column>
 									<!--  données de la colonne  -->
 									<f:facet name="header"> Quantite </f:facet>
-
+									
+									
 									<h:outputLabel for="idquantite" />
 									<h:inputText id="idquantite" value="#{pan.quantite}"
 										required="true" requiredMessage="quantite obligatoire" />
+
 								</h:column>
 
 								<!--  supprimer un produit  -->
@@ -94,10 +97,10 @@
 
 									<h:commandLink action="panierValider"
 										actionListener="#{panierBean.modifierPanier}">
-										<f:facet name="header"> Prix Total </f:facet>
+										<f:facet name="header"> Modification quantité </f:facet>
 
 										<f:param id="updateID" name="id" value="#{pan.id_Produit}"></f:param>
-										<h:outputText value="Modifier Quantite" />
+										<h:outputText value="Valider modification" />
 									</h:commandLink>
 
 								</h:column>
@@ -118,12 +121,10 @@
 							<h:dataTable value="#{commandeBean.findallCommandeBdd()}"
 								var="commande" border="1" width="60%">
 
-
 								<h:column>
 									<!--  données de la colonne  -->
-									<h:outputText value="#{commande.prixTotale}" />
+									<h:outputText value="prix total de votre panier : #{commande.prixTotale} €" />
 								</h:column>
-
 
 
 
@@ -143,6 +144,7 @@
 								</h:commandLink>
 							</h:form>
 						</div>
+						
 						<h:form>
 							<h:commandLink id="RetourAccueil" action="RetourAccueil"
 								actionListener="#{commandeBean.ViderCommandeBdd()}">
