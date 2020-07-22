@@ -46,8 +46,9 @@ public class BilanPanierBean implements Serializable {
 		
 		List<BilanPanier> listeBilanPanier = BilanPanierDAO.getAll();
 		List<BilanPanier> listeFinale = new ArrayList<>();
+		
 		for (BilanPanier bilanPanier : listeBilanPanier) {
-			if(bilanPanier.getIDCommande()==idCommande) {
+			if(bilanPanier.getIDCommande()==this.idCommande) {
 				listeFinale.add(bilanPanier);
 			}
 		}

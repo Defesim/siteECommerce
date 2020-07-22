@@ -1,6 +1,7 @@
 package com.intiformation.siteECommerce.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -91,6 +92,16 @@ public class GestionPanierBean implements Serializable {
 
 		// affectation du livre à la variable où à la prop du livre
 		setPanier(PanierAdd);
+
+	}// end initialiserPanier
+	
+	public void initialiserListePanier() {
+
+		// instanciation d'un nouveau objet de type livre
+		List<Panier> ListePanierAdd = new ArrayList<>();
+
+		// affectation du livre à la variable où à la prop du livre
+		setListePanierBdd(ListePanierAdd);
 
 	}// end initialiserPanier
 

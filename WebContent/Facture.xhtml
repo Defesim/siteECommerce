@@ -89,6 +89,16 @@
 						</h:dataTable>
 
 					</h:form>
+					
+					<h:form>
+					<h:commandButton action="RetourAccueil" value="ACHETER ENCORE DES PRODUITS... PLUS, TOUJOURS PLUS !" >
+						<f:actionListener binding="#{panierBean.ViderPanierBdd()}"/>
+						<f:actionListener binding="#{commandeBean.ViderCommandeBdd()}"/>
+						<f:setPropertyActionListener value="#{produitBean.findallProduitBdd()}" target="#{produitBean.listeProduitBdd}"/>
+						<f:actionListener binding="#{panierBean.initialiserListePanier()}"/>
+						<f:actionListener binding="#{commandeBean.ViderListeCommande()}"/>
+  					</h:commandButton>
+  					</h:form>
 				</div>
 			</div>
 		</div>

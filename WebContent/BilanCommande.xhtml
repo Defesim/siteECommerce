@@ -109,9 +109,9 @@
 									<h:column>
 									<f:facet name="header"> Voir détails </f:facet>
 									
-									<h:commandLink id="VoirDetailsCommande" action="VoirDetailsCommande"
-							   						actionListener="#{bilanPanierBean.findallBilanPanierBddParId()}">
-							   		<f:setPropertyActionListener value="#{BC.IDCommande}" target="#{bilanPanierBean.idCommande}" />
+									<h:commandLink id="VoirDetailsCommande" action="VoirDetailsCommande">
+							   			<f:setPropertyActionListener value="#{BC.IDCommande}" target="#{bilanPanierBean.idCommande}" />
+							   			<f:actionListener binding="#{bilanPanierBean.findallBilanPanierBddParId()}"/>
 									<h:outputText value="Voir détails" />		   
 									</h:commandLink>     
 	
